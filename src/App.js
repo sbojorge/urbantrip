@@ -1,5 +1,6 @@
 import Button from 'react-bootstrap/Button';
 import './App.css';
+import './api/axiosDefaults'
 
 function App() {
   return (
