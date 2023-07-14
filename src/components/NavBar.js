@@ -9,7 +9,7 @@ import styles from "../styles/NavBar.module.css";
 
 const NavBar = () => {
   return (
-    <Navbar bg="dark" variant="dark"  expand="md" fixed="top">
+    <Navbar className={styles.NavBar} expand="md" fixed="top">
       <Container>
         <Navbar.Brand>
           <img src={logo} alt="UrbanTrip_logo" />
@@ -17,16 +17,16 @@ const NavBar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link>
-              <img src={home} alt="home" className={styles.NavBar} />Home</Nav.Link>
-            <Nav.Link>
-            <img src={create} alt="create_post" className={styles.NavBar} />Create</Nav.Link>
-            <Nav.Link>
-            <img src={search} alt="search_post" className={styles.NavBar} />Search</Nav.Link>
-            <Nav.Link>
-              <img src={signout} alt="signout" className={styles.NavBar} />Sign out</Nav.Link>
+            <Nav.Link className={styles.link}>
+              <img src={home} alt="home" className={styles.NavIcon} />Home</Nav.Link>
+            <Nav.Link className={styles.link}>
+              <img src={create} alt="create_post" className={styles.NavIcon} />Create</Nav.Link>
+            <Nav.Link className={styles.link}>
+              <img src={search} alt="search_post" className={styles.NavIcon} />Search</Nav.Link>
+            <Nav.Link className={styles.link}>
+              <img src={signout} alt="signout" className={styles.NavIcon} />Sign out</Nav.Link>
           </Nav>
-          <Navbar.Text>
+          <Navbar.Text className={styles.link}>
             Signed in as: <a href="#login">Sara Bojorge</a>
           </Navbar.Text>
         </Navbar.Collapse>

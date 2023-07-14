@@ -1,5 +1,12 @@
-.NavBar {
+/* .NavBar {
+    background-color: #b87c4c;
+} */
+
+.link {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.NavIcon {
     height: 2rem;
     margin: 1rem;
 }
-
