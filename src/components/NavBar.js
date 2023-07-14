@@ -1,6 +1,6 @@
 import React from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
-import logo from "../assets/logo.webp";
+// import logo from "../assets/logo.webp";
 import home from "../assets/navbar/home.webp";
 import signout from "../assets/navbar/logout.webp";
 import search from "../assets/navbar/search.webp";
@@ -9,10 +9,10 @@ import styles from "../styles/NavBar.module.css";
 
 const NavBar = () => {
   return (
-    <Navbar className={styles.NavBar} expand="md" fixed="top">
+    <Navbar bg="light" className={styles.NavBar} expand="md">
       <Container>
         <Navbar.Brand>
-          <img src={logo} alt="UrbanTrip_logo" />
+          {/* <img src={logo} alt="UrbanTrip_logo" /> */}UrbanTrip
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

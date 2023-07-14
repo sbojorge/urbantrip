@@ -1,6 +1,7 @@
-/* .NavBar {
-    background-color: #b87c4c;
-} */
+.NavBar {
+    background-color: #E2B659;
+    border: solid 1px #000;
+}
 
 .link {
     font-family: 'Montserrat', sans-serif;
