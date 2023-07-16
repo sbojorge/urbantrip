@@ -1,12 +1,11 @@
 .App {   
-    font-family: 'Montserrat', sans-serif;
-    font-family: 'Syncopate', sans-serif;
+    font-family: 'Montserrat', sans-serif;    
     min-height: 100vh;
     font-size: 1rem;
 }
 
 * {
-    box-sizing: border-box;
+    box-sizing: border-box;    
 }
 
 .Main {
@@ -14,6 +13,7 @@
 }
 
 h1 {
+    font-family: 'Syncopate', sans-serif;
     font-size: 1rem;
     padding-top: 0.5rem;
     margin-top: 0.5rem;

@@ -11,7 +11,7 @@ const NavBar = () => {
   return (
     <Navbar bg="light" className={styles.NavBar} expand="md" fixed="top">
       <Container>
-        <Navbar.Brand>
+        <Navbar.Brand className={styles.logo}>
           {/* <img src={logo} alt="UrbanTrip_logo" /> */}UrbanTrip
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

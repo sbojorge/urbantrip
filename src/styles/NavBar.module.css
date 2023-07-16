@@ -3,6 +3,10 @@
     border: solid 1px #000;
 }
 
+.logo {
+    font-family: 'Syncopate', sans-serif;
+}
+
 .link {
     font-family: 'Montserrat', sans-serif;
 }
