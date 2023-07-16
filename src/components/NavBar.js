@@ -9,7 +9,7 @@ import styles from "../styles/NavBar.module.css";
 
 const NavBar = () => {
   return (
-    <Navbar bg="light" className={styles.NavBar} expand="md">
+    <Navbar bg="light" className={styles.NavBar} expand="md" fixed="top">
       <Container>
         <Navbar.Brand>
           {/* <img src={logo} alt="UrbanTrip_logo" /> */}UrbanTrip
