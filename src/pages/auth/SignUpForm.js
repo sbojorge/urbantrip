@@ -4,21 +4,27 @@ import styles from "../../styles/SignUpInForm.module.css";
 import btnstyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 import iconstyles from "../../styles/NavBar.module.css";
-import signup from "../../assets/navbar/sign-up.png";
 
-import { Col, Container, Row, Form, Button, Alert } from "react-bootstrap";
+import {
+  Col,
+  Container,
+  Row,
+  Form,
+  Button,
+  Alert,
+  Image,
+} from "react-bootstrap";
 
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 
 const SignUpForm = () => {
   const [signUpData, setSignUpData] = useState({
-    fullname: "", // it seems to have a bug
     username: "",
     password1: "",
     password2: "",
   });
-  const { fullname, username, password1, password2 } = signUpData;
+  const { username, password1, password2 } = signUpData;
 
   const [errors, setErrors] = useState({});
 
@@ -48,23 +54,6 @@ const SignUpForm = () => {
           <h1 className={styles.Header}>sign up</h1>
 
           <Form onSubmit={handleSubmit}>
-            <Form.Group controlId="fullname">
-              <Form.Label className="d-none">Full name</Form.Label>
-              <Form.Control
-                className={styles.Input}
-                type="text"
-                placeholder="Full name"
-                name="fullname"
-                value={fullname}
-                onChange={handleChange}
-              />
-            </Form.Group>
-            {errors.fullname?.map((message, idx) => (
-              <Alert variant="dark" key={idx}>
-                {message}
-              </Alert>
-            ))}
-
             <Form.Group controlId="username">
               <Form.Label className="d-none">Username</Form.Label>
               <Form.Control
@@ -116,28 +105,52 @@ const SignUpForm = () => {
               </Alert>
             ))}
 
-            <span>
-              <img src={signup} alt="signup" className={iconstyles.NavIcon} />
-            </span>
-            <Button type="submit" className={btnstyles.button}>
-              Sign Up
-            </Button>
-            {errors.non_field_errors?.map((message, idx) => (
-              <Alert variant="dark" key={idx}>
-                {message}
-              </Alert>
-            ))}
+            <div className={styles.iconbutton}>
+              <span>
+                <Image
+                  className={iconstyles.NavIcon}
+                  src={
+                    "https://res.cloudinary.com/dvvr7cpfs/image/upload/v1689578784/sign-up.256x243_wumyuq.webp"
+                  }
+                />
+              </span>
+              <Button type="submit" className={btnstyles.button}>
+                Sign Up
+              </Button>
+              {errors.non_field_errors?.map((message, idx) => (
+                <Alert variant="dark" key={idx}>
+                  {message}
+                </Alert>
+              ))}
+            </div>
           </Form>
         </Container>
 
         <Container className={`mt-3 ${appStyles.Content}`}>
           <Link className={styles.Link} to="/signin">
-            Already have an account? <span>Sign in</span>
+            Already have an account?
+            <span>
+              <Image
+                className={iconstyles.NavIcon}
+                src={
+                  "https://res.cloudinary.com/dvvr7cpfs/image/upload/v1689578784/sign-in.232x256_zkzbs5.webp"
+                }
+              />
+              <Button className={btnstyles.button}>Sign in</Button>
+            </span>
           </Link>
         </Container>
       </Col>
-      <Col>
-        <p>Image should come here</p>
+      <Col
+        md={6}
+        className={`my-auto d-none d-md-block p-2 ${styles.SignUpCol}`}
+      >
+        <Image
+          className={`${appStyles.FillerImage}`}
+          src={
+            "https://res.cloudinary.com/dvvr7cpfs/image/upload/v1689582340/image-from-rawpixel-id-3283639-j_gepxnt.webp"
+          }
+        />
       </Col>
     </Row>
   );
