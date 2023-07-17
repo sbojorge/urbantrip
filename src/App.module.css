@@ -1,7 +1,14 @@
 .App {   
-    font-family: 'Montserrat', sans-serif;    
+    font-family: 'Montserrat', sans-serif; 
+    color:black;   
     min-height: 100vh;
     font-size: 1rem;
+    background: url("https://res.cloudinary.com/dvvr7cpfs/image/upload/v1689589150/image-from-rawpixel-id-585663-jpeg_oodtkw.jpg") no-repeat bottom right fixed;
+    background-size:cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-color:  #dbbf7b;
 }
 
 * {
@@ -20,7 +27,7 @@ h1 {
 }
 
 .Content {
-    background-color: #ffffff;
+    background-color: #C8C9CA;
     padding: 10px;
     border-radius: 2px;
     border: 1px solid #dadadf;
@@ -36,6 +43,7 @@ h1 {
     object-fit: cover;
     height: 100%;
     width: 100%;
+    position: absolute;
 }
   
 .Image {

@@ -1,10 +1,6 @@
 import React from "react";
-import { Navbar, Nav, Container } from "react-bootstrap";
+import { Navbar, Nav, Container, Image } from "react-bootstrap";
 // import logo from "../assets/logo.webp";
-import home from "../assets/navbar/home.webp";
-import signout from "../assets/navbar/logout.webp";
-import search from "../assets/navbar/search.webp";
-import create from "../assets/navbar/plus-circle.webp";
 import styles from "../styles/NavBar.module.css";
 
 const NavBar = () => {
@@ -18,13 +14,13 @@ const NavBar = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             <Nav.Link className={styles.link}>
-              <img src={home} alt="home" className={styles.NavIcon} />Home</Nav.Link>
+              <Image src={"https://res.cloudinary.com/dvvr7cpfs/image/upload/v1689578981/home-button-icon_bogip3.webp"} className={styles.NavIcon} />Home</Nav.Link>
             <Nav.Link className={styles.link}>
-              <img src={create} alt="create_post" className={styles.NavIcon} />Create</Nav.Link>
+              <Image src={"https://res.cloudinary.com/dvvr7cpfs/image/upload/v1689578980/plus-circle.256x256_kpllx5.webp"} className={styles.NavIcon} />Create</Nav.Link>
             <Nav.Link className={styles.link}>
-              <img src={search} alt="search_post" className={styles.NavIcon} />Search</Nav.Link>
+              <Image src={"https://res.cloudinary.com/dvvr7cpfs/image/upload/v1689578980/search.256x250_vfghof.webp"} className={styles.NavIcon} />Search</Nav.Link>
             <Nav.Link className={styles.link}>
-              <img src={signout} alt="signout" className={styles.NavIcon} />Sign out</Nav.Link>
+              <Image src={"https://res.cloudinary.com/dvvr7cpfs/image/upload/v1689578981/logout-icon_gvsj1w.webp"} className={styles.NavIcon} />Sign out</Nav.Link>
           </Nav>
           <Navbar.Text className={styles.link}>
             Signed in as: <a href="#login">Sara Bojorge</a>

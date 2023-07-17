@@ -5,3 +5,10 @@
     color: #E2B659;
     font-weight: bold;
 }
+
+.button:hover {
+    background-color: #E2B659;
+    border-color: #E2B659;
+    color: black;
+    
+}

@@ -3,17 +3,24 @@
 }
 
 .Input {
-  background: #ffffff;
-  border: 1px solid #f0f1f9;
+  background: #f8f9fa;
+  border: 1px solid #f8f9fa;
   box-sizing: border-box;
   border-radius: 2px;
-  color: #7177a1;
   text-align: center;
   padding: 10px;
 }
 
+/* Try to change the color of the focus but it didn't work */
+.form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: inherit;
+  outline: 0;
+  box-shadow: none;
+}
+
 .Header {
-  font-style: normal;
   font-weight: bold;
   line-height: 19px;
   text-align: center;
@@ -26,19 +33,11 @@
 }
 
 .Link {
-  text-decoration: none;
+  text-decoration: none; /* the decoration persists */
   text-align: center;
   display: block;
   margin: auto;
   color: #000000;
-}
-
-.button {
-  font-family: 'Syncopate', sans-serif;
-  background-color: black;
-  border-color: black;
-  color: #E2B659;
-  font-weight: bold;
 }
 
 .Container {
