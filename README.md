@@ -1,4 +1,9 @@
+## Technologies
+ * react-router-dom
+ * axios
+
 ## Credits
 
 ### Media
-Icons in the navigation bar come from [uxwing](https://uxwing.com/)
+Icons come from [uxwing](https://uxwing.com/)
+Images come from [rawpixel](https://www.rawpixel.com/)
