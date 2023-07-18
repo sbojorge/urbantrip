@@ -13,7 +13,7 @@ const NavBar = () => {
   return (
     <>
       {location.pathname !== "/signup" && location.pathname !== "/signin" && ( 
-        <Navbar bg="light" className={styles.NavBar} expand="md" fixed="top">
+        <Navbar className={styles.NavBar} expand="md" fixed="top">
           <Container>
             <Navbar.Brand className={styles.logo}>
               {/* <img src={logo} alt="UrbanTrip_logo" /> */}UrbanTrip

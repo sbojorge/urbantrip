@@ -7,6 +7,7 @@ import SignUpForm from "./pages/auth/SignUpForm";
 import SignInForm from "./pages/auth/SignInForm";
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
+import NotFound from "./components/NotFound";
 
 export const CurrentUserContext = createContext();
 export const SetCurrentUserContext = createContext();
@@ -35,6 +36,7 @@ function App() {
               <Route exact path="/" render={() => <h1>Home</h1>} />
               <Route exact path="/signin" render={() => <SignInForm />} />
               <Route exact path="/signup" render={() => <SignUpForm />} />
+              <Route render={() => <NotFound />} />
             </Switch>
           </Container>
         </div>
