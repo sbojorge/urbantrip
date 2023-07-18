@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
 // import logo from "../assets/logo.webp";
 import styles from "../styles/NavBar.module.css";
@@ -16,6 +16,22 @@ const NavBar = () => {
   const location = useLocation(); // Use here to hide the nav bar in the authentication pages
 
   const setCurrentUser = useSetCurrentUser();
+
+  const [expanded, setExpanded] = useState(false);
+  const ref = useRef(null);
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (ref.current && !ref.current.contains(event.target)) {
+        setExpanded(false);
+      }
+    };
+
+    document.addEventListener("mouseup", handleClickOutside);
+    return () => {
+      document.removeEventListener("mouseup", handleClickOutside);
+    };
+  }, [ref]);
+
   const handleSignOut = async () => {
     try {
       await axios.post("dj-rest-auth/logout/");
@@ -28,14 +44,23 @@ const NavBar = () => {
   return (
     <>
       {location.pathname !== "/signup" && location.pathname !== "/signin" && (
-        <Navbar className={styles.NavBar} expand="md" fixed="top">
+        <Navbar
+          expanded={expanded}
+          className={styles.NavBar}
+          expand="md"
+          fixed="top"
+        >
           <Container>
             <NavLink to="/">
               <Navbar.Brand className={styles.logo}>
                 {/* <img src={logo} alt="UrbanTrip_logo" /> */}UrbanTrip
               </Navbar.Brand>
             </NavLink>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Toggle
+              ref={ref}
+              onClick={() => setExpanded(!expanded)}
+              aria-controls="basic-navbar-nav"
+            />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="mr-auto">
                 <NavLink
