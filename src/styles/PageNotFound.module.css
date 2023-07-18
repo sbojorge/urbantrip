@@ -1,0 +1,10 @@
+.containerms {
+    display: flex;
+    align-content:center;
+}
+
+.notfound {
+    height: 4rem;
+    width: 4rem;
+    padding: 0.25rem;
+}
