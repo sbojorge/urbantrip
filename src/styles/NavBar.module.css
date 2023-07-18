@@ -7,8 +7,20 @@
     font-family: 'Syncopate', sans-serif;
 }
 
-.link {
-    font-family: 'Montserrat', sans-serif;
+a {
+    color: black;
+}
+
+a:hover {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #000;
+}
+ 
+.Active {
+    font-weight: bold;
+    font-size: 1.5rem;
 }
 
 .NavIcon {

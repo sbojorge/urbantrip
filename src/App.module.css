@@ -3,12 +3,8 @@
     color:black;   
     min-height: 100vh;
     font-size: 1rem;
-    background: url("https://res.cloudinary.com/dvvr7cpfs/image/upload/v1689589150/image-from-rawpixel-id-585663-jpeg_oodtkw.jpg") no-repeat bottom right fixed;
-    background-size:cover;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-color:  #dbbf7b;
+    background-color:#fbf5c9;
+    
 }
 
 * {
@@ -27,7 +23,7 @@ h1 {
 }
 
 .Content {
-    background-color: #C8C9CA;
+    background-color: #c8c9ca;
     padding: 10px;
     border-radius: 2px;
     border: 1px solid #dadadf;

@@ -1,3 +1,12 @@
+.SignUpInForm {
+  background: url("https://res.cloudinary.com/dvvr7cpfs/image/upload/v1689589150/image-from-rawpixel-id-585663-jpeg_oodtkw.jpg") no-repeat bottom right fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-color: #dbbf7b;
+}
+
 .Row {
   height: calc(100vh - 81px);
 }
@@ -33,7 +42,8 @@
 }
 
 .Link {
-  text-decoration: none; /* the decoration persists */
+  text-decoration: none;
+  /* the decoration persists */
   text-align: center;
   display: block;
   margin: auto;
