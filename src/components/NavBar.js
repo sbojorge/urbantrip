@@ -3,12 +3,27 @@ import { Navbar, Nav, Container } from "react-bootstrap";
 // import logo from "../assets/logo.webp";
 import styles from "../styles/NavBar.module.css";
 import { useLocation, NavLink } from "react-router-dom";
-import { useCurrentUser } from "../contexts/CurrentUserContext";
+import {
+  useCurrentUser,
+  useSetCurrentUser,
+} from "../contexts/CurrentUserContext";
+import Avatar from "./Avatar";
+import axios from "axios";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
   const loggedInUser = <>{currentUser?.username}</>;
   const location = useLocation(); // Use here to hide the nav bar in the authentication pages
+
+  const setCurrentUser = useSetCurrentUser();
+  const handleSignOut = async () => {
+    try {
+      await axios.post("dj-rest-auth/logout/");
+      setCurrentUser(null);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <>
@@ -32,21 +47,38 @@ const NavBar = () => {
                   <i class="fa-sharp fa-solid fa-house"></i>
                   Home
                 </NavLink>
-                <NavLink className={styles.link} to="#">
+                <NavLink
+                  className={styles.link}
+                  activeClassName={styles.Active}
+                  to="/posts/create"
+                >
                   <i class="fa-solid fa-camera-retro"></i>
                   Create
                 </NavLink>
-                <NavLink className={styles.Navlink} to="#">
+                <NavLink
+                  className={styles.link}
+                  activeClassName={styles.Active}
+                  to="/likes"
+                >
+                  <i class="fa-sharp fa-solid fa-heart"></i>
+                  Like
+                </NavLink>
+                <NavLink
+                  className={styles.Navlink}
+                  activeClassName={styles.Active}
+                  to="/search"
+                >
                   <i class="fa-solid fa-magnifying-glass"></i>
                   Search
                 </NavLink>
-                <NavLink className={styles.link} to="#">
+                <NavLink className={styles.link} to="/" onClick={handleSignOut}>
                   <i class="fa-solid fa-person-walking-luggage"></i>
                   Sign out
                 </NavLink>
               </Nav>
               <Navbar.Text className={styles.link}>
                 Signed in as: {currentUser ? loggedInUser : ""}
+                <Avatar src={currentUser?.profile_image} height={40} />
               </Navbar.Text>
             </Navbar.Collapse>
           </Container>
