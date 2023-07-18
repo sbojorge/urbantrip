@@ -68,7 +68,7 @@ const SignInForm = () => {
               />
             </Form.Group>
             {errors.username?.map((message, idx) => (
-              <Alert variant="dark" key={idx}>
+              <Alert variant="warning" key={idx}>
                 {message}
               </Alert>
             ))}
@@ -85,7 +85,7 @@ const SignInForm = () => {
               />
             </Form.Group>
             {errors.password?.map((message, idx) => (
-              <Alert variant="dark" key={idx}>
+              <Alert variant="warning" key={idx}>
                 {message}
               </Alert>
             ))}

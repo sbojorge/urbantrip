@@ -1,29 +1,18 @@
 .NavBar {
     border: solid 1px #000;
-    background-color: #c08e39;
+    background-color: #e2b659;
 }
 
 .logo {
     font-family: 'Syncopate', sans-serif;
 }
 
-a {
-    color: black;
-}
-
-a:hover {
-    text-decoration: none;
-    text-transform: uppercase;
-    font-weight: bold;
-    color: #000;
-}
- 
-.Active {
-    font-weight: bold;
-    font-size: 1.5rem;
-}
-
+/* icon in the authentication form */
 .NavIcon {
     height: 2rem;
     margin: 1rem;
+}
+
+.Active i {
+    color: white;
 }

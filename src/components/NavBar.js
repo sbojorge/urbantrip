@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Navbar, Nav, Container, Image } from "react-bootstrap";
 // import logo from "../assets/logo.webp";
 import styles from "../styles/NavBar.module.css";
+import appstyles from "../App.module.css";
 import { CurrentUserContext } from "../App";
 import { useLocation, NavLink } from "react-router-dom";
 
@@ -29,39 +30,19 @@ const NavBar = () => {
                   activeClassName={styles.Active}
                   to="/"
                 >
-                  <Image
-                    src={
-                      "https://res.cloudinary.com/dvvr7cpfs/image/upload/v1689578981/home-button-icon_bogip3.webp"
-                    }
-                    className={styles.NavIcon}
-                  />
+                  <i class="fa-sharp fa-solid fa-house"></i>
                   Home
                 </NavLink>
                 <NavLink className={styles.link} to="#">
-                  <Image
-                    src={
-                      "https://res.cloudinary.com/dvvr7cpfs/image/upload/v1689578980/plus-circle.256x256_kpllx5.webp"
-                    }
-                    className={styles.NavIcon}
-                  />
+                  <i class="fa-solid fa-camera-retro"></i>
                   Create
                 </NavLink>
                 <NavLink className={styles.Navlink} to="#">
-                  <Image
-                    src={
-                      "https://res.cloudinary.com/dvvr7cpfs/image/upload/v1689578980/search.256x250_vfghof.webp"
-                    }
-                    className={styles.NavIcon}
-                  />
+                  <i class="fa-solid fa-magnifying-glass"></i>
                   Search
                 </NavLink>
                 <NavLink className={styles.link} to="#">
-                  <Image
-                    src={
-                      "https://res.cloudinary.com/dvvr7cpfs/image/upload/v1689578981/logout-icon_gvsj1w.webp"
-                    }
-                    className={styles.NavIcon}
-                  />
+                  <i class="fa-solid fa-person-walking-luggage"></i>
                   Sign out
                 </NavLink>
               </Nav>

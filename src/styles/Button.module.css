@@ -10,5 +10,10 @@
     background-color: #E2B659;
     border-color: #E2B659;
     color: black;
-    
+}
+
+.button:focus {
+    background-color: black;
+    border-color: black;
+    color: #E2B659;
 }

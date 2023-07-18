@@ -1,14 +1,17 @@
-.App {   
-    font-family: 'Montserrat', sans-serif; 
-    color:black;   
+.App {
+    font-family: 'Montserrat', sans-serif;
+    color: black;
     min-height: 100vh;
     font-size: 1rem;
-    background-color:#fbf5c9;
-    
+    background-image: linear-gradient(to top,
+            #7f4d3e, #8a5541, #965d44,
+            #a06647, #ab6f49, #b4784b,
+            #bc814d, #c48a4f, #cc9551,
+            #d49f54, #dbab56, #e2b659);
 }
 
 * {
-    box-sizing: border-box;    
+    box-sizing: border-box;
 }
 
 .Main {
@@ -22,29 +25,59 @@ h1 {
     margin-top: 0.5rem;
 }
 
+a {
+    color: black;
+}
+
+a:hover {
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    transition: color ease-in-out 0.3s;
+}
+
+.Active {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+i {
+    color: black;
+    font-size: 1.6rem;
+    padding: 1rem;
+    vertical-align: middle;
+}
+
+i:hover {
+    cursor: pointer;
+    transition: color ease-in-out 0.3s;
+    color: white;
+}
+
 .Content {
     background-color: #c8c9ca;
-    padding: 10px;
+    padding: 0.625rem;
     border-radius: 2px;
     border: 1px solid #dadadf;
 }
 
-.Contentlink{
+/* don't remember who this style is for
+.Contentlink {
     background-color: #ffffff;
     padding: 10px;
-    
-}
-  
+
+} */
+
 .FillerImage {
     object-fit: cover;
     height: 100%;
     width: 100%;
     position: absolute;
 }
-  
+
 .Image {
     max-height: 40vh;
     max-width: 100%;
     object-fit: contain;
 }
-
