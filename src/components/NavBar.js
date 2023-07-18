@@ -1,13 +1,12 @@
-import React, { useContext } from "react";
-import { Navbar, Nav, Container, Image } from "react-bootstrap";
+import React from "react";
+import { Navbar, Nav, Container } from "react-bootstrap";
 // import logo from "../assets/logo.webp";
 import styles from "../styles/NavBar.module.css";
-import appstyles from "../App.module.css";
-import { CurrentUserContext } from "../App";
 import { useLocation, NavLink } from "react-router-dom";
+import { useCurrentUser } from "../contexts/CurrentUserContext";
 
 const NavBar = () => {
-  const currentUser = useContext(CurrentUserContext);
+  const currentUser = useCurrentUser();
   const loggedInUser = <>{currentUser?.username}</>;
   const location = useLocation(); // Use here to hide the nav bar in the authentication pages
 
