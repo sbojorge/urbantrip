@@ -1,9 +1,15 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
+
 import { Button, Col, Container, Form, Image, Row } from "react-bootstrap";
+
 import styles from "../../styles/PostCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
+
 import Asset from "../../components/Asset";
+
+import { useHistory } from "react-router-dom";
+import axios from "axios";
 
 const PostCreateFormPicture = () => {
   // const [errors, setErrors] = useState({});
@@ -14,6 +20,9 @@ const PostCreateFormPicture = () => {
     image: "",
   });
   const { title, content, image } = postData;
+
+  const imageInput = useRef(null);
+  const history = useHistory();
 
   const handleChange = (event) => {
     setPostData({
@@ -29,6 +38,22 @@ const PostCreateFormPicture = () => {
         ...postData,
         image: URL.createObjectURL(event.target.files[0]),
       });
+    }
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData();
+
+    formData.append("title", title);
+    formData.append("content", content);
+    formData.append("image", imageInput.current.files[0]);
+
+    try {
+      const { data } = await axios.post("/posts/", formData);
+      history.push(`/posts/${data.id}`);
+    } catch (err) {
+      console.log(err);
     }
   };
 
@@ -66,7 +91,7 @@ const PostCreateFormPicture = () => {
   );
 
   return (
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <Row>
         <Col className="py-2 p-0 p-md-2" md={7} lg={8}>
           <Container
@@ -103,6 +128,7 @@ const PostCreateFormPicture = () => {
                 id="image-upload"
                 accept="image/*"
                 onChange={handleChangeImage}
+                ref={imageInput}
               />
             </Form.Group>
             <div className="d-md-none">{textFields}</div>
