@@ -1,0 +1,38 @@
+.Choice {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+    
+    border: 2px solid palevioletred;
+}
+
+
+.first {
+    display: flex;
+    flex-direction: column;
+    background-color: aqua;
+    padding: 1rem 0.5rem 0 0.5rem;
+    margin-right: 3rem;
+    border: 1px solid blue;
+    
+}
+
+.ImageIcon {
+    height: 4rem;
+    width: 4rem;
+    
+}
+
+.Message {
+    margin: 1rem;
+}
+
+.second {
+    display: flex;
+    flex-direction: column;
+    background-color: violet;
+    padding: 1rem 0.5rem 0 0.5rem;
+    margin-left: 3rem;
+    border: 1px solid blue;
+}
