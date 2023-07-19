@@ -8,6 +8,8 @@ import SignInForm from "./pages/auth/SignInForm";
 import PostChooseMedia from "./pages/posts/PostChooseMedia";
 
 import NotFound from "./components/NotFound";
+import PostCreateFormPicture from "./pages/posts/PostCreateFormPicture";
+import PostCreateFormVideo from "./pages/posts/PostCreateFormVideo";
 
 function App() {
   return (
@@ -22,6 +24,16 @@ function App() {
             exact
             path="/posts/create"
             render={() => <PostChooseMedia />}
+          />
+          <Route
+            exact
+            path="/posts/create/image"
+            render={() => <PostCreateFormPicture />}
+          />
+          <Route
+            exact
+            path="/posts/create/video"
+            render={() => <PostCreateFormVideo />}
           />
           <Route render={() => <NotFound />} />
         </Switch>

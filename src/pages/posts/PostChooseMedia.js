@@ -15,7 +15,7 @@ const PostChooseMedia = () => {
                 "https://res.cloudinary.com/dvvr7cpfs/image/upload/v1689767375/image-upload.256x256_if4o2m.webp"
               }
             />
-            <Link className={styles.Message} to="/posts/create/picture/">
+            <Link className={styles.Message} to="/posts/create/image">
               Create a post using a picture
             </Link>
           </div>
@@ -26,7 +26,7 @@ const PostChooseMedia = () => {
                 "https://res.cloudinary.com/dvvr7cpfs/image/upload/v1689767375/film.256x256_lclnzm.webp"
               }
             />
-            <Link className={styles.Message} to="/posts/create/video/">
+            <Link className={styles.Message} to="/posts/create/video">
               Create a post using a video
             </Link>
           </div>
