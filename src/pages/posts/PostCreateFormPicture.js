@@ -1,6 +1,14 @@
 import React, { useRef, useState } from "react";
 
-import { Button, Col, Container, Form, Image, Row } from "react-bootstrap";
+import {
+  Alert,
+  Button,
+  Col,
+  Container,
+  Form,
+  Image,
+  Row,
+} from "react-bootstrap";
 
 import styles from "../../styles/PostCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
@@ -9,10 +17,10 @@ import btnStyles from "../../styles/Button.module.css";
 import Asset from "../../components/Asset";
 
 import { useHistory } from "react-router-dom";
-import axios from "axios";
+import { axiosReq } from "../../api/axiosDefaults";
 
 const PostCreateFormPicture = () => {
-  // const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState({});
 
   const [postData, setPostData] = useState({
     title: "",
@@ -50,7 +58,7 @@ const PostCreateFormPicture = () => {
     formData.append("image", imageInput.current.files[0]);
 
     try {
-      const { data } = await axios.post("/posts/", formData);
+      const { data } = await axiosReq.post("/posts/", formData);
       history.push(`/posts/${data.id}`);
     } catch (err) {
       console.log(err);
@@ -69,6 +77,12 @@ const PostCreateFormPicture = () => {
           onChange={handleChange}
         />
       </Form.Group>
+      {errors?.title?.map((message, idx) => (
+          <Alert variant="warning" key={idx}>
+            {message}
+          </Alert>
+        ))}
+
       <Form.Group>
         <Form.Label>Description</Form.Label>
         <Form.Control
@@ -80,6 +94,11 @@ const PostCreateFormPicture = () => {
           onChange={handleChange}
         />
       </Form.Group>
+      {errors?.description?.map((message, idx) => (
+          <Alert variant="warning" key={idx}>
+            {message}
+          </Alert>
+        ))}
 
       <Button className={`${btnStyles.button} m-3`} onClick={() => {}}>
         cancel
@@ -131,6 +150,11 @@ const PostCreateFormPicture = () => {
                 ref={imageInput}
               />
             </Form.Group>
+            {errors?.image?.map((message, idx) => (
+              <Alert variant="warning" key={idx}>
+                {message}
+              </Alert>
+            ))}
             <div className="d-md-none">{textFields}</div>
           </Container>
         </Col>
