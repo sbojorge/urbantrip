@@ -74,7 +74,7 @@ const PostCreateFormPicture = () => {
         <Form.Control
           as="textarea"
           rows={6}
-          name="Description"
+          name="content"
           placeholder="This field is optional"
           value={content}
           onChange={handleChange}

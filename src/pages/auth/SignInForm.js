@@ -1,9 +1,5 @@
 import React, { useState } from "react";
-
-import styles from "../../styles/SignUpInForm.module.css";
-import btnstyles from "../../styles/Button.module.css";
-import appStyles from "../../App.module.css";
-import iconstyles from "../../styles/NavBar.module.css";
+import axios from "axios";
 
 import {
   Col,
@@ -16,7 +12,11 @@ import {
 } from "react-bootstrap";
 
 import { Link, useHistory } from "react-router-dom";
-import axios from "axios";
+
+import styles from "../../styles/SignUpInForm.module.css";
+import btnstyles from "../../styles/Button.module.css";
+import appStyles from "../../App.module.css";
+import iconstyles from "../../styles/NavBar.module.css";
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 
 const SignInForm = () => {
@@ -31,14 +31,6 @@ const SignInForm = () => {
   const [errors, setErrors] = useState({});
 
   const history = useHistory();
-
-  const handleChange = (event) => {
-    setSignInData({
-      ...signInData,
-      [event.target.name]: event.target.value,
-    });
-  };
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -50,6 +42,14 @@ const SignInForm = () => {
     }
   };
 
+  const handleChange = (event) => {
+    setSignInData({
+      ...signInData,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  
   return (
     <Row className={styles.Row}>
       <Col className="my-auto py-2 p-md-2" md={6}>

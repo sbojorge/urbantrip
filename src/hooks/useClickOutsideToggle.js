@@ -15,8 +15,8 @@ const useClickOutsideToggle = () => {
       document.removeEventListener("mouseup", handleClickOutside);
     };
   }, [ref]);
-  return {expanded, setExpanded, ref};
 
+  return {expanded, setExpanded, ref};
 };
 
 export default useClickOutsideToggle;

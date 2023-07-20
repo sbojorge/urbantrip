@@ -1,12 +1,11 @@
-import NavBar from "./components/NavBar";
 import styles from "./App.module.css";
+import NavBar from "./components/NavBar";
 import Container from "react-bootstrap/Container";
 import { Route, Switch } from "react-router-dom";
 import "./api/axiosDefaults";
 import SignUpForm from "./pages/auth/SignUpForm";
 import SignInForm from "./pages/auth/SignInForm";
 import PostChooseMedia from "./pages/posts/PostChooseMedia";
-
 import NotFound from "./components/NotFound";
 import PostCreateFormPicture from "./pages/posts/PostCreateFormPicture";
 import PostCreateFormVideo from "./pages/posts/PostCreateFormVideo";
