@@ -9,6 +9,7 @@ import PostChooseMedia from "./pages/posts/PostChooseMedia";
 import NotFound from "./components/NotFound";
 import PostCreateFormPicture from "./pages/posts/PostCreateFormPicture";
 import PostCreateFormVideo from "./pages/posts/PostCreateFormVideo";
+import PostPage from "./pages/posts/PostPage";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
             path="/posts/create/video"
             render={() => <PostCreateFormVideo />}
           />
+          <Route exact path="/posts/:id" render={() => <PostPage />} />
           <Route render={() => <NotFound />} />
         </Switch>
       </Container>
