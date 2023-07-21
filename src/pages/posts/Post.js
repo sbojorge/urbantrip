@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../../styles/Post.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { Card, Media } from "react-bootstrap";
+import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom/cjs/react-router-dom";
 import Avatar from "../../components/Avatar";
 
@@ -16,6 +16,7 @@ const Post = (props) => {
     image,
     video,
     updated_on,
+    postPage,
   } = props;
 
   const currentUser = useCurrentUser();
@@ -30,11 +31,34 @@ const Post = (props) => {
           </Link>
           <div className="d-flex align-items-center">
             <span>
-                {updated_on}
+              {updated_on}
+              {is_owner && postPage && "..."}
             </span>
           </div>
         </Media>
       </Card.Body>
+      <Link to={`/posts/${id}`}>
+        <Card.Img src={image} alt={title} />
+      </Link>
+      <Card.Body>
+        {title && <Card.Title className="text-center">{title}</Card.Title>}
+        {content && <Card.Text>{content}</Card.Text>}
+      </Card.Body>
+      <div className={styles.PostBar}>
+        <OverlayTrigger
+          placement="top"
+          overlay={<Tooltip>Log in to like posts</Tooltip>}
+        >
+          <i className="far fa-heart" />
+        </OverlayTrigger>
+        <OverlayTrigger
+          placement="top"
+          overlay={<Tooltip>Log in to comment posts</Tooltip>}
+        >
+          <i className="far fa-comments" />
+        </OverlayTrigger>
+        
+      </div>
     </Card>
   );
 };
