@@ -32,7 +32,7 @@ const NavBar = () => {
         activeClassName={styles.Active}
         to="/posts/create"
       >
-        <i class="fa-solid fa-camera-retro"></i>
+        <i className="fa-solid fa-camera-retro"></i>
         Create
       </NavLink>
 
@@ -41,7 +41,7 @@ const NavBar = () => {
         activeClassName={styles.Active}
         to="/likes"
       >
-        <i class="fa-sharp fa-solid fa-heart"></i>
+        <i className="fa-sharp fa-solid fa-heart"></i>
         Like
       </NavLink>
       <NavLink
@@ -49,11 +49,11 @@ const NavBar = () => {
         activeClassName={styles.Active}
         to="/search"
       >
-        <i class="fa-solid fa-magnifying-glass"></i>
+        <i className="fa-solid fa-magnifying-glass"></i>
         Search
       </NavLink>
       <NavLink className={styles.link} to="/" onClick={handleSignOut}>
-        <i class="fa-solid fa-person-walking-luggage"></i>
+        <i className="fa-solid fa-person-walking-luggage"></i>
         Sign out
       </NavLink>
       <NavLink
@@ -113,7 +113,7 @@ const NavBar = () => {
                   activeClassName={styles.Active}
                   to="/"
                 >
-                  <i class="fa-sharp fa-solid fa-house"></i>
+                  <i className="fa-sharp fa-solid fa-house"></i>
                   Home
                 </NavLink>
 

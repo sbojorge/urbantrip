@@ -38,17 +38,17 @@ const Post = (props) => {
         </Media>
       </Card.Body>
       <div>
-          {(video?.videos) ? (
-          <Link to={`/posts/${id}`}>
-            <video src={video} width={400} height={400} controls /> 
-                                   
-          </Link>
-         ) : (
+        {!image?.includes("old-time-camera.512x422_iwlbmx") ? (
           <Link to={`/posts/${id}`}>
             <Card.Img src={image} alt={title} />
           </Link>
+        ) : (
+          <Link to={`/posts/${id}`}>
+            <video src={video} width={400} height={400} controls />
+          </Link>
         )}
       </div>
+
       <Card.Body>
         {title && <Card.Title className="text-center">{title}</Card.Title>}
         {content && <Card.Text>{content}</Card.Text>}
