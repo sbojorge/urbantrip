@@ -1,13 +1,8 @@
 .App {
     font-family: 'Montserrat', sans-serif;
-    color: black;
+    color: #2d2d3e;
     min-height: 100vh;
-    font-size: 1rem;
-    background-image: linear-gradient(to top,
-            #7f4d3e, #8a5541, #965d44,
-            #a06647, #ab6f49, #b4784b,
-            #bc814d, #c48a4f, #cc9551,
-            #d49f54, #dbab56, #e2b659);
+    font-size: 1rem;    
 }
 
 * {
@@ -23,36 +18,6 @@ h1 {
     font-size: 1rem;
     padding-top: 0.5rem;
     margin-top: 0.5rem;
-}
-
-a {
-    color: black;
-}
-
-a:hover {
-    text-transform: uppercase;
-    text-decoration: none;
-    font-weight: bold;
-    color: black;
-    transition: color ease-in-out 0.3s;
-}
-
-.Active {
-    font-weight: bold;
-    font-size: 1.5rem;
-}
-
-i {
-    color: black;
-    font-size: 1.6rem;
-    padding: 1rem;
-    vertical-align: middle;
-}
-
-i:hover {
-    cursor: pointer;
-    transition: color ease-in-out 0.3s;
-    color: white;
 }
 
 .Content {

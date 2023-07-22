@@ -1,5 +1,6 @@
 import React from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
+import Logo from "../assets/Logo.webp";
 import styles from "../styles/NavBar.module.css";
 import { useLocation, NavLink } from "react-router-dom";
 import {
@@ -28,16 +29,15 @@ const NavBar = () => {
   const loggedInIcons = (
     <>
       <NavLink
-        className={styles.link}
         activeClassName={styles.Active}
         to="/posts/create"
       >
-        <i className="fa-solid fa-camera-retro"></i>
+        <i className="fa-solid fa-photo-film"></i>
         Create
       </NavLink>
 
       <NavLink
-        className={styles.link}
+        
         activeClassName={styles.Active}
         to="/likes"
       >
@@ -45,22 +45,22 @@ const NavBar = () => {
         Like
       </NavLink>
       <NavLink
-        className={styles.Navlink}
+        
         activeClassName={styles.Active}
         to="/search"
       >
         <i className="fa-solid fa-magnifying-glass"></i>
         Search
       </NavLink>
-      <NavLink className={styles.link} to="/" onClick={handleSignOut}>
+      <NavLink className="mr-5" to="/" onClick={handleSignOut}>
         <i className="fa-solid fa-person-walking-luggage"></i>
         Sign out
       </NavLink>
       <NavLink
-        className={styles.link}
+        className={styles.status}
         to={`/profiles/${currentUser?.profile_id}`}
       >
-        Signed in as: {currentUser?.username}
+       signed in as: {currentUser?.username}
         <Avatar src={currentUser?.profile_image} height={40} />
       </NavLink>
     </>
@@ -92,12 +92,14 @@ const NavBar = () => {
         <Navbar
           expanded={expanded}
           className={styles.NavBar}
-          expand="md"
+          expand="lg"
           fixed="top"
         >
-          <Container>
+         
             <NavLink to="/">
-              <Navbar.Brand className={styles.logo}>UrbanTrip</Navbar.Brand>
+              <Navbar.Brand className={styles.logo}>
+              <img src={Logo} alt="logo" height="75" />
+              </Navbar.Brand>
             </NavLink>            
             <Navbar.Toggle
               ref={ref}
@@ -120,7 +122,7 @@ const NavBar = () => {
                 {currentUser ? loggedInIcons : loggedOutIcons}
               </Nav>
             </Navbar.Collapse>
-          </Container>
+          
         </Navbar>
       )}
       ;

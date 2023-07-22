@@ -7,6 +7,12 @@
   background-color: #dbbf7b;
 }
 
+/* icon in the authentication form */
+.NavIcon {
+  height: 2.813rem;
+  margin: 1rem;   
+}
+
 .Row {
   height: calc(100vh - 81px);
 }

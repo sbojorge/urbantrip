@@ -1,25 +1,52 @@
 .NavBar {
-    border: solid 1px #000;
-    background-color: #e2b659;
+    /* border: solid 1px #2d2d3e; */
+    background-color: #2d2d3e;
 }
 
-.logo {
-    font-family: 'Syncopate', sans-serif;
+i {
+    color: #9c9cae;
+    font-size: 1.8rem;
+    padding: 1rem;
+    vertical-align:middle;
 }
 
-/* icon in the authentication form */
-.NavIcon {
-    height: 2.813rem;
-    margin: 1rem;
+i:hover {
+    cursor: pointer;
+    transition: color ease-in-out 0.3s;
+    color: #6a62f8;
+}
+
+a {
+    color:whitesmoke;
+    font-family: 'Syncopate', sans-serif ;
+}
+
+a:hover {
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+    color: #6a62f8;
+    transition: color ease-in-out 0.3s;
+}
+
+.Active {
+    font-weight: bold;
+    color: #6a62f8;  
 }
 
 .Active i {
-    color: white;
+    color: #6a62f8;
+    border-bottom: 2px solid deeppink;   
+}
+
+.status {
+    margin-left: 6rem;
+    padding-left: 3rem;
 }
 
 .burger {
     border-radius: 50%;
     width: 3.125rem;
     height: 3.125rem;
-    background-color: deeppink;
+    background-color: #6a62f8;   
 }
