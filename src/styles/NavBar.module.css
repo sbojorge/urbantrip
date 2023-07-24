@@ -36,13 +36,8 @@
 
 .Active i {
     color: #6a62f8;
-    border-bottom: 2px solid deeppink;   
+    border-bottom: 2px solid #ff1493;   
 }
-
-.authicons {
-    height: 2.813rem;
-    margin: 1rem;
-  }
 
 .burger {
     border-radius: 50%;

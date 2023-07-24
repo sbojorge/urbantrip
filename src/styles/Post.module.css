@@ -16,6 +16,21 @@ h5 {
     margin: 0 0;
 }
 
+.posticons {
+    color: #6a62f8;
+    font-size: 1.8rem;
+    padding: 1rem;
+    vertical-align:middle;
+}
+
+.posticons:hover {
+    cursor: pointer;
+    transition: color ease-in-out 0.3s;
+    color: #ff1493;
+}
+
+
+
 /* unused styles */
 /* .Heart {
     color: #f85032;

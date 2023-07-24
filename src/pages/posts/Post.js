@@ -2,7 +2,7 @@ import React from "react";
 import styles from "../../styles/Post.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
-import { Link } from "react-router-dom/cjs/react-router-dom";
+import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 
 const Post = (props) => {
@@ -11,6 +11,7 @@ const Post = (props) => {
     owner,
     profile_id,
     profile_image,
+    comments_count,
     title,
     content,
     image,
@@ -48,7 +49,6 @@ const Post = (props) => {
           </Link>
         )}
       </div>
-
       <Card.Body>
         {title && <Card.Title className="text-center">{title}</Card.Title>}
         {content && <Card.Text>{content}</Card.Text>}
@@ -58,14 +58,15 @@ const Post = (props) => {
           placement="top"
           overlay={<Tooltip>Log in to like posts</Tooltip>}
         >
-          <i className="far fa-heart" />
+          <i className={`${styles.posticons} far fa-heart`} />
         </OverlayTrigger>
         <OverlayTrigger
           placement="top"
-          overlay={<Tooltip>Log in to comment posts</Tooltip>}
+          overlay={<Tooltip>Log in to add a comment</Tooltip>}
         >
-          <i className="far fa-comments" />
+          <i className={`${styles.posticons} far fa-comments`} />
         </OverlayTrigger>
+        {comments_count}
       </div>
     </Card>
   );
