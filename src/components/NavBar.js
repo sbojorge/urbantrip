@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, Nav, Image } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 import Logo from "../assets/Logo.webp";
 import styles from "../styles/NavBar.module.css";
 import { useLocation, NavLink } from "react-router-dom";
