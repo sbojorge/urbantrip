@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import styles from "../../styles/SignUpInForm.module.css";
 import btnstyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
-import iconstyles from "../../styles/NavBar.module.css";
 
 import {
   Col,
@@ -108,7 +107,7 @@ const SignUpForm = () => {
             <div className={styles.iconbutton}>
               <span>
                 <Image
-                  className={iconstyles.NavIcon}
+                  className={styles.NavIcon}
                   src={
                     "https://res.cloudinary.com/dvvr7cpfs/image/upload/v1689578784/sign-up.256x243_wumyuq.webp"
                   }
@@ -131,9 +130,9 @@ const SignUpForm = () => {
             Already have an account?
             <span>
               <Image
-                className={iconstyles.NavIcon}
+                className={styles.NavIcon}
                 src={
-                  "https://res.cloudinary.com/dvvr7cpfs/image/upload/v1689578784/sign-in.232x256_zkzbs5.webp"
+                  "https://res.cloudinary.com/dvvr7cpfs/image/upload/v1690191160/sign-in.232x256-painted_bq50kd.png"
                 }
               />
               <Button className={btnstyles.button}>Sign in</Button>

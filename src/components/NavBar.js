@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, Nav, Container } from "react-bootstrap";
+import { Navbar, Nav, Image } from "react-bootstrap";
 import Logo from "../assets/Logo.webp";
 import styles from "../styles/NavBar.module.css";
 import { useLocation, NavLink } from "react-router-dom";
@@ -28,39 +28,28 @@ const NavBar = () => {
 
   const loggedInIcons = (
     <>
-      <NavLink
-        activeClassName={styles.Active}
-        to="/posts/create"
-      >
-        <i className="fa-solid fa-photo-film"></i>
+      <NavLink className={styles.Links} activeClassName={styles.Active} to="/posts/create">
+        <i className={`${styles.icons} fa-solid fa-photo-film`}></i>
         Create
       </NavLink>
 
-      <NavLink
-        
-        activeClassName={styles.Active}
-        to="/likes"
-      >
-        <i className="fa-sharp fa-solid fa-heart"></i>
+      <NavLink className={styles.Links} activeClassName={styles.Active} to="/likes">
+        <i className={`${styles.icons} fa-sharp fa-solid fa-heart`}></i>
         Like
       </NavLink>
-      <NavLink
-        
-        activeClassName={styles.Active}
-        to="/search"
-      >
-        <i className="fa-solid fa-magnifying-glass"></i>
+      <NavLink className={styles.Links} activeClassName={styles.Active} to="/search">
+        <i className={`${styles.icons} fa-solid fa-magnifying-glass`}></i>
         Search
       </NavLink>
-      <NavLink className="mr-5" to="/" onClick={handleSignOut}>
-        <i className="fa-solid fa-person-walking-luggage"></i>
+      <NavLink className={`${styles.Links} mr-5`} to="/" onClick={handleSignOut}>
+        <i className={`${styles.icons} fa-solid fa-person-walking-luggage`}></i>
         Sign out
       </NavLink>
       <NavLink
-        className={styles.status}
+        className={`${styles.Links} ml-5 pl-5`}
         to={`/profiles/${currentUser?.profile_id}`}
       >
-       signed in as: {currentUser?.username}
+        signed in as: {currentUser?.username}
         <Avatar src={currentUser?.profile_image} height={40} />
       </NavLink>
     </>
@@ -68,19 +57,11 @@ const NavBar = () => {
 
   const loggedOutIcons = (
     <>
-      <NavLink
-        className={styles.NavLink}
-        activeClassName={styles.Active}
-        to="/signin"
-      >
-        <i className="fas fa-sign-in-alt"></i>Sign in
+      <NavLink to="/signin" className={styles.Links}>
+      <i className={`${styles.icons} fa-solid fa-person-walking-arrow-right`}></i>Sign in
       </NavLink>
-      <NavLink
-        to="/signup"
-        className={styles.NavLink}
-        activeClassName={styles.Active}
-      >
-        <i className="fas fa-user-plus"></i>Sign up
+      <NavLink to="/signup" className={styles.Links}>
+        <i className={`${styles.icons} fa-solid fa-person-circle-plus`}></i>Sign up
       </NavLink>
     </>
   );
@@ -95,34 +76,32 @@ const NavBar = () => {
           expand="lg"
           fixed="top"
         >
-         
-            <NavLink to="/">
-              <Navbar.Brand className={styles.logo}>
+          <NavLink to="/" className={styles.Links}>
+            <Navbar.Brand className={styles.logo}>
               <img src={Logo} alt="logo" height="75" />
-              </Navbar.Brand>
-            </NavLink>            
-            <Navbar.Toggle
-              ref={ref}
-              onClick={() => setExpanded(!expanded)}
-              aria-controls="basic-navbar-nav"
-              className={styles.burger}
-            />
-            <Navbar.Collapse id="basic-navbar-nav">
-              <Nav className="mr-auto">
-                <NavLink
-                  exact
-                  className={styles.link}
-                  activeClassName={styles.Active}
-                  to="/"
-                >
-                  <i className="fa-sharp fa-solid fa-house"></i>
-                  Home
-                </NavLink>
+            </Navbar.Brand>
+          </NavLink>
+          <Navbar.Toggle
+            ref={ref}
+            onClick={() => setExpanded(!expanded)}
+            aria-controls="basic-navbar-nav"
+            className={styles.burger}
+          />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="mr-auto">
+              <NavLink
+                exact
+                className={styles.Links}
+                activeClassName={styles.Active}
+                to="/"
+              >
+                <i className={`${styles.icons} fa-sharp fa-solid fa-house`}></i>
+                Home
+              </NavLink>
 
-                {currentUser ? loggedInIcons : loggedOutIcons}
-              </Nav>
-            </Navbar.Collapse>
-          
+              {currentUser ? loggedInIcons : loggedOutIcons}
+            </Nav>
+          </Navbar.Collapse>
         </Navbar>
       )}
       ;

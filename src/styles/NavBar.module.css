@@ -3,25 +3,25 @@
     background-color: #2d2d3e;
 }
 
-i {
+.icons {
     color: #9c9cae;
     font-size: 1.8rem;
     padding: 1rem;
     vertical-align:middle;
 }
 
-i:hover {
+.icons:hover {
     cursor: pointer;
     transition: color ease-in-out 0.3s;
     color: #6a62f8;
 }
 
-a {
+.Links {
     color:whitesmoke;
     font-family: 'Syncopate', sans-serif ;
 }
 
-a:hover {
+.Links:hover {
     text-transform: uppercase;
     text-decoration: none;
     font-weight: bold;
@@ -39,10 +39,10 @@ a:hover {
     border-bottom: 2px solid deeppink;   
 }
 
-.status {
-    margin-left: 6rem;
-    padding-left: 3rem;
-}
+.authicons {
+    height: 2.813rem;
+    margin: 1rem;
+  }
 
 .burger {
     border-radius: 50%;

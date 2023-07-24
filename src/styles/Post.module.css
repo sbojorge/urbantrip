@@ -1,4 +1,9 @@
+body {
+    background-color: #d2cbe3;
+}
+
 .Post {
+    
     background-color: #ffffff;
     border: 1px solid #dadadf;
     border-radius: 2px;
@@ -11,7 +16,8 @@ h5 {
     margin: 0 0;
 }
 
-.Heart {
+/* unused styles */
+/* .Heart {
     color: #f85032;
 }
 
@@ -21,4 +27,4 @@ h5 {
 
 .HeartOutline:hover {
     color: #f85032;
-}
+} */
