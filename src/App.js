@@ -10,6 +10,7 @@ import NotFound from "./components/NotFound";
 import PostCreateFormPicture from "./pages/posts/PostCreateFormPicture";
 import PostCreateFormVideo from "./pages/posts/PostCreateFormVideo";
 import PostPage from "./pages/posts/PostPage";
+import PostEditForm from "./pages/posts/PostEditForm";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
             render={() => <PostCreateFormVideo />}
           />
           <Route exact path="/posts/:id" render={() => <PostPage />} />
+          <Route exact path="/posts/:id/edit" render={() => <PostEditForm />} />
           <Route render={() => <NotFound />} />
         </Switch>
       </Container>
