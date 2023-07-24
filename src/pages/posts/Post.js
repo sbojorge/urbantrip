@@ -2,9 +2,10 @@ import React from "react";
 import styles from "../../styles/Post.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Avatar from "../../components/Avatar";
-import { Dropdown } from "../../components/Dropdown";
+import { ControlsDropdown } from "../../components/ControlsDropdown";
+import { axiosRes } from "../../api/axiosDefaults";
 
 const Post = (props) => {
   const {
@@ -23,6 +24,20 @@ const Post = (props) => {
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
+  const history = useHistory();
+
+  const handleEdit = () => {
+    history.push(`/posts/${id}/edit`);
+  };
+
+  const handleDelete = async () => {
+    try {
+      await axiosRes.delete(`/posts/${id}/`);
+      history.goBack();
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <Card className={styles.Post}>
@@ -30,11 +45,16 @@ const Post = (props) => {
         <Media className="align-items-center justify-content-between">
           <Link className={styles.postlinks} to={`/profiles/${profile_id}`}>
             <Avatar src={profile_image} height={55} /> {owner}
-          </Link >
+          </Link>
           <div className="d-flex align-items-center">
             <span>
               {updated_on}
-              {is_owner && postPage && <Dropdown />}
+              {is_owner && postPage && (
+                <ControlsDropdown
+                  handleEdit={handleEdit}
+                  handleDelete={handleDelete}
+                />
+              )}
             </span>
           </div>
         </Media>

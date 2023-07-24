@@ -1,7 +1,11 @@
 .DropdownItem {
     display: inline-block;
-    max-width: 50%;
+    max-width: 40%;
     padding: 0px;
+}
+
+.DropdownItem i {
+    color: #6a62f8;
 }
 
 .Absolute {
