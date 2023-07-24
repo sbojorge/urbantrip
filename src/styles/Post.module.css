@@ -3,12 +3,17 @@ body {
 }
 
 .Post {
-    
     background-color: #ffffff;
     border: 1px solid #dadadf;
     border-radius: 2px;
     margin-bottom: 16px;
     text-align: center;
+}
+
+.postlinks {
+    color: #2d2d3e;
+    font-family: 'Syncopate', sans-serif ;
+    font-weight: bold;
 }
 
 .Post figure,

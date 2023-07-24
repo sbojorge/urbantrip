@@ -4,6 +4,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
+import { Dropdown } from "../../components/Dropdown";
 
 const Post = (props) => {
   const {
@@ -27,13 +28,13 @@ const Post = (props) => {
     <Card className={styles.Post}>
       <Card.Body>
         <Media className="align-items-center justify-content-between">
-          <Link to={`/profiles/${profile_id}`}>
+          <Link className={styles.postlinks} to={`/profiles/${profile_id}`}>
             <Avatar src={profile_image} height={55} /> {owner}
-          </Link>
+          </Link >
           <div className="d-flex align-items-center">
             <span>
               {updated_on}
-              {is_owner && postPage && "..."}
+              {is_owner && postPage && <Dropdown />}
             </span>
           </div>
         </Media>
