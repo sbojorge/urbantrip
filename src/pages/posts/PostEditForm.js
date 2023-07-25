@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Editor } from "@tinymce/tinymce-react";
+// import { Editor } from "@tinymce/tinymce-react";
 
 import {
   Alert,
@@ -7,7 +7,6 @@ import {
   Col,
   Container,
   Form,
-  Image,
   Row,
 } from "react-bootstrap";
 
@@ -148,7 +147,7 @@ const PostEditForm = () => {
           >
             <Form.Group className="text-center">
               <figure>
-                <Image className={appStyles.Image} src={image} rounded />
+                <image className={appStyles.Image} src={image} rounded />
               </figure>
               <div>
                 <Form.Label

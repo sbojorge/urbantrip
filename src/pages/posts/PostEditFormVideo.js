@@ -6,7 +6,6 @@ import {
   Col,
   Container,
   Form,
-  Image,
   Row,
 } from "react-bootstrap";
 
