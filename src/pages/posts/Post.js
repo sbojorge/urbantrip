@@ -44,7 +44,8 @@ const Post = (props) => {
       <Card.Body>
         <Media className="align-items-center justify-content-between">
           <Link className={styles.postlinks} to={`/profiles/${profile_id}`}>
-            <Avatar src={profile_image} height={55} /> {owner}
+            <Avatar src={profile_image} height={55} />
+            {owner}
           </Link>
           <div className="d-flex align-items-center">
             <span>
@@ -59,6 +60,7 @@ const Post = (props) => {
           </div>
         </Media>
       </Card.Body>
+      {/* conditionally renders an image or a video post uploaded by the user */}
       <div>
         {!image?.includes("old-time-camera.512x422_iwlbmx") ? (
           <Link to={`/posts/${id}`}>
@@ -81,6 +83,7 @@ const Post = (props) => {
         >
           <i className={`${styles.posticons} far fa-heart`} />
         </OverlayTrigger>
+        {/* there isn't a tooltip for comments but I added it, only a link to the post that I'll add later when displaying all posts */}
         <OverlayTrigger
           placement="top"
           overlay={<Tooltip>Log in to add a comment</Tooltip>}
