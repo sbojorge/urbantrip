@@ -6,18 +6,18 @@ import styles from "../styles/ControlsDropdown.module.css";
 // Dropdown needs access to the DOM node in order to position the Menu
 const ThreeDots = React.forwardRef(({ onClick }, ref) => (
   <i
-    className="fa-solid fa-list-ul"
+    className="fas fa-ellipsis-v"
     ref={ref}
     onClick={(e) => {
       e.preventDefault();
       onClick(e);
     }}
-  ></i>
+  />
 ));
 
 export const ControlsDropdown = ({ handleEdit, handleDelete }) => {
   return (
-    <Dropdown className="ml-auto">
+    <Dropdown className="ml-auto" drop="left">
       <Dropdown.Toggle as={ThreeDots} />
 
       <Dropdown.Menu
