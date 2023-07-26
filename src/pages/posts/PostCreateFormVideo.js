@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Editor } from "@tinymce/tinymce-react";
+// import { Editor } from "@tinymce/tinymce-react";
 
 import { Alert, Button, Col, Container, Form, Row } from "react-bootstrap";
 
@@ -55,6 +55,9 @@ const PostCreateFormVideo = () => {
       history.push(`/posts/${data.id}`);
     } catch (err) {
       console.log(err);
+      if (err.response?.status !== 401) {
+        setErrors(err.response?.data);
+      }
     }
   };
 
