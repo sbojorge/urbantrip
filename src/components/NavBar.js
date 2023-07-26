@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import Logo from "../assets/Logo.webp";
 import styles from "../styles/NavBar.module.css";
@@ -28,24 +28,45 @@ const NavBar = () => {
 
   const loggedInIcons = (
     <>
-      <NavLink className={styles.Links} activeClassName={styles.Active} to="/posts/create">
+      <NavLink
+        className={styles.Links}
+        activeClassName={styles.Active}
+        to="/posts/create"
+      >
         <i className={`${styles.icons} fa-solid fa-photo-film`}></i>
         Create
       </NavLink>
-      <NavLink className={styles.Links} activeClassName={styles.Active} to="/feed">
+      <NavLink
+        className={styles.Links}
+        activeClassName={styles.Active}
+        to="/feed"
+      >
         <i className={`${styles.icons} fa-solid fa-users-line`}></i>
         Feed
       </NavLink>
 
-      <NavLink className={styles.Links} activeClassName={styles.Active} to="/likes">
+      <NavLink
+        className={styles.Links}
+        activeClassName={styles.Active}
+        to="/likes"
+      >
         <i className={`${styles.icons} fa-sharp fa-solid fa-heart`}></i>
         Like
       </NavLink>
-      <NavLink className={styles.Links} activeClassName={styles.Active} to="/search">
+
+      <NavLink
+        className={styles.Links}
+        activeClassName={styles.Active}
+        to="/search"
+      >
         <i className={`${styles.icons} fa-solid fa-magnifying-glass`}></i>
         Search
       </NavLink>
-      <NavLink className={`${styles.Links} mr-5`} to="/" onClick={handleSignOut}>
+      <NavLink
+        className={`${styles.Links} mr-5`}
+        to="/"
+        onClick={handleSignOut}
+      >
         <i className={`${styles.icons} fa-solid fa-person-walking-luggage`}></i>
         Sign out
       </NavLink>
@@ -62,10 +83,14 @@ const NavBar = () => {
   const loggedOutIcons = (
     <>
       <NavLink to="/signin" className={styles.Links}>
-      <i className={`${styles.icons} fa-solid fa-person-walking-arrow-right`}></i>Sign in
+        <i
+          className={`${styles.icons} fa-solid fa-person-walking-arrow-right`}
+        ></i>
+        Sign in
       </NavLink>
       <NavLink to="/signup" className={styles.Links}>
-        <i className={`${styles.icons} fa-solid fa-person-circle-plus`}></i>Sign up
+        <i className={`${styles.icons} fa-solid fa-person-circle-plus`}></i>Sign
+        up
       </NavLink>
     </>
   );
