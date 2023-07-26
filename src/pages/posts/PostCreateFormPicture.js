@@ -79,11 +79,11 @@ const PostCreateFormPicture = () => {
         />
       </Form.Group>
       {errors?.title?.map((message, idx) => (
-          <Alert variant="warning" key={idx}>
-            {message}
-          </Alert>
-        ))}
-      
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
       {/* Add tinymce as text editor in the description field */}
       <Form.Group>
         {/* <Form.Label>Description</Form.Label>
@@ -108,12 +108,15 @@ const PostCreateFormPicture = () => {
         />
       </Form.Group>
       {errors?.description?.map((message, idx) => (
-          <Alert variant="warning" key={idx}>
-            {message}
-          </Alert>
-        ))}
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
 
-      <Button className={`${btnStyles.button} m-3`} onClick={() => {}}>
+      <Button
+        className={`${btnStyles.button} m-3`}
+        onClick={() => history.goBack()}
+      >
         cancel
       </Button>
       <Button className={btnStyles.button} type="submit">

@@ -6,7 +6,9 @@ import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 
 const CommentCreateForm = (props) => {
-  const { post, setPost, setComments, profileImage, profile_id } = props;
+  const { 
+    post, setPost, setComments, profileImage, profile_id
+  } = props;
   const [content, setContent] = useState("");
 
   const handleChange = (event) => {

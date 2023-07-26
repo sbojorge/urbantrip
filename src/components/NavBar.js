@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import Logo from "../assets/Logo.webp";
 import styles from "../styles/NavBar.module.css";
