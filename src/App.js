@@ -12,14 +12,35 @@ import PostCreateFormVideo from "./pages/posts/PostCreateFormVideo";
 import PostPage from "./pages/posts/PostPage";
 import PostEditForm from "./pages/posts/PostEditForm";
 import PostEditFormVideo from "./pages/posts/PostEditFormVideo";
+import PostsPage from "./pages/posts/PostsPage";
+import { useCurrentUser } from "./contexts/CurrentUserContext";
 
 function App() {
+  const currentUser = useCurrentUser();
+  const profile_id = currentUser?.profile_id || "";
   return (
     <div className={styles.App}>
       <NavBar />
       <Container className={styles.Main}>
         <Switch>
-          <Route exact path="/" render={() => <h1>Home</h1>} />
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <PostsPage message="Not results found. Please adjust the search keyword" />
+            )}
+          />
+          <Route
+            exact
+            path="/likes"
+            render={() => (
+              <PostsPage
+                message="Not results found. Please adjust the search keyword or like a post"
+                filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`}
+             
+                />
+            )}
+          />
           <Route exact path="/signin" render={() => <SignInForm />} />
           <Route exact path="/signup" render={() => <SignUpForm />} />
           <Route
@@ -39,7 +60,11 @@ function App() {
           />
           <Route exact path="/posts/:id" render={() => <PostPage />} />
           <Route exact path="/posts/:id/edit" render={() => <PostEditForm />} />
-          <Route exact path="/posts/:id/edit" render={() => <PostEditFormVideo />} />
+          <Route
+            exact
+            path="/posts/:id/edit"
+            render={() => <PostEditFormVideo />}
+          />
           <Route render={() => <NotFound />} />
         </Switch>
       </Container>
