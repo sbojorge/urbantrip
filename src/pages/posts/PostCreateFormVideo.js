@@ -105,7 +105,10 @@ const PostCreateFormVideo = () => {
         </Alert>
       ))}
 
-      <Button className={`${btnStyles.button} m-3`} onClick={() => {}}>
+      <Button
+        className={`${btnStyles.button} m-3`}
+        onClick={() => history.goBack()}
+      >
         cancel
       </Button>
       <Button className={btnStyles.button} type="submit">
