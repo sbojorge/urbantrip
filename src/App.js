@@ -18,6 +18,7 @@ import { useCurrentUser } from "./contexts/CurrentUserContext";
 function App() {
   const currentUser = useCurrentUser();
   const profile_id = currentUser?.profile_id || "";
+
   return (
     <div className={styles.App}>
       <NavBar />
@@ -27,7 +28,7 @@ function App() {
             exact
             path="/"
             render={() => (
-              <PostsPage message="Not results found. Please adjust the search keyword" />
+              <PostsPage message="No results found. Please adjust the search keyword." />
             )}
           />
           <Route
@@ -35,7 +36,7 @@ function App() {
             path="/feed"
             render={() => (
               <PostsPage
-                message="Not results found. Please adjust the search keyword or follow a user"
+                message="No results found. Adjust the search keyword or follow a user."
                 filter={`owner__followed__owner__profile=${profile_id}&`}
               />
             )}
@@ -45,11 +46,12 @@ function App() {
             path="/likes"
             render={() => (
               <PostsPage
-                message="Not results found. Please adjust the search keyword or like a post"
-                filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`}
+                message="No results found. Adjust the search keyword or like a post."
+                filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_on&`}
               />
             )}
           />
+
           <Route exact path="/signin" render={() => <SignInForm />} />
           <Route exact path="/signup" render={() => <SignUpForm />} />
           <Route
