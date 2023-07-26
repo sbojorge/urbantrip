@@ -20,6 +20,7 @@ const Post = (props) => {
     video,
     updated_on,
     postPage,
+    setPosts,
   } = props;
 
   const currentUser = useCurrentUser();
@@ -48,15 +49,13 @@ const Post = (props) => {
             {owner}
           </Link>
           <div className="d-flex align-items-center">
-            <span>
-              {updated_on}
-              {is_owner && postPage && (
-                <ControlsDropdown
-                  handleEdit={handleEdit}
-                  handleDelete={handleDelete}
-                />
-              )}
-            </span>
+            <span>{updated_on}</span>
+            {is_owner && postPage && (
+              <ControlsDropdown
+                handleEdit={handleEdit}
+                handleDelete={handleDelete}
+              />
+            )}
           </div>
         </Media>
       </Card.Body>
@@ -75,20 +74,20 @@ const Post = (props) => {
       <Card.Body>
         {title && <Card.Title className="text-center">{title}</Card.Title>}
         {content && <Card.Text>{content}</Card.Text>}
+        <div className={styles.PostBar}>
+          <OverlayTrigger
+            placement="top"
+            overlay={<Tooltip>Log in to like posts</Tooltip>}
+          >
+            <i className={`${styles.posticons} far fa-heart`} />
+          </OverlayTrigger>
+          {/* there isn't a tooltip for comments but I added it, only a link to the post that I'll add later when displaying all posts */}
+          <Link to={`/posts/${id}`}>
+            <i className={`${styles.posticons} far fa-comments`} />
+          </Link>
+          {comments_count}
+        </div>
       </Card.Body>
-      <div className={styles.PostBar}>
-        <OverlayTrigger
-          placement="top"
-          overlay={<Tooltip>Log in to like posts</Tooltip>}
-        >
-          <i className={`${styles.posticons} far fa-heart`} />
-        </OverlayTrigger>
-        {/* there isn't a tooltip for comments but I added it, only a link to the post that I'll add later when displaying all posts */}
-        <Link to={`/posts/${id}`}>
-          <i className={`${styles.posticons} far fa-comments`} />
-        </Link>
-        {comments_count}
-      </div>
     </Card>
   );
 };
