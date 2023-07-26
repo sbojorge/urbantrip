@@ -32,6 +32,10 @@ const NavBar = () => {
         <i className={`${styles.icons} fa-solid fa-photo-film`}></i>
         Create
       </NavLink>
+      <NavLink className={styles.Links} activeClassName={styles.Active} to="/feed">
+        <i className={`${styles.icons} fa-solid fa-users-line`}></i>
+        Feed
+      </NavLink>
 
       <NavLink className={styles.Links} activeClassName={styles.Active} to="/likes">
         <i className={`${styles.icons} fa-sharp fa-solid fa-heart`}></i>
