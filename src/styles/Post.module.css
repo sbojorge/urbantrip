@@ -33,18 +33,3 @@ h5 {
     transition: color ease-in-out 0.3s;
     color: #ff1493;
 }
-
-
-
-/* unused styles */
-/* .Heart {
-    color: #f85032;
-}
-
-.Heart:hover {
-    color: #2142b2;
-}
-
-.HeartOutline:hover {
-    color: #f85032;
-} */
