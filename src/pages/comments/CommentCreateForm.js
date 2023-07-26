@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Form, InputGroup } from "react-bootstrap";
 import { Link } from "react-router-dom/cjs/react-router-dom";
 import styles from "../../styles/CommentCreateEditForm.module.css";
@@ -15,6 +14,7 @@ const CommentCreateForm = (props) => {
   };
 
   const handleSubmit = async (event) => {
+    event.preventDefault();
     try {
       const { data } = await axiosRes.post("/comments/", {
         content,
