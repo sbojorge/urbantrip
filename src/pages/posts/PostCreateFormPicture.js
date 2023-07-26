@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Editor } from "@tinymce/tinymce-react";
+// import { Editor } from "@tinymce/tinymce-react";
 
 import {
   Alert,
@@ -86,7 +86,7 @@ const PostCreateFormPicture = () => {
       
       {/* Add tinymce as text editor in the description field */}
       <Form.Group>
-        <Form.Label>Description</Form.Label>
+        {/* <Form.Label>Description</Form.Label>
         <Editor
           apiKey="9z25n8ixigw8dh0nx9nyhgmo9jd0kzbhfvr6sr2n42e0id51"
           init={{menubar: "format"}}          
@@ -97,6 +97,13 @@ const PostCreateFormPicture = () => {
           textareaName="content"
           value={content}
           initialValue="This field is optional" 
+          onChange={handleChange}
+        /> */}
+        <Form.Control
+          as="textarea"
+          rows={6}
+          name="content"
+          value={content}
           onChange={handleChange}
         />
       </Form.Group>

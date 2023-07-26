@@ -84,12 +84,9 @@ const Post = (props) => {
           <i className={`${styles.posticons} far fa-heart`} />
         </OverlayTrigger>
         {/* there isn't a tooltip for comments but I added it, only a link to the post that I'll add later when displaying all posts */}
-        <OverlayTrigger
-          placement="top"
-          overlay={<Tooltip>Log in to add a comment</Tooltip>}
-        >
+        <Link to={`/posts/${id}`}>
           <i className={`${styles.posticons} far fa-comments`} />
-        </OverlayTrigger>
+        </Link>
         {comments_count}
       </div>
     </Card>
