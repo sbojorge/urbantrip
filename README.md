@@ -50,6 +50,7 @@ Epics were assigned to the "To-do" status and move to "In progress" or "Done" st
  * [Favicon.io](https://favicon.io/)
  * [Balsamiq Wireframes for desktop](https://balsamiq.com/wireframes/desktop/), for creating the wireframes were created using.
  * [Canvas](https://www.canva.com/), for designing the logo and creating the color palette.
+ * [React infinite scroll](https://www.npmjs.com/package/react-infinite-scroll-component), for loading post automatically as the user scrolls down.
    
 [Back to top](#urbantrip-where-city-trip-lovers-meet)
 
