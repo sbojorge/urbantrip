@@ -44,13 +44,13 @@ const Post = (props) => {
 
   const handleLike = async () => {
     try {
-      const { data } = await axiosRes.post("/likes/", { post: id });
+      const { data } = await axiosRes.post('/likes/', { post:id });
       setPosts((prevPosts) => ({
         ...prevPosts,
         results: prevPosts.results.map((post) => {
           return post.id === id
-            ? { ...post, likes_count: post.likes_count + 1, like_id: data.id }
-            : post;
+          ? { ...post, likes_count: post.likes_count + 1, like_id: data.id }
+          : post;
         }),
       }));
     } catch (err) {
@@ -60,13 +60,13 @@ const Post = (props) => {
 
   const handleUnlike = async () => {
     try {
-      await axiosRes.delete(`/likes/${like_id}/`);
+      await axiosRes.delete(`/likes/${like_id}`);
       setPosts((prevPosts) => ({
         ...prevPosts,
         results: prevPosts.results.map((post) => {
           return post.id === id
-            ? { ...post, likes_count: post.likes_count - 1, like_id: null }
-            : post;
+          ? { ...post, likes_count: post.likes_count - 1, like_id: null}
+          : post;
         }),
       }));
     } catch (err) {
@@ -114,11 +114,11 @@ const Post = (props) => {
               placement="top"
               overlay={<Tooltip>You can't like your own post!</Tooltip>}
             >
-              <i className={`${styles.posticons} far fa-heart`} />
+              <i className={`far fa-heart ${styles.posticons}`} />
             </OverlayTrigger>
           ) : like_id ? (
             <span onClick={handleUnlike}>
-              <i className={`fas fa-heart ${styles.posticons}`} />
+              <i className={`fas fa-heart ${styles.fullicon}`} />
             </span>
           ) : currentUser ? (
             <span onClick={handleLike}>

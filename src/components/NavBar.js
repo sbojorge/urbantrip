@@ -51,7 +51,7 @@ const NavBar = () => {
         to="/likes"
       >
         <i className={`${styles.icons} fa-sharp fa-solid fa-heart`}></i>
-        Like
+        Liked
       </NavLink>
 
       <NavLink
