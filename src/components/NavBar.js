@@ -65,6 +65,14 @@ const NavBar = () => {
         Search
       </NavLink>
       <NavLink
+        className={styles.Links}
+        activeClassName={styles.Active}
+        to="/contact/create"
+      >
+        <i className={`${styles.icons} fa-solid fa-address-card`}></i>
+        Contact
+      </NavLink>
+      <NavLink
         className={`${styles.Links} mr-5`}
         to="/"
         onClick={handleSignOut}
