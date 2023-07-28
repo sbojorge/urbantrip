@@ -1,19 +1,16 @@
 import React from "react";
+import pagenotfound from "../assets/page-not-found.png";
 import styles from "../styles/PageNotFound.module.css";
-import { Container, Image } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import Asset from "./Asset";
 
 const NotFound = () => {
   return (
-    <Container className="text-center pt-4">
-      <Image
-        src="https://res.cloudinary.com/dvvr7cpfs/image/upload/v1689713680/page-not-found.218x256_nqko1h.webp"
-        className={styles.notfound}
+    <div className={styles.NotFound}>
+      <Asset
+        src={pagenotfound}
+        message={`Sorry, the page you're looking for doesn't exist`}
       />
-
-      <p className="pt-1">Sorry, page not found!</p>
-      <Link to="/">Click here to go back Home</Link>
-    </Container>
+    </div>
   );
 };
 
