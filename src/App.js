@@ -14,6 +14,7 @@ import PostEditForm from "./pages/posts/PostEditForm";
 import PostEditFormVideo from "./pages/posts/PostEditFormVideo";
 import PostsPage from "./pages/posts/PostsPage";
 import { useCurrentUser } from "./contexts/CurrentUserContext";
+import ProfilePage from "./pages/profiles/ProfilePage";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -76,6 +77,7 @@ function App() {
             path="/posts/:id/edit"
             render={() => <PostEditFormVideo />}
           />
+          <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
           <Route render={() => <NotFound />} />
         </Switch>
       </Container>
