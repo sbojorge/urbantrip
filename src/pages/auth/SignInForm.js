@@ -18,9 +18,11 @@ import btnstyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 import iconstyles from "../../styles/NavBar.module.css";
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
+import { useRedirect } from "../../hooks/useRedirect";
 
 const SignInForm = () => {
   const setCurrentUser = useSetCurrentUser();
+  useRedirect("loggedIn");
 
   const [signInData, setSignInData] = useState({
     username: "",
@@ -36,7 +38,7 @@ const SignInForm = () => {
     try {
       const { data } = await axios.post("/dj-rest-auth/login/", signInData);
       setCurrentUser(data.user);
-      history.push("/");
+      history.goBack();
     } catch (err) {
       setErrors(err.response?.data);
     }
@@ -49,7 +51,6 @@ const SignInForm = () => {
     });
   };
 
-  
   return (
     <Row className={styles.Row}>
       <Col className="my-auto py-2 p-md-2" md={6}>

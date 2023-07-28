@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-
 import styles from "../../styles/SignUpInForm.module.css";
 import btnstyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
-
 import {
   Col,
   Container,
@@ -13,11 +11,12 @@ import {
   Alert,
   Image,
 } from "react-bootstrap";
-
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
+import { useRedirect } from "../../hooks/useRedirect";
 
 const SignUpForm = () => {
+  useRedirect("loggedIn");
   const [signUpData, setSignUpData] = useState({
     username: "",
     password1: "",

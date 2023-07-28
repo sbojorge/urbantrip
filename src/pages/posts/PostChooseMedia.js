@@ -2,8 +2,10 @@ import React from "react";
 import { Col, Container, Image, Row } from "react-bootstrap";
 import styles from "../../styles/ChooseMedia.module.css";
 import { Link } from "react-router-dom/cjs/react-router-dom";
+import { useRedirect } from "../../hooks/useRedirect";
 
 const PostChooseMedia = () => {
+  useRedirect("loggedOut");
   return (
     <Row>
       <Col md={6} className="mt-4">
