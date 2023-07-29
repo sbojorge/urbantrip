@@ -1,16 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-import {
-  Col,
-  Container,
-  Row,
-  Form,
-  Button,
-  Alert,
-  Image,
-} from "react-bootstrap";
-
+import Form from "react-bootstrap/Form";
+import Alert from "react-bootstrap/Alert";
+import Button from "react-bootstrap/Button";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import Image from "react-bootstrap/Image";
+import Container from "react-bootstrap/Container";
 import { Link, useHistory } from "react-router-dom";
 
 import styles from "../../styles/SignUpInForm.module.css";

@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Col, Container, Row, Form } from "react-bootstrap";
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Form from "react-bootstrap/Form";
 import appStyles from "../../App.module.css";
 import styles from "../../styles/PostsPage.module.css";
 

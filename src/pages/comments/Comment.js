@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import styles from "../../styles/Comment.module.css";
-import { Media } from "react-bootstrap";
+import Media from "react-bootstrap/Media";
 import { Link } from "react-router-dom/cjs/react-router-dom";
 import Avatar from "../../components/Avatar";
 import { ControlsDropdown } from "../../components/ControlsDropdown";

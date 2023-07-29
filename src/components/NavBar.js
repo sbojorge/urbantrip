@@ -1,5 +1,6 @@
 import React from "react";
-import { Navbar, Nav } from "react-bootstrap";
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
 import Logo from "../assets/Logo.webp";
 import styles from "../styles/NavBar.module.css";
 import { useLocation, NavLink } from "react-router-dom";

@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from "react";
-import {Alert, Button, Col, Container, Form, Row} from "react-bootstrap";
+import Form from "react-bootstrap/Form";
+import Alert from "react-bootstrap/Alert";
+import Button from "react-bootstrap/Button";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import Container from "react-bootstrap/Container";
 import { axiosRes } from "../../api/axiosDefaults";
 import {
   useCurrentUser,
