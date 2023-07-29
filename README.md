@@ -1,6 +1,6 @@
-# Urbantrip, where city trip lovers meet
-/* Tell something about the purpose of this website */
-/* Add the logo and a picture of the responsive website */
+# Urbantrip
+This is a social media for city trip lovers.
+![responsive](./src/assets/readme/picture_1.png)
 
 
 ## Project management
@@ -33,13 +33,14 @@ Labels were used to identify epics and user stories of each repo.
 
 Epics were assigned to the "To-do" status and move to "In progress" or "Done" status as the tasks in the user stories were completed.
 
-[Back to top](#urbantrip-where-city-trip-lovers-meet)
+[Back to top](#urbantrip)
 
 ## Design
-### Database schema
-### Wireframes
 ### Typography
+![typography](./src/assets/readme/picture_2.png)
 ### Colours
+![colours](./src/assets/readme/picture_3.png)
+
 
 
 ## Technologies
@@ -55,14 +56,14 @@ Epics were assigned to the "To-do" status and move to "In progress" or "Done" st
 [Back to top](#urbantrip-where-city-trip-lovers-meet)
 
 ## Credits
-
 ### Media
 - Icons come from [uxwing](https://uxwing.com/)
 - Images come from [rawpixel](https://www.rawpixel.com/)
 
 ### Code
-Code for hiding the nav bar in the Sign up and Sign in pages was inspired from this article: https://stackoverflow.com/questions/74277306/show-hide-navbar-or-footer-in-routes-with-react-router-dom-v6
+- My mentor helped me to refine the code for the contact form.
+- Code for hiding the nav bar in the Sign up and Sign in pages was inspired from this article: https://stackoverflow.com/questions/74277306/show-hide-navbar-or-footer-in-routes-with-react-router-dom-v6
 
-Upload video inspired on: https://www.upbeatcode.com/react/how-to-play-video-in-react/
+- Upload video inspired on: https://www.upbeatcode.com/react/how-to-play-video-in-react/
 
 [Back to top](#urbantrip-where-city-trip-lovers-meet)
