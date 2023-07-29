@@ -56,15 +56,6 @@ const NavBar = () => {
         <i className={`${styles.icons} fa-sharp fa-solid fa-heart`}></i>
         Liked
       </NavLink>
-
-      <NavLink
-        className={styles.Links}
-        activeClassName={styles.Active}
-        to="/search"
-      >
-        <i className={`${styles.icons} fa-solid fa-magnifying-glass`}></i>
-        Search
-      </NavLink>
       <NavLink
         className={styles.Links}
         activeClassName={styles.Active}

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-
 import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
@@ -9,11 +8,9 @@ import Row from "react-bootstrap/Row";
 import Image from "react-bootstrap/Image";
 import Container from "react-bootstrap/Container";
 import { Link, useHistory } from "react-router-dom";
-
 import styles from "../../styles/SignUpInForm.module.css";
 import btnstyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
-import iconstyles from "../../styles/NavBar.module.css";
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 import { useRedirect } from "../../hooks/useRedirect";
 import { setTokenTimestamp } from "../../utils/utils";
@@ -53,7 +50,7 @@ const SignInForm = () => {
   return (
     <Row className={styles.Row}>
       <Col className="my-auto py-2 p-md-2" md={6}>
-        <Container className={`${appStyles.Content} p-4`}>
+        <Container className={`${styles.FormContent} p-4`}>
           <h1 className={styles.Header}>sign in</h1>
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="username">
@@ -93,9 +90,9 @@ const SignInForm = () => {
             <div className={styles.iconbutton}>
               <span>
                 <Image
-                  className={iconstyles.NavIcon}
+                  className={styles.NavIcon}
                   src={
-                    "https://res.cloudinary.com/dvvr7cpfs/image/upload/v1689578784/sign-in.232x256_zkzbs5.webp"
+                    "https://res.cloudinary.com/dvvr7cpfs/image/upload/v1690615294/sign-in.232x256-painted_nrukbw.png"
                   }
                 />
               </span>
@@ -110,14 +107,14 @@ const SignInForm = () => {
             </div>
           </Form>
         </Container>
-        <Container className={`mt-3 ${appStyles.Content}`}>
+        <Container className={`mt-3 ${styles.FormContent}`}>
           <Link className={styles.Link} to="/signup">
             Don't have an account yet?
             <span>
               <Image
-                className={iconstyles.NavIcon}
+                className={styles.NavIcon}
                 src={
-                  "https://res.cloudinary.com/dvvr7cpfs/image/upload/v1689578784/sign-up.256x243_wumyuq.webp"
+                  "https://res.cloudinary.com/dvvr7cpfs/image/upload/v1690615294/sign-in.232x256-painted_nrukbw.png"
                 }
               />
               <Button className={btnstyles.button}>Sign Up</Button>
@@ -132,7 +129,7 @@ const SignInForm = () => {
         <Image
           className={`${appStyles.FillerImage}`}
           src={
-            "https://res.cloudinary.com/dvvr7cpfs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1689592543/image-from-rawpixel-id-3821079-jpeg_eokfma.jpg"
+            "https://res.cloudinary.com/dvvr7cpfs/image/upload/v1689592543/image-from-rawpixel-id-3821079-jpeg_eokfma.jpg"
           }
         />
       </Col>

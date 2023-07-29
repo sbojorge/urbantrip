@@ -2,12 +2,20 @@
     font-family: 'Montserrat', sans-serif;
     color: #2d2d3e;
     min-height: 100vh;
-    font-size: 1rem;    
+    font-size: 1rem;
+    background: url("https://res.cloudinary.com/dvvr7cpfs/image/upload/v1690051222/Grey_wall-jpeg_y7hpq8.jpg") no-repeat bottom right fixed;
+    background-color: #d2cbe3;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    
 }
 
 * {
     box-sizing: border-box;
 }
+
 
 .Main {
     padding-top: 6rem;
@@ -21,28 +29,22 @@ h1 {
 }
 
 .Content {
-    background-color: #c8c9ca;
+    background-color: #d2cbe3;
     padding: 0.625rem;
     border-radius: 2px;
-    border: 1px solid #dadadf;
+    border: 1px solid #d2cbe3;
 }
-
-/* don't remember who this style is for
-.Contentlink {
-    background-color: #ffffff;
-    padding: 10px;
-
-} */
 
 .FillerImage {
     object-fit: cover;
     height: 100%;
     width: 100%;
-    position: absolute;
+
 }
 
 .Image {
-    max-height: 40vh;
+    max-height: 80vh;
     max-width: 100%;
     object-fit: contain;
 }
+

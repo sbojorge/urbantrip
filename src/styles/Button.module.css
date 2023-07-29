@@ -1,19 +1,38 @@
 .button {
     font-family: 'Syncopate', sans-serif;
-    background-color: black;
-    border-color: black;
-    color: #E2B659;
+    background-color: #6A62F8;
+    border-color: #6A62F8;    
     font-weight: bold;
 }
 
 .button:hover {
-    background-color: #E2B659;
-    border-color: #E2B659;
-    color: black;
+    background-color: #9C9CAE;
+    border-color: #9C9CAE;    
 }
 
 .button:focus {
     background-color: black;
-    border-color: black;
-    color: #E2B659;
+    border-color: black;    
 }
+
+.button,.button:hover,.button:focus {
+    color: #2D2D3E;
+}
+
+.Black,
+  .BlackOutline:hover {
+    background-color: #6A62F8;
+    border-color: #6A62F8; 
+    border-radius: 6.25rem;
+    color:#2D2D3E;
+    font-weight: bold;
+  }
+  
+  .Black:hover,
+  .BlackOutline {
+    background-color: #ff1493;
+    border-color: #ff1493; 
+    color: #2D2D3E;
+    border-radius: 6.25rem;
+    font-weight: bold;
+  }

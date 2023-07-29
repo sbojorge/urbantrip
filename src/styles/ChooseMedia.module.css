@@ -2,37 +2,42 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    
-    
-    border: 2px solid palevioletred;
 }
-
 
 .first {
     display: flex;
     flex-direction: column;
-    background-color: aqua;
+    background-color: #6a62f8;
     padding: 1rem 0.5rem 0 0.5rem;
     margin-right: 3rem;
-    border: 1px solid blue;
-    
+    border-radius: 2px; 
 }
 
 .ImageIcon {
     height: 4rem;
     width: 4rem;
-    
-}
-
-.Message {
-    margin: 1rem;
+    margin-left: 4rem;
 }
 
 .second {
     display: flex;
     flex-direction: column;
-    background-color: violet;
+    background-color: #ff1493;
     padding: 1rem 0.5rem 0 0.5rem;
     margin-left: 3rem;
-    border: 1px solid blue;
+    border-radius: 2px; 
+}
+
+.Link {
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    margin: 1rem;
+    color: #2d2d3E;
+    font-weight: bold;
+}
+
+.Link:hover {
+    text-decoration: none;
+    color: #2d2d3E;
 }
