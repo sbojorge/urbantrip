@@ -2,6 +2,7 @@
 This is a social media for city trip lovers.
 ![responsive](./src/assets/readme/picture_1.png)
 
+Please visit the [Urbantrip](https://urbantrip-a9f84fe92f01.herokuapp.com/)
 
 ## Project management
 
@@ -46,14 +47,12 @@ Epics were assigned to the "To-do" status and move to "In progress" or "Done" st
 ## Technologies
  * [React-Bootstrap](https://react-bootstrap.netlify.app/), for styling support.
  * [React-Router](https://reactrouter.com/), for enabling "client side routing".
- * [axios](https://axios-http.com/),for fetching and posting data in the Urban-drf backend API.
- * [TinyMCE](https://www.tiny.cloud/), a WYSIWYG rich text editor for React.
- * [Favicon.io](https://favicon.io/)
- * [Balsamiq Wireframes for desktop](https://balsamiq.com/wireframes/desktop/), for creating the wireframes were created using.
+ * [axios](https://axios-http.com/),for fetching and posting data in the Urban-drf backend API. 
+ * [Favicon.io](https://favicon.io/) 
  * [Canvas](https://www.canva.com/), for designing the logo and creating the color palette.
  * [React infinite scroll](https://www.npmjs.com/package/react-infinite-scroll-component), for loading post automatically as the user scrolls down.
    
-[Back to top](#urbantrip-where-city-trip-lovers-meet)
+[Back to top](#urbantrip)
 
 ## Credits
 ### Media
@@ -66,4 +65,4 @@ Epics were assigned to the "To-do" status and move to "In progress" or "Done" st
 
 - Upload video inspired on: https://www.upbeatcode.com/react/how-to-play-video-in-react/
 
-[Back to top](#urbantrip-where-city-trip-lovers-meet)
+[Back to top](#urbantrip)
