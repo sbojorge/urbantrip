@@ -106,16 +106,16 @@ This will ensure to create the app in the root directory.
 1. In your Heroku dashboard, click on the "New" button in order to create a new app.
 2. Name your app and select a region according to your location place.
 3. Click on the "Create app" button.
-#### Connect the repository with the Heroku app
-1. In your newly created Heroku app, click on the "Deploy" tab.
-2. Between the deployment methods, click on "GitHub", enter the name of your repository<br>
+4. In your newly created Heroku app, click on the "Deploy" tab.
+5. Between the deployment methods, click on "GitHub", enter the name of your repository<br>
 If found, a link to the repository will be displayed.
 Click the "Connect" button.
-3. For automatic deployments after each push to GitHub, scroll down the page and click on the "Enable automatic deploys" button.
-4. To finish, click on the "Deploy branch" button.<br>
+6. For automatic deployments after each push to GitHub, scroll down the page and click on the "Enable automatic deploys" button.
+7. To finish, click on the "Deploy branch" button.<br>
+
 The app was successfully deploy at first attempt.
 
-### Connect the backend API with the React application
+#### Connect the backend API with the React application
 The Urbandrf backend API should accept requests from the Urbantrip application.
 In order to achieve that the following steps were taken:
 1. In the urbandrf app on Heroku, click on the "Settings" tab and scroll down to the Config Vars section.
@@ -137,15 +137,17 @@ In order to achieve that the following steps were taken:
 
 10. Finally, export the axiosDefaults.js file to the App.js component.<br>
 
+
 The backend, urbandrf, and the frontend, urbantrip, got connected since the first attempt.
 
 ### Final deployment
 These are the steps to follow for the final deployment of the application:
 1. In package.json, in the scripts section, add this command: **heroku-prebuild: npm install -g serve**.
-2. Create a Procfile on the root directory and add the web command: **serve -s build**
+2. Create a Procfile on the root directory and add the web command: **web: serve -s build**
 3. Save all changes and push your code to GitHub.
 4. In Heroku, as the automatic deploys were enabled during the early deployment, check that the app has been deployed.
 5. Click on the "Open app" button.<br>
+
 The application was succesfully deployed at first attempt. 
 
 ### Forking
