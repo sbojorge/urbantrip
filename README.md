@@ -116,8 +116,37 @@ Click the "Connect" button.
 The app was successfully deploy at first attempt.
 
 ### Connect the backend API with the React application
+The Urbandrf backend API should accept requests from the Urbantrip application.
+In order to achieve that the following steps were taken:
+1. In the urbandrf app on Heroku, click on the "Settings" tab and scroll down to the Config Vars section.
+2. Click on "Reveal Config Vars" and create two variables: CLIENT_ORIGIN and CLIENT_ORIGIN_DEV.
+3. Assign values for each variable as:
+	- CLIENT_ORIGIN: the Heroku app url of the React app;
+    - CLIENT_ORIGIN_DEV: the GitPod url of the React app;
+
+![configvars](/readme/images/deployment/picture_1.png)
+
+4. In order for React to send requests to the API, install the axios library.
+5. In the src folder, create the api folder and then an axiosDefaults.js file inside it.
+6. Import axios at the top of the file.
+7. Define the baseURL, which will be the url of the urbandrf API.
+8. Set the content-type header to multipart/form-data as the application will be dealing with  images as well as text in its requests. 
+9. Set withCredentials to true for avoiding any CORS errors when sending cookies.
+
+![axios](/readme/images/deployment/picture_2.png)
+
+10. Finally, export the axiosDefaults.js file to the App.js component.<br>
+
+The backend, urbandrf, and the frontend, urbantrip, got connected since the first attempt.
 
 ### Final deployment
+These are the steps to follow for the final deployment of the application:
+1. In package.json, in the scripts section, add this command: **heroku-prebuild: npm install -g serve**.
+2. Create a Procfile on the root directory and add the web command: **serve -s build**
+3. Save all changes and push your code to GitHub.
+4. In Heroku, as the automatic deploys were enabled during the early deployment, check that the app has been deployed.
+5. Click on the "Open app" button.<br>
+The application was succesfully deployed at first attempt. 
 
 ### Forking
 
