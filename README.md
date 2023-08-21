@@ -93,6 +93,30 @@ Below you can find the list of the libraries used for the development of this pr
 The site was created using GitPod as editor and pushed to Github to the remote repository urbantrip.
 
 ### Early deployement
+The web site was early deployed at the beginning of the development following these steps:
+#### Repository and workspace
+1. Create an empty repository (with no template) in GitHub and name it using lowercase letters as this is required for React apps.
+2. In the repository, click the "GitPod" button to create a new workspace.
+3. In the workspace, create a React app using the command npx create-react-app with a space and full stop at the end as shown: 
+**npx create-react-app .**
+This will ensure to create the app in the root directory.
+4. Run the command **npm start** to check that the app is working.
+5. Commit and push the code to GitHub.
+#### Heroku app
+1. In your Heroku dashboard, click on the "New" button in order to create a new app.
+2. Name your app and select a region according to your location place.
+3. Click on the "Create app" button.
+#### Connect the repository with the Heroku app
+1. In your newly created Heroku app, click on the "Deploy" tab.
+2. Between the deployment methods, click on "GitHub", enter the name of your repository<br>
+If found, a link to the repository will be displayed.
+Click the "Connect" button.
+3. For automatic deployments after each push to GitHub, scroll down the page and click on the "Enable automatic deploys" button.
+4. To finish, click on the "Deploy branch" button.<br>
+The app was successfully deploy at first attempt.
+
+### Connect the backend API with the React application
+
 ### Final deployment
 
 ### Forking
