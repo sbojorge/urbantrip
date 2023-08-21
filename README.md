@@ -1,8 +1,11 @@
 # Urbantrip
+
+## Project goal
+
 This is a social media for city trip lovers.
 ![responsive](./src/assets/readme/picture_1.png)
 
-Please visit the [Urbantrip](https://urbantrip-a9f84fe92f01.herokuapp.com/)
+Please visit the [Urbantrip](https://urbantrip-a9f84fe92f01.herokuapp.com/) deployed site.
 
 ## Project management
 
@@ -34,35 +37,105 @@ Labels were used to identify epics and user stories of each repo.
 
 Epics were assigned to the "To-do" status and move to "In progress" or "Done" status as the tasks in the user stories were completed.
 
+<!-- add epic and user stories here following the same schema as urbandrf as possible -->
+
 [Back to top](#urbantrip)
 
+---
+
 ## Design
+### Database structure <!-- if applicable -->
+<!--example: 
+The database is composed of 3 models (2 are customised, which meets the assessment criteria of a "minimum of one custom model"): 
+
+- User,
+- Grocery_list,
+- Contact.
+
+The User model is at center, being connected to the 2 others by the id.<br>
+There isn't any direct relation between the Grocery_list and Contact models. -->
+### Wireframes
 ### Typography
+<!-- add an explanation -->
 ![typography](./src/assets/readme/picture_2.png)
 ### Colours
+<!-- add an explanation -->
 ![colours](./src/assets/readme/picture_3.png)
+### Features
+<!--Review the features per page and CRUD when applicable -->
+### Features to be implemented
 
+[Back to top](#urbantrip)
 
+---
 
-## Technologies
+## Technologies used
+
+The application was developed using React and the code was written using the JSX syntax.
+
+Below you can find the list of the libraries used for the development of this project:
+
  * [React-Bootstrap](https://react-bootstrap.netlify.app/), for styling support.
  * [React-Router](https://reactrouter.com/), for enabling "client side routing".
  * [axios](https://axios-http.com/),for fetching and posting data in the Urban-drf backend API. 
  * [Favicon.io](https://favicon.io/) 
  * [Canvas](https://www.canva.com/), for designing the logo and creating the color palette.
  * [React infinite scroll](https://www.npmjs.com/package/react-infinite-scroll-component), for loading post automatically as the user scrolls down.
+
+ ---
+ 
+ ## Testing
+
+ Follow this link for the documentation related to [tests](/TESTING.md)
+
+## Control version
+
+The site was created using GitPod as editor and pushed to Github to the remote repository urbantrip.
+
+### Early deployement
+### Final deployment
+
+### Forking
+
+Most commonly, forks are used to either propose changes to someone else's project or to use someone else's project as a starting point for your own idea.
+
+- Navigate to the GitHub Repository you want to fork.
+
+- On the top right of the page under the header, click the fork button.
+
+- This will create a duplicate of the full project in your GitHub Repository.
+
+### Cloning
+
+Cloning is used to create a local copy of the repository created in GitHub.
+Both, the local copy and the remote are syncronized.
+
+- Navigate to the GitHub Repository you want to clone.
+
+- Above the list of files, click Code.
+
+There are 3 possibilities for copying the URL of the repository: HTTPS, SSH key and GitHub CLI.
+I'll develop the one that I use.
+
+- Click the HTTPS tab and copy the URL.
+
+- On your machine, open your text editor, go to the Command palette and click on Git Clone.
+
+- Past the URL, hit enter and choose a folder to save the repository.   
+
+---
    
 [Back to top](#urbantrip)
 
 ## Credits
-### Media
-- Icons come from [uxwing](https://uxwing.com/)
-- Images come from [rawpixel](https://www.rawpixel.com/)
-
 ### Code
 - My mentor helped me to refine the code for the contact form.
 - Code for hiding the nav bar in the Sign up and Sign in pages was inspired from this article: https://stackoverflow.com/questions/74277306/show-hide-navbar-or-footer-in-routes-with-react-router-dom-v6
 
 - Upload video inspired on: https://www.upbeatcode.com/react/how-to-play-video-in-react/
+
+### Media
+- Icons come from [uxwing](https://uxwing.com/)
+- Images come from [rawpixel](https://www.rawpixel.com/)
 
 [Back to top](#urbantrip)
