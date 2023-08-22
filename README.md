@@ -142,11 +142,14 @@ The backend, urbandrf, and the frontend, urbantrip, got connected since the firs
 
 ### Final deployment
 These are the steps to follow for the final deployment of the application:
-1. In package.json, in the scripts section, add this command: **heroku-prebuild: npm install -g serve**.
-2. Create a Procfile on the root directory and add the web command: **web: serve -s build**
-3. Save all changes and push your code to GitHub.
-4. In Heroku, as the automatic deploys were enabled during the early deployment, check that the app has been deployed.
-5. Click on the "Open app" button.<br>
+1. In index.js, remove the <React.StrictMode> component as this is only need during development.<br>
+IMPORTANT: Keep the comma after the </Router>:
+![strictmode](/readme/images/deployment/picture_3.png)
+2. In package.json, in the scripts section, add this command: **heroku-prebuild: npm install -g serve**.
+3. Create a Procfile on the root directory and add the web command: **web: serve -s build**
+4. Save all changes and push your code to GitHub.
+5. In Heroku, as the automatic deploys were enabled during the early deployment, check that the app has been deployed.
+6. Click on the "Open app" button.<br>
 
 The application was succesfully deployed at first attempt. 
 
