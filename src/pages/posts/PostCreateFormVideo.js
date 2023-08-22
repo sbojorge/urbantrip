@@ -23,7 +23,7 @@ const PostCreateFormVideo = () => {
     content: "",
     video: "",
   });
-  const { title, content, video } = setSource;
+  const { title, content, video } = source;
 
   const videoInput = useRef(null);
   const history = useHistory();
@@ -84,7 +84,6 @@ const PostCreateFormVideo = () => {
 
       <Form.Group>
         <Form.Label>Description</Form.Label>
-
         <Form.Control
           as="textarea"
           rows={6}
