@@ -89,8 +89,8 @@ The font combination for the project was chosen in this blog article: https://co
 This combination goes well with the intrinsic modern look of this project as well with photographies which are at the heart of this web application.
 
 ### Colours
-The colour palette was chosen for its contemporanean style.<br>
-The palette was created using the [Canva’s color palette generator](https://www.canva.com/colors/color-palette-generator/) and one of the avatars from the [undrawn illustrations collection](https://iconduck.com/sets/undraw-illustrations) at [iconduck](https://iconduck.com/).<br>
+The colour palette was chosen for its contemporary style.<br>
+The palette was created using the [Canva’s color palette generator](https://www.canva.com/colors/color-palette-generator/) and one of the avatars from the [unDraw illustrations collection](https://iconduck.com/sets/undraw-illustrations) at [iconduck](https://iconduck.com/).<br>
 Canva used the hues in the avatar to create the palette.
 
 ![colours](/readme/images/UI/picture_3.png)
@@ -179,10 +179,12 @@ The backend, urbandrf, and the frontend, urbantrip, got connected since the firs
 ### Final deployment
 These are the steps to follow for the final deployment of the application:
 1. In index.js, remove the <React.StrictMode> component as this is only need during development.<br>
-IMPORTANT: Keep the comma after the </Router>:
-![strictmode](/readme/images/deployment/picture_3.png)
-2. In package.json, in the scripts section, add this command: **heroku-prebuild: npm install -g serve**.
-3. Create a Procfile on the root directory and add the web command: **web: serve -s build**
+IMPORTANT: Keep the comma after the Router component:
+
+    ![strictmode](/readme/images/deployment/picture_3.png)
+
+2. In package.json, in the scripts section, add this command:**heroku-prebuild: npm install -g serve**.
+3. Create a Procfile on the root directory and add the web command:**web: serve -s build**
 4. Save all changes and push your code to GitHub.
 5. In Heroku, as the automatic deploys were enabled during the early deployment, check that the app has been deployed.
 6. Click on the "Open app" button.<br>
