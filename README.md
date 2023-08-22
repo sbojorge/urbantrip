@@ -3,7 +3,7 @@
 ## Project goal
 
 This is a social media for city trip lovers.
-![responsive](./src/assets/readme/picture_1.png)
+![responsive](/readme/images/UI/picture_1.png)
 
 Please visit the [Urbantrip](https://urbantrip-a9f84fe92f01.herokuapp.com/) deployed site.
 
@@ -55,12 +55,46 @@ The database is composed of 3 models (2 are customised, which meets the assessme
 The User model is at center, being connected to the 2 others by the id.<br>
 There isn't any direct relation between the Grocery_list and Contact models. -->
 ### Wireframes
+Wireframes are created for sketching the UI ideas.<br> The final project may be slightly different. The wireframes of this project are:
+- Landing web page
+
+    ![landing-web](/readme/images/mockups/picture_1.png)
+- Landing mobile app
+
+    ![landing-mob](/readme/images/mockups/picture_2.png)
+- Home web page
+
+    ![home-web](/readme/images/mockups/picture_3.png)
+- Home mobile app
+
+    ![home-mob](/readme/images/mockups/picture_4.png)
+- Create web page
+
+    ![create-web](/readme/images/mockups/picture_5.png)
+- Create mobile app
+
+    ![create-mob](/readme/images/mockups/picture_6.png)
+- Contact web page
+
+    ![contact-web](/readme/images/mockups/picture_7.png)
+- Contact mobile app
+
+    ![contact-mob](/readme/images/mockups/picture_8.png)
+
 ### Typography
-<!-- add an explanation -->
-![typography](./src/assets/readme/picture_2.png)
+The font combination for the project was chosen in this blog article: https://connectivewebdesign.com/blog/best-google-font-combinations
+
+![typography](/readme/images/UI/picture_2.png)
+
+This combination goes well with the intrinsic modern look of this project as well with photographies which are at the heart of this web application.
+
 ### Colours
-<!-- add an explanation -->
-![colours](./src/assets/readme/picture_3.png)
+The colour palette was chosen for its contemporanean style.<br>
+The palette was created using the [Canva’s color palette generator](https://www.canva.com/colors/color-palette-generator/) and one of the avatars from the [undrawn illustrations collection](https://iconduck.com/sets/undraw-illustrations) at [iconduck](https://iconduck.com/).<br>
+Canva used the hues in the avatar to create the palette.
+
+![colours](/readme/images/UI/picture_3.png)
+
 ### Features
 <!--Review the features per page and CRUD when applicable -->
 ### Features to be implemented
@@ -78,9 +112,11 @@ Below you can find the list of the libraries used for the development of this pr
  * [React-Bootstrap](https://react-bootstrap.netlify.app/), for styling support.
  * [React-Router](https://reactrouter.com/), for enabling "client side routing".
  * [axios](https://axios-http.com/),for fetching and posting data in the Urban-drf backend API. 
- * [Favicon.io](https://favicon.io/) 
- * [Canvas](https://www.canva.com/), for designing the logo and creating the color palette.
  * [React infinite scroll](https://www.npmjs.com/package/react-infinite-scroll-component), for loading post automatically as the user scrolls down.
+ * [jwt-decode](https://www.npmjs.com/package/jwt-decode), for decoding JWTs token.
+ * [Favicon.io](https://favicon.io/), for generating the favicon of the project.
+ * [Canvas](https://www.canva.com/), for designing the logo and creating the color palette.
+ * [Balsamiq Wireframes for Desktop](https://balsamiq.com/wireframes/desktop/), for creating the mockups.
 
  ---
  
