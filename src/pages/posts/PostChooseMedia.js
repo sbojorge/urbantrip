@@ -4,7 +4,6 @@ import Row from "react-bootstrap/Row";
 import Image from "react-bootstrap/Image";
 import Container from "react-bootstrap/Container";
 import styles from "../../styles/ChooseMedia.module.css";
-import appStyles from "../../App.module.css";
 import { Link } from "react-router-dom/cjs/react-router-dom";
 import { useRedirect } from "../../hooks/useRedirect";
 
