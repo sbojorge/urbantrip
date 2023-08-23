@@ -1,26 +1,33 @@
 import React, { useEffect, useState } from "react";
+
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Image from "react-bootstrap/Image";
 import Container from "react-bootstrap/Container";
+
 import InfiniteScroll from "react-infinite-scroll-component";
 import Post from "../posts/Post";
+import PopularProfiles from "./PopularProfiles";
 import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/NoResults.png";
+
 import Asset from "../../components/Asset";
+import { ProfileEditDropdown } from "../../components/ControlsDropdown";
+
 import styles from "../../styles/ProfilePage.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
-import PopularProfiles from "./PopularProfiles";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
+
+
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import {
   useProfileData,
   useSetProfileData,
 } from "../../contexts/ProfileDataContext";
-import { ProfileEditDropdown } from "../../components/ControlsDropdown";
+
 
 const ProfilePage = () => {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -87,18 +94,18 @@ const ProfilePage = () => {
             (profile?.following_id ? (
               <Button
                 className={`${btnStyles.Button} ${btnStyles.BlackOutline}`}
-                onClick={() => {
-                  handleUnfollow(profile);
-                }}
+                onClick={() => 
+                  handleUnfollow(profile)
+                }
               >
                 unfollow
               </Button>
             ) : (
               <Button
                 className={`${btnStyles.Button} ${btnStyles.Black}`}
-                onClick={() => {
-                  handleFollow(profile);
-                }}
+                onClick={() => 
+                  handleFollow(profile)
+                }
               >
                 follow
               </Button>
