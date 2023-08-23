@@ -39,7 +39,7 @@ const Post = (props) => {
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`/posts/${id}/`);
-      history.goBack();
+      windows.location.href = "/";
     } catch (err) {
       // console.log(err);
     }
