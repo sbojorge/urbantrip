@@ -87,6 +87,7 @@ const PostCreateFormPicture = () => {
       ))}
 
       <Form.Group>
+        <Form.Label>Description</Form.Label>
         <Form.Control
           as="textarea"
           rows={6}
@@ -142,7 +143,7 @@ const PostCreateFormPicture = () => {
                 >
                   <Asset
                     src="https://res.cloudinary.com/dvvr7cpfs/image/upload/v1689795791/image-upload.96x96_nyevbq.webp"
-                    message="Click or tap to upload an image"
+                    message={"Click or tap to upload an image"}
                   />
                 </Form.Label>
               )}
