@@ -90,27 +90,35 @@ const ProfileEditForm = () => {
   const textFields = (
     <>
       <Form.Group>
-        <Form.Label>Full name:</Form.Label>
+        <Form.Label>Your name is</Form.Label>
         <Form.Control
           type="text"
           name="full_name"
           value={full_name}
           onChange={handleChange}
         />
-        
       </Form.Group>
+      {errors?.full_name?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
       <Form.Group>
-        <Form.Label>Location:</Form.Label>
+        <Form.Label>You're based in</Form.Label>
         <Form.Control
           type="text"
           name="location"
           value={location}
           onChange={handleChange}
         />
-        <br />
       </Form.Group>
+      {errors?.location?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
       <Form.Group>
-        <Form.Label>Test</Form.Label>
+        <Form.Label>Cities</Form.Label>
         <Form.Control
           as="textarea"
           value={cities}
@@ -119,8 +127,13 @@ const ProfileEditForm = () => {
           rows={5}
         />
       </Form.Group>
+      {errors?.cities?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
       <Form.Group>
-        <Form.Label>Bio</Form.Label>
+        <Form.Label>More about you</Form.Label>
         <Form.Control
           as="textarea"
           value={content}
@@ -129,7 +142,6 @@ const ProfileEditForm = () => {
           rows={7}
         />
       </Form.Group>
-
       {errors?.content?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
@@ -141,6 +153,7 @@ const ProfileEditForm = () => {
       >
         cancel
       </Button>
+
       <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
         save
       </Button>
