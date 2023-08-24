@@ -26,11 +26,13 @@ const ProfileEditForm = () => {
   const imageFile = useRef();
 
   const [profileData, setProfileData] = useState({
-    name: "",
-    content: "",
     image: "",
+    full_name: "",
+    location: "",
+    cities: "",
+    content: "",
   });
-  const { name, content, image } = profileData;
+  const { image, full_name, location, cities, content } = profileData;
 
   const [errors, setErrors] = useState({});
 
@@ -39,8 +41,8 @@ const ProfileEditForm = () => {
       if (currentUser?.profile_id?.toString() === id) {
         try {
           const { data } = await axiosReq.get(`/profiles/${id}/`);
-          const { name, content, image } = data;
-          setProfileData({ name, content, image });
+          const { image, full_name, location, cities, content } = data;
+          setProfileData({ image, full_name, location, cities, content });
         } catch (err) {
           console.log(err);
           history.push("/");
@@ -63,7 +65,9 @@ const ProfileEditForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
-    formData.append("name", name);
+    formData.append("full_name", full_name);
+    formData.append("location", location);
+    formData.append("cities", cities);
     formData.append("content", content);
 
     if (imageFile?.current?.files[0]) {
@@ -85,6 +89,36 @@ const ProfileEditForm = () => {
 
   const textFields = (
     <>
+      <Form.Group>
+        <Form.Label>Full name:</Form.Label>
+        <Form.Control
+          type="text"
+          name="full_name"
+          value={full_name}
+          onChange={handleChange}
+        />
+        
+      </Form.Group>
+      <Form.Group>
+        <Form.Label>Location:</Form.Label>
+        <Form.Control
+          type="text"
+          name="location"
+          value={location}
+          onChange={handleChange}
+        />
+        <br />
+      </Form.Group>
+      <Form.Group>
+        <Form.Label>Test</Form.Label>
+        <Form.Control
+          as="textarea"
+          value={cities}
+          onChange={handleChange}
+          name="cities"
+          rows={5}
+        />
+      </Form.Group>
       <Form.Group>
         <Form.Label>Bio</Form.Label>
         <Form.Control
