@@ -19,7 +19,7 @@ import styles from "../../styles/ProfilePage.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
-import { useParams } from "react-router";
+import { useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import {
@@ -52,7 +52,7 @@ const ProfilePage = () => {
         setProfilePosts(profilePosts);
         setHasLoaded(true);
       } catch (err) {
-        // console.log(err);
+        console.log(err);
       }
     };
     fetchData();
@@ -100,7 +100,7 @@ const ProfilePage = () => {
           <Row>
             <div>
               <span>
-                <i class={`fa-solid fa-tree-city ${styles.proficons}`} />
+                <i className={`fa-solid fa-tree-city ${styles.proficons}`} />
               </span>
               {profile?.cities}
             </div>
@@ -108,7 +108,7 @@ const ProfilePage = () => {
           <Row>
             <div>
               <span>
-                <i class={`fa-brands fa-rocketchat ${styles.proficons}`} />
+                <i className={`fa-brands fa-rocketchat ${styles.proficons}`} />
               </span>
               {profile?.content}
             </div>
