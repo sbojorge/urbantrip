@@ -19,7 +19,6 @@ import styles from "../../styles/ProfilePage.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
-
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
@@ -27,7 +26,6 @@ import {
   useProfileData,
   useSetProfileData,
 } from "../../contexts/ProfileDataContext";
-
 
 const ProfilePage = () => {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -73,6 +71,7 @@ const ProfilePage = () => {
         </Col>
         <Col lg={6}>
           <h3 className="m-2">{profile?.owner}</h3>
+          <div>Full name: {profile?.full_name}</div>
           <Row className="justify-content-center no-gutters">
             <Col xs={3} className="my-2">
               <div>{profile?.posts_count}</div>
@@ -88,30 +87,56 @@ const ProfilePage = () => {
             </Col>
           </Row>
         </Col>
-        <Col lg={3} className="text-lg-right">
+        <Col lg={6}>
+          <h4 className="text-center">Get to know me</h4>
+          <Row>
+            <div>
+              <span>
+                <i className={`fa-solid fa-location-dot ${styles.proficons}`} />
+              </span>
+              {profile?.location}
+            </div>
+          </Row>
+          <Row>
+            <div>
+              <span>
+                <i class={`fa-solid fa-tree-city ${styles.proficons}`} />
+              </span>
+              {profile?.cities}
+            </div>
+          </Row>
+          <Row>
+            <div>
+              <span>
+                <i class={`fa-brands fa-rocketchat ${styles.proficons}`} />
+              </span>
+              {profile?.content}
+            </div>
+            
+          </Row>
+        </Col>
+        
+      </Row>
+      <Row>
+      <Col lg={3} className="text-lg-right">
           {currentUser &&
             !is_owner &&
             (profile?.following_id ? (
               <Button
                 className={`${btnStyles.Button} ${btnStyles.BlackOutline}`}
-                onClick={() => 
-                  handleUnfollow(profile)
-                }
+                onClick={() => handleUnfollow(profile)}
               >
                 unfollow
               </Button>
             ) : (
               <Button
                 className={`${btnStyles.Button} ${btnStyles.Black}`}
-                onClick={() => 
-                  handleFollow(profile)
-                }
+                onClick={() => handleFollow(profile)}
               >
                 follow
               </Button>
             ))}
         </Col>
-        {profile?.content && <Col className="p-3">{profile.content}</Col>}
       </Row>
     </>
   );

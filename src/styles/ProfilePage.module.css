@@ -1,13 +1,20 @@
 .ProfileImage {
-    object-fit: cover;
-    height: 120px;
-    width: 120px;
-    margin: 4px;
+  object-fit: cover;
+  height: 120px;
+  width: 120px;
+  margin: 4px;
+}
+
+.proficons {
+  color: #6a62f8;
+  font-size: 1.8rem;
+  padding: 1rem;
+  vertical-align: middle;
+}
+
+@media screen and (max-width: 991px) {
+  .ProfileImage {
+    width: 250px;
+    height: 250px;
   }
-  
-  @media screen and (max-width: 991px) {
-    .ProfileImage {
-      width: 250px;
-      height: 250px;
-    }
-  }
+}

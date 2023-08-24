@@ -1,11 +1,15 @@
 import React from "react";
+
+import Button from "react-bootstrap/Button";
+
 import styles from "../../styles/Profile.module.css";
 import btnStyles from "../../styles/Button.module.css";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { Link } from "react-router-dom/cjs/react-router-dom";
-import Avatar from "../../components/Avatar";
-import Button from "react-bootstrap/Button";
+
 import { useSetProfileData } from '../../contexts/ProfileDataContext';
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import { Link } from "react-router-dom";
+import Avatar from "../../components/Avatar";
+
 
 const Profile = (props) => {
   const { profile, mobile, imageSize = 55 } = props;
