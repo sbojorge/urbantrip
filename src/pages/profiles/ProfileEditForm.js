@@ -14,6 +14,7 @@ import {
   useSetCurrentUser,
 } from "../../contexts/CurrentUserContext";
 import { useHistory, useParams } from "react-router-dom";
+import CountrySelector from "../../components/CountrySelector";
 
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
@@ -110,6 +111,7 @@ const ProfileEditForm = () => {
           name="location"
           value={location}
           onChange={handleChange}
+          
         />
       </Form.Group>
       {errors?.location?.map((message, idx) => (

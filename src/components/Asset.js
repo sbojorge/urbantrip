@@ -8,7 +8,7 @@ const Asset = ({ spinner, src, message }) => {
       {spinner && (
         <Spinner
           animation="grow"
-          variant="info" // change the color in the css
+          variant="info"
           role="status"
           aria-hidden="true"
         />
