@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
+import countryList from "react-select-country-list";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -14,7 +15,6 @@ import {
   useSetCurrentUser,
 } from "../../contexts/CurrentUserContext";
 import { useHistory, useParams } from "react-router-dom";
-import CountrySelector from "../../components/CountrySelector";
 
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
@@ -34,6 +34,8 @@ const ProfileEditForm = () => {
     content: "",
   });
   const { image, full_name, location, cities, content } = profileData;
+  
+  const options = useMemo(() => countryList().getData(), []);
 
   const [errors, setErrors] = useState({});
 
@@ -44,6 +46,7 @@ const ProfileEditForm = () => {
           const { data } = await axiosReq.get(`/profiles/${id}/`);
           const { image, full_name, location, cities, content } = data;
           setProfileData({ image, full_name, location, cities, content });
+          
         } catch (err) {
           console.log(err);
           history.push("/");
@@ -54,7 +57,7 @@ const ProfileEditForm = () => {
     };
 
     handleMount();
-  }, [currentUser, history, id]);
+  }, [currentUser, history, id, options]);
 
   const handleChange = (event) => {
     setProfileData({
@@ -106,24 +109,30 @@ const ProfileEditForm = () => {
       ))}
       <Form.Group>
         <Form.Label>You're based in</Form.Label>
-        <CountrySelector />
-        {/* <Form.Control
+
+        <Form.Control
           as="select"
           name="location"
           value={location}
           onChange={handleChange}
-          
-        /> */}
+        >
+          <option value="">Select a country</option> {/* Default option */}
+          {options.map((country, index) => (
+            <option key={index} value={country.value}>
+              {country.label}
+            </option>
+          ))}
+        </Form.Control>
       </Form.Group>
       {errors?.location?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
       ))}
-      
+
       <Form.Group>
         <Form.Label>Cities</Form.Label>
-        
+
         <Form.Control
           as="textarea"
           value={cities}
@@ -159,7 +168,10 @@ const ProfileEditForm = () => {
         cancel
       </Button>
 
-      <Button className={`${btnStyles.button} ${btnStyles.BlackOutline}`} type="submit">
+      <Button
+        className={`${btnStyles.button} ${btnStyles.BlackOutline}`}
+        type="submit"
+      >
         save
       </Button>
     </>
