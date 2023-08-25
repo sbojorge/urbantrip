@@ -106,21 +106,24 @@ const ProfileEditForm = () => {
       ))}
       <Form.Group>
         <Form.Label>You're based in</Form.Label>
-        <Form.Control
+        <CountrySelector />
+        {/* <Form.Control
           as="select"
           name="location"
           value={location}
           onChange={handleChange}
           
-        />
+        /> */}
       </Form.Group>
       {errors?.location?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
       ))}
+      
       <Form.Group>
         <Form.Label>Cities</Form.Label>
+        
         <Form.Control
           as="textarea"
           value={cities}
@@ -150,13 +153,13 @@ const ProfileEditForm = () => {
         </Alert>
       ))}
       <Button
-        className={`${btnStyles.Button} ${btnStyles.Blue}`}
+        className={`mx-2 ${btnStyles.button} ${btnStyles.BlackOutline}`}
         onClick={() => history.goBack()}
       >
         cancel
       </Button>
 
-      <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
+      <Button className={`${btnStyles.button} ${btnStyles.BlackOutline}`} type="submit">
         save
       </Button>
     </>

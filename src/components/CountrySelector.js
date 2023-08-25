@@ -6,11 +6,11 @@ const CountrySelector = () => {
   const [value, setValue] = useState("");
   const options = useMemo(() => countryList().getData(), []);
 
-  const changeHandler = (value) => {
+  const handleChange = (value) => {
     setValue(value);
   };
 
-  return <Select options={options} value={value} onChange={changeHandler} />;
+  return <Select options={options} value={value} onChange={handleChange} />;
 };
 
 export default CountrySelector;
