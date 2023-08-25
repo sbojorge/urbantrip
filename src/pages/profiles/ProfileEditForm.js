@@ -106,7 +106,7 @@ const ProfileEditForm = () => {
       <Form.Group>
         <Form.Label>You're based in</Form.Label>
         <Form.Control
-          type="text"
+          as="select"
           name="location"
           value={location}
           onChange={handleChange}
