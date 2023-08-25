@@ -114,7 +114,6 @@ Below you can find the list of the libraries used for the development of this pr
  * [axios](https://axios-http.com/),for fetching and posting data in the Urban-drf backend API. 
  * [React infinite scroll](https://www.npmjs.com/package/react-infinite-scroll-component), for loading post automatically as the user scrolls down.
  * [React Select Country list](https://www.npmjs.com/package/react-select-country-list), for letting the user to select his/her location while editing profile.
- * [React Select](https://www.npmjs.com/package/react-select), for creating a customizable select box.
  * [jwt-decode](https://www.npmjs.com/package/jwt-decode), for decoding JWTs token.
  * [Favicon.io](https://favicon.io/), for generating the favicon of the project.
  * [Canvas](https://www.canva.com/), for designing the logo and creating the color palette.
