@@ -96,6 +96,11 @@ function App() {
             path="/contact/create/"
             render={() => <ContactCreateForm />}
           />
+          <Route
+            exact
+            path="/services"
+            render={() => <NotFound />}
+          />
           <Route render={() => <NotFound />} />
         </Switch>
       </Container>

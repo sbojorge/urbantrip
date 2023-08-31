@@ -1,11 +1,11 @@
 .NavBar {
-    /* border: solid 1px #2d2d3e; */
+   
     background-color: #2d2d3e;
 }
 
 .icons {
     color: #9c9cae;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     padding: 1rem;
     vertical-align: middle;
 }
@@ -19,6 +19,7 @@
 .Links {
     color: whitesmoke;
     font-family: 'Syncopate', sans-serif;
+    font-size: 0.8rem;
 }
 
 .Links:hover {

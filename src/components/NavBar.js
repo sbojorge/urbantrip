@@ -57,6 +57,14 @@ const NavBar = () => {
         Liked
       </NavLink>
       <NavLink
+        to="/services"
+        className={styles.Links}
+        activeClassName={styles.Active}
+      >
+        <i className={`${styles.icons} fa-solid fa-handshake-simple`}></i>
+        Services
+      </NavLink>
+      <NavLink
         className={styles.Links}
         activeClassName={styles.Active}
         to="/contact/create"
@@ -93,6 +101,14 @@ const NavBar = () => {
       <NavLink to="/signup" className={styles.Links}>
         <i className={`${styles.icons} fa-solid fa-person-circle-plus`}></i>Sign
         up
+      </NavLink>
+      <NavLink
+        to="/services"
+        className={styles.Links}
+        activeClassName={styles.Active}
+      >
+        <i className={`${styles.icons} fa-solid fa-handshake-simple`}></i>
+        Services
       </NavLink>
     </>
   );
