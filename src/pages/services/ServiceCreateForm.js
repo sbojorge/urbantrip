@@ -14,6 +14,9 @@ import btnStyles from "../../styles/Button.module.css";
 
 import Asset from "../../components/Asset";
 
+import { useHistory } from "react-router-dom";
+import { axiosReq } from "../../api/axiosDefaults";
+
 const ServiceCreateForm = () => {
   const [errors, setErrors] = useState({});
 
@@ -44,6 +47,7 @@ const ServiceCreateForm = () => {
   } = serviceData;
 
   const imageInput = useRef(null);
+  const history = useHistory();
 
   const handleChange = (event) => {
     setServiceData({
@@ -59,6 +63,31 @@ const ServiceCreateForm = () => {
         ...serviceData,
         image: URL.createObjectURL(event.target.files[0]),
       });
+    }
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData();
+
+    formData.append("name", name);
+    formData.append("country", country);
+    formData.append("city", city);
+    formData.append("phone_number", phone_number);
+    formData.append("email", email);
+    formData.append("website", website);
+    formData.append("facebook", facebook);
+    formData.append("instagram", instagram);
+    formData.append("image", imageInput.current.files[0]);
+
+    try {
+      const { data } = await axiosReq.post("/services/", formData);
+      history.push(`/services/${data.id}`);
+    } catch (err) {
+      // console.log(err);
+      if (err.response?.status !== 401) {
+        setErrors(err.response?.data);
+      }
     }
   };
 
@@ -200,7 +229,7 @@ const ServiceCreateForm = () => {
 
       <Button
         className={`mx-2 ${btnStyles.button} ${btnStyles.BlackOutline}`}
-        onClick={() => {}}
+        onClick={() => history.goBack()}
       >
         cancel
       </Button>
@@ -214,7 +243,7 @@ const ServiceCreateForm = () => {
   );
 
   return (
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <Row>
         <Col className="py-2 p-0 p-md-2" md={7} lg={8}>
           <Container
