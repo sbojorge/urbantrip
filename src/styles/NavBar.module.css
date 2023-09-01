@@ -16,6 +16,21 @@
     color: #6a62f8;
 }
 
+#Links {
+    color: whitesmoke;
+    font-family: 'Syncopate', sans-serif;
+    font-size: 0.8rem;
+    padding-top: 1rem;
+}
+
+#Links:hover {
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+    color: #6a62f8;
+    transition: color ease-in-out 0.3s;
+}
+
 .Links {
     color: whitesmoke;
     font-family: 'Syncopate', sans-serif;
@@ -46,3 +61,19 @@
     height: 3.125rem;
     background-color: #6a62f8;
 }
+
+.Dropdown {
+    display: block;
+    width: 100%;
+    padding: 0.25rem 1.5rem;
+    clear: both;
+    font-weight: 400;
+    font-family: 'Syncopate', sans-serif;
+    color: #2d2d3e;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+}
+
+

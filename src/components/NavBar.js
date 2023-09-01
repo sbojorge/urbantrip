@@ -1,9 +1,10 @@
 import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
+import NavDropdown from "react-bootstrap/NavDropdown";
 import Logo from "../assets/Logo.webp";
 import styles from "../styles/NavBar.module.css";
-import { useLocation, NavLink } from "react-router-dom";
+import { useLocation, NavLink, Link } from "react-router-dom";
 import {
   useCurrentUser,
   useSetCurrentUser,
@@ -56,14 +57,33 @@ const NavBar = () => {
         <i className={`${styles.icons} fa-sharp fa-solid fa-heart`}></i>
         Liked
       </NavLink>
-      <NavLink
-        to="/services"
-        className={styles.Links}
-        activeClassName={styles.Active}
+      <i className={`${styles.icons} fa-solid fa-handshake-simple`}></i>
+      <NavDropdown
+        id={styles.Links}
+        title="Services"        
+        ref={ref}
+        onClick={() => setExpanded(!expanded)}
       >
-        <i className={`${styles.icons} fa-solid fa-handshake-simple`}></i>
-        Services
-      </NavLink>
+        <NavDropdown.Item
+          className={styles.Dropdown}
+          as={Link}
+          to="/services"
+          ref={ref}
+          onClick={() => setExpanded(!expanded)}
+        >
+          find a service
+        </NavDropdown.Item>
+        <NavDropdown.Item
+          className={styles.Dropdown}
+          as={Link}
+          to="/services/create"
+          ref={ref}
+          onClick={() => setExpanded(!expanded)}
+        >
+          add a service
+        </NavDropdown.Item>
+      </NavDropdown>
+
       <NavLink
         className={styles.Links}
         activeClassName={styles.Active}
@@ -101,14 +121,6 @@ const NavBar = () => {
       <NavLink to="/signup" className={styles.Links}>
         <i className={`${styles.icons} fa-solid fa-person-circle-plus`}></i>Sign
         up
-      </NavLink>
-      <NavLink
-        to="/services"
-        className={styles.Links}
-        activeClassName={styles.Active}
-      >
-        <i className={`${styles.icons} fa-solid fa-handshake-simple`}></i>
-        Services
       </NavLink>
     </>
   );
