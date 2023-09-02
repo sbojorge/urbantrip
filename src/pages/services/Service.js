@@ -70,7 +70,14 @@ const Service = (props) => {
           <Col>{city && <Card.Text>{city}</Card.Text>}</Col>
         </Row>
         <p className="text-center">
-          <Rating readonly initialValue={average_rating} size={25} />
+          <Rating
+            readonly
+            initialValue={average_rating}
+            size={40}
+            showTooltip
+            tooltipArray={["Terrible", "Bad", "Average", "Great", "Perfect"]}
+            fillColor="#6A62F8"
+          />
         </p>
         {reviews_count && (
           <Card.Title className="text-center">
@@ -85,7 +92,6 @@ const Service = (props) => {
             >
               <i className={`far fa-star ${styles.posticons}`} />
             </OverlayTrigger>
-            
           )}
           Leave your rate
           <Link to={`/services/${id}`}>
