@@ -18,6 +18,7 @@
     "react-scripts": "^4.0.3",
     "react-select": "^5.7.4",
     "react-select-country-list": "^2.2.3",
+    "react-simple-star-rating": "^4.0.5",
     "web-vitals": "^1.1.2"
   },
   "scripts": {

@@ -10,6 +10,7 @@ import Tooltip from "react-bootstrap/Tooltip";
 import { Link, useHistory } from "react-router-dom";
 import { ControlsDropdown } from "../../components/ControlsDropdown";
 import { axiosRes } from "../../api/axiosDefaults";
+import { Rating } from "react-simple-star-rating";
 
 const Service = (props) => {
   const {
@@ -68,9 +69,9 @@ const Service = (props) => {
           <Col>{country && <Card.Text>{country}</Card.Text>}</Col>
           <Col>{city && <Card.Text>{city}</Card.Text>}</Col>
         </Row>
-        {average_rating && (
-          <Card.Title className="text-center">{average_rating}</Card.Title>
-        )}
+        <p className="text-center">
+          <Rating readonly initialValue={average_rating} size={25} />
+        </p>
         {reviews_count && (
           <Card.Title className="text-center">
             reviews:{reviews_count}
