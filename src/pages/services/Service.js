@@ -1,10 +1,12 @@
 import React from "react";
 import styles from "../../styles/Service.module.css";
+import btnStyles from "../../styles/Button.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import Card from "react-bootstrap/Card";
 import Media from "react-bootstrap/Media";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import { Link, useHistory } from "react-router-dom";
@@ -30,6 +32,7 @@ const Service = (props) => {
     updated_on,
     servicePage,
     reviews_count,
+    review_id,
   } = props;
 
   const currentUser = useCurrentUser();
@@ -85,12 +88,28 @@ const Service = (props) => {
           </Card.Title>
         )}
         <div className={styles.PostBar}>
-          {is_owner && (
+          {/* the icon appears only if user is the owner */}
+          {is_owner ? (
             <OverlayTrigger
               placement="top"
               overlay={<Tooltip>You can't rate your own service!</Tooltip>}
             >
               <i className={`far fa-star ${styles.posticons}`} />
+            </OverlayTrigger>
+          ) : review_id ? (
+            <span>
+              <i className={`fas fa-star ${styles.fullicon}`} />
+            </span>
+          ) : currentUser ? (
+            <span>
+              <i className={`far fa-star ${styles.posticons}`} />
+            </span>
+          ) : (
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip>Log in to rate this service!</Tooltip>}
+            >
+              <i className={`${styles.posticons} far fa-star`} />
             </OverlayTrigger>
           )}
           Leave your rate
