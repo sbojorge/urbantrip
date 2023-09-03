@@ -20,6 +20,7 @@ import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import ContactCreateForm from "./pages/contacts/ContactCreateForm";
 import ServiceCreateForm from "./pages/services/ServiceCreateForm";
 import ServicePage from "./pages/services/ServicePage";
+import ServicesPage from "./pages/services/ServicesPage";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -101,7 +102,7 @@ function App() {
           <Route
             exact
             path="/services"
-            render={() => <NotFound />}
+            render={() => <ServicesPage message="No results found.Adjust the search keyword" />}
           />
           <Route
             exact
