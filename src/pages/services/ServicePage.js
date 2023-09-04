@@ -11,33 +11,32 @@ import { axiosReq } from "../../api/axiosDefaults";
 import Service from "./Service";
 
 const ServicePage = () => {
-    const { id } = useParams();
-    const [service, setService] = useState({ results: [] });
+  const { id } = useParams();
+  const [service, setService] = useState({ results: [] });
 
-    useEffect(() => {
-        const handleMount = async () => {
-          try {
-            const [{ data: service }] = await Promise.all([
-              axiosReq.get(`/services/${id}`),
-              
-            ]);
-            setService({ results: [service] });
-            console.log(service)
-            
-          } catch (err) {
-            console.log(err);
-          }
-        };
-    
-        handleMount();
-      }, [id]);
+  useEffect(() => {
+    const handleMount = async () => {
+      try {
+        const [{ data: service }] = await Promise.all([
+          axiosReq.get(`/services/${id}`),
+        ]);
+        setService({ results: [service] });
+        console.log(service);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    handleMount();
+  }, [id]);
 
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <p>Popular profiles for mobile. Won't need this</p>
         <Service {...service.results[0]} setService={setService} servicePage />
-        <Container className={appStyles.Content}>Rating</Container>
+        
+        <Container className={appStyles.Content}>Review</Container>
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
         Popular profiles for desktop. Won't need this either

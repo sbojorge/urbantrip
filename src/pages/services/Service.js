@@ -58,7 +58,12 @@ const Service = (props) => {
         <Media className="align-items-center justify-content-between">
           <div className="d-flex align-items-center">
             <span>{updated_on}</span>
-            {is_owner && servicePage && "..."}
+            {is_owner && servicePage && (
+              <ControlsDropdown
+                handleEdit={handleEdit}
+                handleDelete={handleDelete}
+              />
+            )}
           </div>
         </Media>
       </Card.Body>
@@ -77,8 +82,6 @@ const Service = (props) => {
             readonly
             initialValue={average_rating}
             size={40}
-            showTooltip
-            tooltipArray={["Terrible", "Bad", "Average", "Great", "Perfect"]}
             fillColor="#6A62F8"
           />
         </p>
@@ -88,7 +91,6 @@ const Service = (props) => {
           </Card.Title>
         )}
         <div className={styles.PostBar}>
-          {/* the icon appears only if user is the owner */}
           {is_owner ? (
             <OverlayTrigger
               placement="top"
