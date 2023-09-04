@@ -1,14 +1,16 @@
 import React from "react";
+
 import styles from "../../styles/Service.module.css";
 import btnStyles from "../../styles/Button.module.css";
+
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+
 import Card from "react-bootstrap/Card";
 import Media from "react-bootstrap/Media";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
-import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-import Tooltip from "react-bootstrap/Tooltip";
+
 import { Link, useHistory } from "react-router-dom";
 import { ControlsDropdown } from "../../components/ControlsDropdown";
 import { axiosRes } from "../../api/axiosDefaults";
@@ -55,7 +57,7 @@ const Service = (props) => {
   return (
     <Card className={styles.Post}>
       <Card.Body>
-        <Media className="align-items-center justify-content-between">
+        <Media className="align-items-center justify-content-end">
           <div className="d-flex align-items-center">
             <span>{updated_on}</span>
             {is_owner && servicePage && (
@@ -67,9 +69,7 @@ const Service = (props) => {
           </div>
         </Media>
       </Card.Body>
-      <Link to={`/services/${id}`}>
-        <Card.Img src={image} alt={name} />
-      </Link>
+      <Card.Img src={image} alt={name} />      
       <Card.Body>
         {name && <Card.Title className="text-center">{name}</Card.Title>}
         <Row>
@@ -91,34 +91,27 @@ const Service = (props) => {
           </Card.Title>
         )}
         <div className={styles.PostBar}>
-          {is_owner ? (
-            <OverlayTrigger
-              placement="top"
-              overlay={<Tooltip>You can't rate your own service!</Tooltip>}
-            >
+          {!is_owner && (
+            <>
               <i className={`far fa-star ${styles.posticons}`} />
-            </OverlayTrigger>
-          ) : review_id ? (
-            <span>
-              <i className={`fas fa-star ${styles.fullicon}`} />
-            </span>
-          ) : currentUser ? (
-            <span>
-              <i className={`far fa-star ${styles.posticons}`} />
-            </span>
-          ) : (
-            <OverlayTrigger
-              placement="top"
-              overlay={<Tooltip>Log in to rate this service!</Tooltip>}
-            >
-              <i className={`${styles.posticons} far fa-star`} />
-            </OverlayTrigger>
+              <Button
+                className={`mx-2 ${btnStyles.button} ${btnStyles.BlackOutline}`}
+                onClick={() => history.push(`/reviews/${id}/create`)}
+              >
+                Leave your rate
+              </Button>
+            </>
           )}
-          Leave your rate
+
           <Link to={`/services/${id}`}>
             <i className={`${styles.posticons} far fa-address-book`} />
+            <Button
+            className={`mx-2 ${btnStyles.button} ${btnStyles.BlackOutline}`}
+          >
+            Contact details
+          </Button>
           </Link>
-          Contact details
+          
         </div>
       </Card.Body>
     </Card>
