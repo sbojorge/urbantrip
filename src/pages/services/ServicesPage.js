@@ -62,7 +62,6 @@ const ServicesPage = ({ message }) => {
             placeholder="Search by service category, country or city"
           />
         </Form>
-
         {hasLoaded ? (
           <>
             {services.results.length ? (

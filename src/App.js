@@ -21,6 +21,7 @@ import ContactCreateForm from "./pages/contacts/ContactCreateForm";
 import ServiceCreateForm from "./pages/services/ServiceCreateForm";
 import ServicePage from "./pages/services/ServicePage";
 import ServicesPage from "./pages/services/ServicesPage";
+import ServiceEditForm from "./pages/services/ServiceEditForm";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -113,6 +114,11 @@ function App() {
             exact
             path="/services/:id"
             render={() => <ServicePage />}
+          />
+          <Route
+            exact
+            path="/services/:id/edit"
+            render={() => <ServiceEditForm />}
           />
           <Route render={() => <NotFound />} />
         </Switch>
