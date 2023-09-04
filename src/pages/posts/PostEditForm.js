@@ -5,6 +5,7 @@ import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import Image from "react-bootstrap/Image";
 import Container from "react-bootstrap/Container";
 
 import styles from "../../styles/PostCreateEditForm.module.css";
@@ -135,7 +136,7 @@ const PostEditForm = () => {
           >
             <Form.Group className="text-center">
               <figure>
-                <image className={appStyles.Image} src={image} rounded />
+                <Image className={appStyles.Image} src={image} rounded />
               </figure>
               <div>
                 <Form.Label

@@ -21,7 +21,7 @@ const ServicePage = () => {
           axiosReq.get(`/services/${id}`),
         ]);
         setService({ results: [service] });
-        console.log(service);
+        
       } catch (err) {
         console.log(err);
       }

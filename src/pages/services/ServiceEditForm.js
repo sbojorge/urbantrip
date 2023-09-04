@@ -12,8 +12,6 @@ import styles from "../../styles/PostCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
-import Asset from "../../components/Asset";
-
 import { useHistory, useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 
@@ -55,6 +53,7 @@ const ServiceEditForm = () => {
       try {
         const { data } = await axiosReq.get(`/services/${id}/`);
         const {
+          category,
           name,
           country,
           city,
@@ -69,6 +68,7 @@ const ServiceEditForm = () => {
 
         is_owner
           ? setServiceData({
+              category,
               name,
               country,
               city,
@@ -84,6 +84,7 @@ const ServiceEditForm = () => {
         // console.log(err);
       }
     };
+
     handleMount();
   }, [history, id]);
 
@@ -107,7 +108,8 @@ const ServiceEditForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
-
+    
+    formData.append("category", category);
     formData.append("name", name);
     formData.append("country", country);
     formData.append("city", city);
@@ -116,11 +118,14 @@ const ServiceEditForm = () => {
     formData.append("website", website);
     formData.append("facebook", facebook);
     formData.append("instagram", instagram);
-    formData.append("image", imageInput.current.files[0]);
+
+    if (imageInput?.current?.files[0]) {
+      formData.append("image", imageInput.current.files[0]);
+    }
 
     try {
-      const { data } = await axiosReq.post("/services/", formData);
-      history.push(`/services/${data.id}`);
+      await axiosReq.put(`/services/${id}/`, formData);
+      history.push(`/services/${id}`);
     } catch (err) {
       // console.log(err);
       if (err.response?.status !== 401) {
@@ -140,11 +145,11 @@ const ServiceEditForm = () => {
           onChange={handleChange}
         >
           <option>Select a service category</option>
-          <option>Tour guide</option>
-          <option>Accomodation</option>
-          <option>Restaurant</option>
-          <option>Travel agency</option>
-          <option>Other</option>
+          <option>TOUR_GUIDE</option>
+          <option>ACCOMODATION</option>
+          <option>RESTAURANT</option>
+          <option>TRAVEL_AGENCY</option>
+          <option>OTHER</option>
         </Form.Control>
       </Form.Group>
       {errors?.category?.map((message, idx) => (
@@ -153,7 +158,7 @@ const ServiceEditForm = () => {
         </Alert>
       ))}
       <Form.Group>
-        <Form.Label>Name or Company name</Form.Label>
+        <Form.Label>Name</Form.Label>
         <Form.Control
           type="text"
           name="name"
@@ -198,7 +203,7 @@ const ServiceEditForm = () => {
         <Form.Label>Phone number</Form.Label>
         <Form.Control
           type="text"
-          name="phone number"
+          name="phone_number"
           value={phone_number}
           onChange={handleChange}
         />
@@ -275,7 +280,7 @@ const ServiceEditForm = () => {
         className={`${btnStyles.button} ${btnStyles.BlackOutline}`}
         type="submit"
       >
-        create
+        save
       </Button>
     </div>
   );
@@ -288,31 +293,17 @@ const ServiceEditForm = () => {
             className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
           >
             <Form.Group className="text-center">
-              {image ? (
-                <>
-                  <figure>
-                    <Image className={appStyles.Image} src={image} rounded />
-                  </figure>
-                  <div>
-                    <Form.Label
-                      className={`${btnStyles.button} btn`}
-                      htmlFor="image-upload"
-                    >
-                      Change the image
-                    </Form.Label>
-                  </div>
-                </>
-              ) : (
+              <figure>
+                <Image className={appStyles.Image} src={image} rounded />
+              </figure>
+              <div>
                 <Form.Label
-                  className="d-flex justify-content-center"
+                  className={`${btnStyles.button} btn`}
                   htmlFor="image-upload"
                 >
-                  <Asset
-                    src="https://res.cloudinary.com/dvvr7cpfs/image/upload/v1693225465/handshake.256x176_vv06fu.png"
-                    message={"Click or tap to upload an image"}
-                  />
+                  Change the image
                 </Form.Label>
-              )}
+              </div>
 
               <Form.File
                 id="image-upload"

@@ -102,11 +102,11 @@ const ServiceCreateForm = () => {
           onChange={handleChange}
         >
           <option>Select a service category</option>
-          <option>Tour guide</option>
-          <option>Accomodation</option>
-          <option>Restaurant</option>
-          <option>Travel agency</option>
-          <option>Other</option>
+          <option>TOUR_GUIDE</option>
+          <option>ACCOMODATION</option>
+          <option>RESTAURANT</option>
+          <option>TRAVEL_AGENCY</option>
+          <option>OTHER</option>
         </Form.Control>
       </Form.Group>
       {errors?.category?.map((message, idx) => (
@@ -115,7 +115,7 @@ const ServiceCreateForm = () => {
         </Alert>
       ))}
       <Form.Group>
-        <Form.Label>Name or Company name</Form.Label>
+        <Form.Label>Name</Form.Label>
         <Form.Control
           type="text"
           name="name"
@@ -160,7 +160,7 @@ const ServiceCreateForm = () => {
         <Form.Label>Phone number</Form.Label>
         <Form.Control
           type="text"
-          name="phone number"
+          name="phone_number"
           value={phone_number}
           onChange={handleChange}
         />
