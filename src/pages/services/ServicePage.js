@@ -10,16 +10,11 @@ import { useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 
 import ServiceDetail from "./ServiceDetail";
-import ReviewCreateForm from "../reviews/ReviewCreateForm";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import ReviewsPage from "../reviews/ReviewsPage";
 
 const ServicePage = () => {
   const { id } = useParams();
-  const [service, setService] = useState({ results: [] });
-
-  const currentUser = useCurrentUser();
-  const profile_image = currentUser?.profile_image;
+  const [service, setService] = useState({ results: [] });  
   const [reviews, setReviews] = useState({ results: [] });
 
   useEffect(() => {
@@ -46,23 +41,6 @@ const ServicePage = () => {
 
         <Container className={appStyles.Content}>
           <ReviewsPage />
-          {/* {currentUser ? (
-            <ReviewCreateForm
-              profile_id={currentUser.profile_id}
-              profileImage={profile_image}
-              service={id}
-              setService={setService}
-              setReviews={setReviews}
-            />
-          ) : reviews.results.length ? (
-            "Reviews"
-          ) : null}
-          {reviews.results.length &&
-            reviews.results.map((review) => (
-              <p key={review.id}>
-                {review.owner}: {review.content}
-              </p>
-            ))} */}
         </Container>
       </Col>
     </Row>
