@@ -92,7 +92,7 @@ const ProfilePage = () => {
           <Row>
             <div>
               <span>
-                <i className={`fa-solid fa-location-dot ${styles.proficons}`} />
+                <i className={`fas fa-location-dot ${styles.proficons}`} />
               </span>
               {profile?.location}
             </div>

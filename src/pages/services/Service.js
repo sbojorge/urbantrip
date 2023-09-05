@@ -25,16 +25,11 @@ const Service = (props) => {
     name,
     country,
     city,
-    phone_number,
-    email,
-    website,
-    facebook,
-    instagram,
     image,
     updated_on,
     servicePage,
     reviews_count,
-    review_id,
+    
   } = props;
 
   const currentUser = useCurrentUser();

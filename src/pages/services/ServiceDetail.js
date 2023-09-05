@@ -1,22 +1,20 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 
-import Form from "react-bootstrap/Form";
-import Alert from "react-bootstrap/Alert";
-import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Image from "react-bootstrap/Image";
 import Container from "react-bootstrap/Container";
+import Card from "react-bootstrap/Card";
+import ListGroup from "react-bootstrap/ListGroup";
 
-import styles from "../../styles/PostCreateEditForm.module.css";
+import styles from "../../styles/ServiceCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
-import btnStyles from "../../styles/Button.module.css";
 
 import { useHistory, useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
+import { Rating } from "react-simple-star-rating";
 
 const ServiceDetail = () => {
-  const [errors, setErrors] = useState({});
+  // const [errors, setErrors] = useState({});
 
   const [serviceData, setServiceData] = useState({
     category: "",
@@ -29,6 +27,7 @@ const ServiceDetail = () => {
     facebook: "",
     instagram: "",
     image: "",
+    average_rating: "",
   });
 
   const {
@@ -42,9 +41,9 @@ const ServiceDetail = () => {
     facebook,
     instagram,
     image,
+    average_rating,
   } = serviceData;
-
-  const imageInput = useRef(null);
+  
   const history = useHistory();
   const { id } = useParams();
 
@@ -62,8 +61,7 @@ const ServiceDetail = () => {
           website,
           facebook,
           instagram,
-          image,
-          is_owner
+          image,          
         } = data;
         setServiceData({
           category,
@@ -77,7 +75,7 @@ const ServiceDetail = () => {
           instagram,
           image,
         })
-        
+  
       } catch (err) {
         // console.log(err);
       }
@@ -86,244 +84,96 @@ const ServiceDetail = () => {
     handleMount();
   }, [history, id]);
 
-  const handleChange = (event) => {
-    setServiceData({
-      ...serviceData,
-      [event.target.name]: event.target.value,
-    });
-  };
+  // const handleChange = (event) => {
+  //   setServiceData({
+  //     ...serviceData,
+  //     [event.target.name]: event.target.value,
+  //   });
+  // };
 
-  const handleChangeImage = (event) => {
-    if (event.target.files.length) {
-      URL.revokeObjectURL(image);
-      setServiceData({
-        ...serviceData,
-        image: URL.createObjectURL(event.target.files[0]),
-      });
-    }
-  };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    const formData = new FormData();
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault();
+  //   const formData = new FormData();
     
-    formData.append("category", category);
-    formData.append("name", name);
-    formData.append("country", country);
-    formData.append("city", city);
-    formData.append("phone_number", phone_number);
-    formData.append("email", email);
-    formData.append("website", website);
-    formData.append("facebook", facebook);
-    formData.append("instagram", instagram);
+  //   formData.append("category", category);
+  //   formData.append("name", name);
+  //   formData.append("country", country);
+  //   formData.append("city", city);
+  //   formData.append("phone_number", phone_number);
+  //   formData.append("email", email);
+  //   formData.append("website", website);
+  //   formData.append("facebook", facebook);
+  //   formData.append("instagram", instagram);    
+  //   formData.append("image", image);
+    
 
-    if (imageInput?.current?.files[0]) {
-      formData.append("image", imageInput.current.files[0]);
-    }
-
-    try {
-      await axiosReq.put(`/services/${id}/`, formData);
-      history.push(`/services/${id}`);
-    } catch (err) {
-      // console.log(err);
-      if (err.response?.status !== 401) {
-        setErrors(err.response?.data);
-      }
-    }
-  };
-
-  const textFields = (
-    <div className="text-center">
-      <Form.Group>
-        <Form.Label>Category</Form.Label>
-        <Form.Control
-          as="select"
-          name="category"
-          value={category}
-          onChange={handleChange}
-        >
-          <option>Select a service category</option>
-          <option>TOUR_GUIDE</option>
-          <option>ACCOMODATION</option>
-          <option>RESTAURANT</option>
-          <option>TRAVEL_AGENCY</option>
-          <option>OTHER</option>
-        </Form.Control>
-      </Form.Group>
-      {errors?.category?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))}
-      <Form.Group>
-        <Form.Label>Name</Form.Label>
-        <Form.Control
-          type="text"
-          name="name"
-          value={name}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      {errors?.name?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))}
-      <Form.Group>
-        <Form.Label>Country</Form.Label>
-        <Form.Control
-          type="text"
-          name="country"
-          value={country}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      {errors?.country?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))}
-      <Form.Group>
-        <Form.Label>City</Form.Label>
-        <Form.Control
-          type="text"
-          name="city"
-          value={city}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      {errors?.city?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))}
-      <Form.Group>
-        <Form.Label>Phone number</Form.Label>
-        <Form.Control
-          type="text"
-          name="phone_number"
-          value={phone_number}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      {errors?.phone_number?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))}
-      <Form.Group>
-        <Form.Label>Email</Form.Label>
-        <Form.Control
-          type="email"
-          name="email"
-          value={email}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      {errors?.email?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))}
-      <Form.Group>
-        <Form.Label>Website</Form.Label>
-        <Form.Control
-          type="text"
-          name="website"
-          value={website}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      {errors?.website?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))}
-      <Form.Group>
-        <Form.Label>Facebook</Form.Label>
-        <Form.Control
-          type="text"
-          name="facebook"
-          value={facebook}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      {errors?.facebook?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))}
-      <Form.Group>
-        <Form.Label>Instagram</Form.Label>
-        <Form.Control
-          type="text"
-          name="instagram"
-          value={instagram}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      {errors?.instagram?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))}
-
-      <Button
-        className={`mx-2 ${btnStyles.button} ${btnStyles.BlackOutline}`}
-        onClick={() => history.goBack()}
-      >
-        cancel
-      </Button>
-      <Button
-        className={`${btnStyles.button} ${btnStyles.BlackOutline}`}
-        type="submit"
-      >
-        save
-      </Button>
-    </div>
-  );
+  //   try {
+  //     await axiosReq.put(`/services/${id}/`, formData);
+  //     history.push(`/services/${id}`);
+  //   } catch (err) {
+  //     // console.log(err);
+  //     if (err.response?.status !== 401) {
+  //       setErrors(err.response?.data);
+  //     }
+  //   }
+  // };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Row>
-        <Col className="py-2 p-0 p-md-2" md={7} lg={8}>
-          <Container
-            className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
-          >
-            <Form.Group className="text-center">
-              <figure>
-                <Image className={appStyles.Image} src={image} rounded />
-              </figure>
-              <div>
-                <Form.Label
-                  className={`${btnStyles.button} btn`}
-                  htmlFor="image-upload"
-                >
-                  Change the image
-                </Form.Label>
-              </div>
+    <Row>
+      <Col className="py-2 p-0 p-md-2" md={7} lg={8}>
+        <Container
+          className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
+        >
+          <Card>
+            <Card.Img className={appStyles.Image} src={image} rounded />
+            <Card.Body>
+              <Card.Title className="text-center">{name}</Card.Title>
+              <Card.Subtitle className="mb-2 text-muted text-center">
+                Category: {category}
+              </Card.Subtitle>
 
-              <Form.File
-                id="image-upload"
-                accept="image/*"
-                onChange={handleChangeImage}
-                ref={imageInput}
-              />
-            </Form.Group>
-            {errors?.image?.map((message, idx) => (
-              <Alert variant="warning" key={idx}>
-                {message}
-              </Alert>
-            ))}
-
-            <div className="d-md-none">{textFields}</div>
-          </Container>
-        </Col>
-        <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
-          <Container className={appStyles.Content}>{textFields}</Container>
-        </Col>
-      </Row>
-    </Form>
+              <ListGroup variant="flush">
+                <ListGroup.Item>
+                  <i className={`${styles.icons} fas fa-location-dot`}></i>
+                  {city},{country}
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  <i className={`${styles.icons} fas fa-globe`}></i>
+                  {website}
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  <i className={`${styles.icons} fas fa-at`}></i>
+                  {email}
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  <i className={`${styles.icons} fas fa-phone`}></i>
+                  {phone_number}
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  <i className={`${styles.icons} fa-brands fa-facebook`}></i>
+                  {facebook}
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  <i className={`${styles.icons} fa-brands fa-instagram`}></i>
+                  {instagram}
+                </ListGroup.Item>
+              </ListGroup>
+            </Card.Body>
+          </Card>
+        </Container>
+      </Col>
+      <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
+        <Container className={appStyles.Content}>
+          <Rating
+            readonly
+            initialValue={average_rating}
+            size={40}
+            fillColor="#6A62F8"
+          />
+        </Container>
+      </Col>
+    </Row>
   );
 };
 

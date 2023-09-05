@@ -8,7 +8,7 @@ import appStyles from "../../App.module.css";
 
 import { useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
-import Service from "./Service";
+
 import ServiceDetail from "./ServiceDetail";
 
 
@@ -34,15 +34,13 @@ const ServicePage = () => {
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
-        <p>Popular profiles for mobile. Won't need this</p>
+        
         <ServiceDetail/>
-        {/* <Service {...service.results[0]} setService={setService} servicePage /> */}
+        
         <Container className={appStyles.Content}>Reviews       
         </Container>
       </Col>
-      <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
-        Popular profiles for desktop. Won't need this either
-      </Col>
+      
     </Row>
   );
 };
