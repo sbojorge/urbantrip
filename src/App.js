@@ -23,6 +23,7 @@ import ServicePage from "./pages/services/ServicePage";
 import ServicesPage from "./pages/services/ServicesPage";
 import ServiceEditForm from "./pages/services/ServiceEditForm";
 import ReviewCreateForm from "./pages/reviews/ReviewCreateForm";
+import ReviewsPage from "./pages/reviews/ReviewsPage";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -120,6 +121,11 @@ function App() {
             exact
             path="/services/:id/edit"
             render={() => <ServiceEditForm />}
+          />
+          <Route
+            exact
+            path="/reviews/:id"
+            render={() => <ReviewsPage message="No results found.Be the first one to leave a review." />}
           />
           <Route
             exact

@@ -12,6 +12,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import ServiceDetail from "./ServiceDetail";
 import ReviewCreateForm from "../reviews/ReviewCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import ReviewsPage from "../reviews/ReviewsPage";
 
 const ServicePage = () => {
   const { id } = useParams();
@@ -44,7 +45,8 @@ const ServicePage = () => {
         <ServiceDetail />
 
         <Container className={appStyles.Content}>
-          {currentUser ? (
+          <ReviewsPage />
+          {/* {currentUser ? (
             <ReviewCreateForm
               profile_id={currentUser.profile_id}
               profileImage={profile_image}
@@ -60,7 +62,7 @@ const ServicePage = () => {
               <p key={review.id}>
                 {review.owner}: {review.content}
               </p>
-            ))}
+            ))} */}
         </Container>
       </Col>
     </Row>

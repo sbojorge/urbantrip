@@ -29,10 +29,6 @@ const ReviewCreateForm = () => {
 
   const [rating, setRating] = useState(0);
 
-  // const handleRating = (rate) => {
-  //   setRating(rate / 20);
-  // };
-
   const handleChange = (event) => {
     setReviewData({
       ...reviewData,
@@ -62,11 +58,7 @@ const ReviewCreateForm = () => {
     <div className="text-center">
       <Form.Group>
         <Rate/>
-        {/* <Rating
-          onClick={handleRating}
-          showTooltip
-          tooltipArray={["Terrible", "Bad", "Average", "Great", "Perfect"]}
-        /> */}
+       
       </Form.Group>
       <Form.Group>
         <Form.Label>My review</Form.Label>
