@@ -86,10 +86,10 @@ const ContactCreateForm = () => {
       ))}
 
       <Button className={`mx-2 ${btnStyles.button} ${btnStyles.BlackOutline}`} onClick={() => history.goBack()}>
-        Cancel
+        cancel
       </Button>
       <Button className={`${btnStyles.button} ${btnStyles.BlackOutline}`} type="submit">
-        Send
+        send
       </Button>
     </div>
   );

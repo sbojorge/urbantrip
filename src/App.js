@@ -22,6 +22,7 @@ import ServiceCreateForm from "./pages/services/ServiceCreateForm";
 import ServicePage from "./pages/services/ServicePage";
 import ServicesPage from "./pages/services/ServicesPage";
 import ServiceEditForm from "./pages/services/ServiceEditForm";
+import ReviewCreateForm from "./pages/reviews/ReviewCreateForm";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -119,6 +120,11 @@ function App() {
             exact
             path="/services/:id/edit"
             render={() => <ServiceEditForm />}
+          />
+          <Route
+            exact
+            path="/reviews/:id/create"
+            render={() => <ReviewCreateForm />}
           />
           <Route render={() => <NotFound />} />
         </Switch>

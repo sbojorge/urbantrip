@@ -5,6 +5,7 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
+import Image from "react-bootstrap/Image";
 
 import styles from "../../styles/ServiceCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
@@ -13,7 +14,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import { Rating } from "react-simple-star-rating";
 
-const ServiceDetail = () => {
+const ServiceDetail = (props) => {
   // const [errors, setErrors] = useState({});
 
   const [serviceData, setServiceData] = useState({
@@ -43,7 +44,7 @@ const ServiceDetail = () => {
     image,
     average_rating,
   } = serviceData;
-  
+
   const history = useHistory();
   const { id } = useParams();
 
@@ -61,7 +62,7 @@ const ServiceDetail = () => {
           website,
           facebook,
           instagram,
-          image,          
+          image,
         } = data;
         setServiceData({
           category,
@@ -74,8 +75,7 @@ const ServiceDetail = () => {
           facebook,
           instagram,
           image,
-        })
-  
+        });
       } catch (err) {
         // console.log(err);
       }
@@ -91,11 +91,10 @@ const ServiceDetail = () => {
   //   });
   // };
 
-
   // const handleSubmit = async (event) => {
   //   event.preventDefault();
   //   const formData = new FormData();
-    
+
   //   formData.append("category", category);
   //   formData.append("name", name);
   //   formData.append("country", country);
@@ -104,9 +103,8 @@ const ServiceDetail = () => {
   //   formData.append("email", email);
   //   formData.append("website", website);
   //   formData.append("facebook", facebook);
-  //   formData.append("instagram", instagram);    
+  //   formData.append("instagram", instagram);
   //   formData.append("image", image);
-    
 
   //   try {
   //     await axiosReq.put(`/services/${id}/`, formData);
@@ -126,7 +124,7 @@ const ServiceDetail = () => {
           className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
         >
           <Card>
-            <Card.Img className={appStyles.Image} src={image} rounded />
+            <Image className={appStyles.Image} src={image} rounded />
             <Card.Body>
               <Card.Title className="text-center">{name}</Card.Title>
               <Card.Subtitle className="mb-2 text-muted text-center">
@@ -160,6 +158,7 @@ const ServiceDetail = () => {
                 </ListGroup.Item>
               </ListGroup>
             </Card.Body>
+            
           </Card>
         </Container>
       </Col>
