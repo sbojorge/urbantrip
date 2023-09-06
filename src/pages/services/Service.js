@@ -69,7 +69,8 @@ const Service = (props) => {
           </div>
         </Media>
       </Card.Body>
-      <Card.Img src={image} alt={name} />
+      <Link to={`/services/${id}`}><Card.Img src={image} alt={name} /></Link>
+      
       <Card.Body>
         {name && <Card.Title className="text-center">{name}</Card.Title>}
         <Row>
