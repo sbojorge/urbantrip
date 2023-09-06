@@ -20,8 +20,6 @@ const Service = (props) => {
   const {
     id,
     owner,
-    profile_id,
-    profile_image,
     average_rating,
     category,
     name,
@@ -34,6 +32,8 @@ const Service = (props) => {
   } = props;
 
   const currentUser = useCurrentUser();
+  const profile_image = currentUser?.profile_image;
+  const profile_id = currentUser?.profile_id;
   const is_owner = currentUser?.username === owner;
   const history = useHistory();
 
@@ -90,7 +90,7 @@ const Service = (props) => {
             reviews: {reviews_count}
           </Card.Title>
         )}
-        <div className={styles.PostBar}>
+        <div>
           {!is_owner && (
             <>
               <i className={`far fa-star ${styles.serviceIcons}`} />
