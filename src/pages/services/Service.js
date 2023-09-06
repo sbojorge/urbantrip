@@ -3,8 +3,6 @@ import React from "react";
 import styles from "../../styles/Service.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
-
 import Card from "react-bootstrap/Card";
 import Media from "react-bootstrap/Media";
 import Row from "react-bootstrap/Row";
@@ -12,7 +10,9 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 
 import { Link, useHistory } from "react-router-dom";
+import Avatar from "../../components/Avatar";
 import { ControlsDropdown } from "../../components/ControlsDropdown";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
 import { Rating } from "react-simple-star-rating";
 
@@ -20,6 +20,8 @@ const Service = (props) => {
   const {
     id,
     owner,
+    profile_id,
+    profile_image,
     average_rating,
     category,
     name,
@@ -29,7 +31,6 @@ const Service = (props) => {
     updated_on,
     servicePage,
     reviews_count,
-    
   } = props;
 
   const currentUser = useCurrentUser();
@@ -50,9 +51,13 @@ const Service = (props) => {
   };
 
   return (
-    <Card className={styles.Post}>
+    <Card className={styles.Service}>
       <Card.Body>
-        <Media className="align-items-center justify-content-end">
+        <Media className="align-items-center justify-content-between">
+          <Link className={styles.serviceLinks} to={`/profiles/${profile_id}`}>
+            <Avatar src={profile_image} height={55} />
+            {owner}
+          </Link>
           <div className="d-flex align-items-center">
             <span>{updated_on}</span>
             {is_owner && servicePage && (
@@ -64,7 +69,7 @@ const Service = (props) => {
           </div>
         </Media>
       </Card.Body>
-      <Card.Img src={image} alt={name} />      
+      <Card.Img src={image} alt={name} />
       <Card.Body>
         {name && <Card.Title className="text-center">{name}</Card.Title>}
         <Row>
@@ -82,13 +87,13 @@ const Service = (props) => {
         </p>
         {reviews_count && (
           <Card.Title className="text-center">
-            reviews:{reviews_count}
+            reviews: {reviews_count}
           </Card.Title>
         )}
         <div className={styles.PostBar}>
           {!is_owner && (
             <>
-              <i className={`far fa-star ${styles.posticons}`} />
+              <i className={`far fa-star ${styles.serviceIcons}`} />
               <Button
                 className={`mx-2 ${btnStyles.button} ${btnStyles.BlackOutline}`}
                 onClick={() => history.push(`/reviews/${id}/create`)}
@@ -99,14 +104,13 @@ const Service = (props) => {
           )}
 
           <Link to={`/services/${id}`}>
-            <i className={`${styles.posticons} far fa-address-book`} />
+            <i className={`${styles.serviceIcons} far fa-address-book`} />
             <Button
-            className={`mx-2 ${btnStyles.button} ${btnStyles.BlackOutline}`}
-          >
-            Contact details
-          </Button>
+              className={`mx-2 ${btnStyles.button} ${btnStyles.BlackOutline}`}
+            >
+              Contact details
+            </Button>
           </Link>
-          
         </div>
       </Card.Body>
     </Card>
