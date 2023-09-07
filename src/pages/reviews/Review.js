@@ -6,7 +6,7 @@ import Avatar from "../../components/Avatar";
 import styles from "../../styles/Comment.module.css";
 
 const Review = (props) => {
-  const { profile_id, profile_image, owner, updated_at, content, average_rating } =
+  const { profile_id, profile_image, owner, updated_at, content, rating } =
     props;
 
   return (
@@ -23,7 +23,7 @@ const Review = (props) => {
             Rating:
             <Rating
               readonly
-              initialValue={average_rating}
+              initialValue={rating}
               size={40}
               fillColor="#6A62F8"
             />
