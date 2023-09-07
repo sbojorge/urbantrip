@@ -1,0 +1,35 @@
+.contactCard {
+    background-color: #d2cbe3;
+    border: 1px solid #d2cbe3;
+    border-radius: 2px;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.serviceLinks {
+    color: #2d2d3e;
+    font-family: 'Syncopate', sans-serif ;
+    font-weight: bold;
+}
+
+.Service figure,
+h5 {
+    margin: 0 0;
+}
+
+.contactIcons {
+    color: #6a62f8;
+    font-size: 1.8rem;
+    padding: 1rem;
+    vertical-align:middle;    
+}
+
+.serviceIcons:hover {
+    cursor: pointer;
+    transition: color ease-in-out 0.3s;
+    color: #ff1493;
+}
+
+.Container {
+    min-height: 343px;
+  }

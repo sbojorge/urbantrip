@@ -8,6 +8,7 @@ import Media from "react-bootstrap/Media";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
+import ListGroup from "react-bootstrap/ListGroup";
 
 import { Link, useHistory } from "react-router-dom";
 import Avatar from "../../components/Avatar";
@@ -69,8 +70,9 @@ const Service = (props) => {
           </div>
         </Media>
       </Card.Body>
-      <Link to={`/services/${id}`}><Card.Img src={image} alt={name} /></Link>
-      
+      <Link to={`/services/${id}`}>
+        <Card.Img src={image} alt={name} />
+      </Link>
       <Card.Body>
         {name && <Card.Title className="text-center">{name}</Card.Title>}
         <Row>

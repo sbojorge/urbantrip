@@ -11,6 +11,9 @@ import { axiosReq } from "../../api/axiosDefaults";
 
 import ServiceDetail from "./ServiceDetail";
 import ReviewsPage from "../reviews/ReviewsPage";
+import ContactDetails from "./ContactDetails";
+
+
 
 const ServicePage = () => {
   const { id } = useParams();
@@ -20,12 +23,9 @@ const ServicePage = () => {
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const [{ data: service }, { data: reviews }] = await Promise.all([
-          axiosReq.get(`/services/${id}`),
-          axiosReq.get(`/reviews/?service=${id}`),
-        ]);
+        const { data:service } = await axiosReq.get(`/services/${id}`);
         setService({ results: [service] });
-        setReviews(reviews);
+        console.log(service);
       } catch (err) {
         console.log(err);
       }
@@ -37,10 +37,10 @@ const ServicePage = () => {
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
-        <ServiceDetail />
+       <ServiceDetail servicePage/>
 
         <Container className={appStyles.Content}>
-          <ReviewsPage />
+          <ContactDetails {...service.results[0]} />
         </Container>
       </Col>
     </Row>
