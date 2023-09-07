@@ -6,7 +6,7 @@ import Avatar from "../../components/Avatar";
 import styles from "../../styles/Comment.module.css";
 
 const Review = (props) => {
-  const { profile_id, profile_image, owner, updated_at, content, rating } =
+  const { profile_id, profile_image, owner, updated_on, content, rating } =
     props;
 
   return (
@@ -18,20 +18,18 @@ const Review = (props) => {
         </Link>
         <Media.Body className="align-self-center ml-2">
           <span className={styles.Owner}>{owner}</span>
-          <span className={styles.Date}>{updated_at}</span>
+          <span className={styles.Date}>{updated_on}</span>
           <p>
-            Rating:
             <Rating
               readonly
               initialValue={rating}
-              size={40}
+              showTooltip
+              tooltipArray={["Terrible", "Bad", "Average", "Great", "Perfect"]}
+              size={30}
               fillColor="#6A62F8"
             />
           </p>
-          <p>
-            Review:
-            {content}
-          </p>
+          <p>{content}</p>
         </Media.Body>
       </Media>
     </>
