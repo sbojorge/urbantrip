@@ -16,16 +16,12 @@ import NoResults from "../../assets/NoResults.png";
 import { fetchMoreData } from "../../utils/utils";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
-import Service from "../services/Service";
-
 const ReviewsPage = ({ message }) => {
   const [reviews, setReviews] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
   const currentUser = useCurrentUser();
   const { id } = useParams();
-
-  const [service, setService] = useState(null);
 
   useEffect(() => {
     const fetchReviews = async () => {
@@ -34,31 +30,22 @@ const ReviewsPage = ({ message }) => {
         setReviews(data);
         setHasLoaded(true);
       } catch (err) {}
-    };
-
-    // const fetchService = async () => {
-    //   try {
-    //     const { data } = await axiosReq.get(`/services/${id}`);
-    //     setService(data);
-    //   } catch (err) {}
-    // };
+    };    
 
     setHasLoaded(false);
-    // fetchService();
     fetchReviews();
   }, [pathname, currentUser, id]);
 
   return (
     <Row className="h-100 d-flex justify-content-center">
-      <Col className="py-2 p-0 p-lg-2" lg={8}>
-        <Service {...service} isProfilePage={false} />
+      <Col className="py-2 p-0 p-lg-2" lg={8}>        
 
         {hasLoaded ? (
           <>
             {reviews.results.length ? (
               <InfiniteScroll
                 children={reviews.results.map((service) => (
-                  <Review key={service.id} {...service} isProfilePage={false} />
+                  <Review key={service.id} {...service} />
                 ))}
                 dataLength={reviews.results.length}
                 loader={<Asset spinner />}
