@@ -12,7 +12,7 @@ import btnStyles from "../../styles/Button.module.css";
 
 import { axiosReq } from "../../api/axiosDefaults";
 import { useRedirect } from "../../hooks/useRedirect";
-import Rate from "../../components/Rate";
+import { Rating } from "react-simple-star-rating";
 
 const ReviewCreateForm = () => {
   useRedirect("loggedOut");
@@ -21,13 +21,17 @@ const ReviewCreateForm = () => {
   const [reviewData, setReviewData] = useState({
     serviceId: id,
     content: "",
-    rating: "",
+    
   });
   const { serviceId, content } = reviewData;
 
   const history = useHistory();
 
   const [rating, setRating] = useState(0);
+
+  const handleRating = (rate) => {
+    setRating(rate / 20);    
+  };
 
   const handleChange = (event) => {
     setReviewData({
@@ -57,7 +61,11 @@ const ReviewCreateForm = () => {
   const textFields = (
     <div className="text-center">
       <Form.Group>
-        <Rate/>
+        <Rating
+          onClick={handleRating}
+          showTooltip
+          tooltipArray={["Terrible", "Bad", "Average", "Great", "Perfect"]}
+        />
        
       </Form.Group>
       <Form.Group>

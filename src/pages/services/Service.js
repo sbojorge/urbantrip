@@ -8,7 +8,6 @@ import Media from "react-bootstrap/Media";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
-import ListGroup from "react-bootstrap/ListGroup";
 
 import { Link, useHistory } from "react-router-dom";
 import Avatar from "../../components/Avatar";

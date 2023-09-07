@@ -37,7 +37,7 @@ const ServicePage = () => {
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
-       <ServiceDetail servicePage/>
+       <ServiceDetail {...service.results[0]} setService={setService} servicePage/>
 
         <Container className={appStyles.Content}>
           <ContactDetails {...service.results[0]} />
