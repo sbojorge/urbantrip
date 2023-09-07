@@ -2,13 +2,10 @@ import React from "react";
 
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
-import Image from "react-bootstrap/Image";
 import Media from "react-bootstrap/Media";
 
 import styles from "../../styles/ServiceCreateEditForm.module.css";
-import appStyles from "../../App.module.css";
 
 import { Link, useHistory, useParams } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
@@ -90,7 +87,7 @@ const ServiceDetail = (props) => {
         </p>
         {reviews_count && (
           <Card.Title className="text-center">
-            reviews: {reviews_count}
+            reviews: ({reviews_count})
           </Card.Title>
         )}
       </Card.Body>
