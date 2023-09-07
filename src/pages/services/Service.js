@@ -87,10 +87,14 @@ const Service = (props) => {
             fillColor="#6A62F8"
           />
         </p>
-        {reviews_count && (
+        {reviews_count === 0 ? (
+          <span>No rates...yet</span>
+          
+        ) : (
           <Card.Title className="text-center">
             reviews: {reviews_count}
           </Card.Title>
+          
         )}
         <div>
           {!is_owner && (
