@@ -114,6 +114,7 @@ Below you can find the list of the libraries used for the development of this pr
  * [axios](https://axios-http.com/),for fetching and posting data in the Urban-drf backend API. 
  * [React infinite scroll](https://www.npmjs.com/package/react-infinite-scroll-component), for loading post automatically as the user scrolls down.
  * [React Select Country list](https://www.npmjs.com/package/react-select-country-list), for letting the user to select his/her location while editing profile.
+ * [React Toastify](https://www.npmjs.com/package/react-toastify/v/7.0.4), for adding toasts and providing feedback to user after actions, i.e, signing up.
  * [jwt-decode](https://www.npmjs.com/package/jwt-decode), for decoding JWTs token.
  * [Favicon.io](https://favicon.io/), for generating the favicon of the project.
  * [Canvas](https://www.canva.com/), for designing the logo and creating the color palette.
@@ -228,6 +229,12 @@ I'll develop the one that I use.
 ### Code
 - My mentor helped me to refine the code for the contact form.
 - Code for hiding the nav bar in the Sign up and Sign in pages was inspired from this article: https://stackoverflow.com/questions/74277306/show-hide-navbar-or-footer-in-routes-with-react-router-dom-v6
+- DeleteConfirmation modal was inspired on these articles:
+   * https://christopher-dent.medium.com/adding-a-delete-confirmation-to-your-react-app-55221701daa6
+
+    * https://codemoto.io/coding/react/react-delete-confirmation-modal
+ 
+  Thanks to Kelz_Alumni for pointing me in this direction.
 
 - Upload video inspired on: https://www.upbeatcode.com/react/how-to-play-video-in-react/
 
