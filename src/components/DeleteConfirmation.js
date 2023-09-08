@@ -7,7 +7,14 @@ import styles from "../styles/DeleteConfirmation.module.css";
 import btnStyles from "../styles/Button.module.css";
 
 const DeleteConfirmation = (props) => {
-  const { show, type, handleClose, handleDelete, handleCommentDelete, handleServiceDelete, } = props;
+  const { 
+    show,
+    type, 
+    handleClose, 
+    handleDelete, 
+    handleCommentDelete, 
+    handleServiceDelete,
+  } = props;
 
   return (
     <>

@@ -40,6 +40,7 @@ const Service = (props) => {
 
   const [show, setShow] = useState(false);
   const [type, setType] = useState("");
+  
   const handleShow = () => {
     setShow(true);
     setType("service");
@@ -48,6 +49,7 @@ const Service = (props) => {
   const handleClose = () => setShow(false);
 
   const handleEdit = () => {
+    console.log("Editing from Service.js")
     history.push(`/services/${id}/edit`);
   };
 
@@ -136,7 +138,7 @@ const Service = (props) => {
         show={show}
         handleClose={handleClose}
         handleServiceDelete={handleServiceDelete}
-        type={type}        
+        type={type}
       />
     </>
   );
