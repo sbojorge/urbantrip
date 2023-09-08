@@ -2,10 +2,11 @@
 
 ## Project goal
 
-This is a social media for city trip lovers.
+UrbanTrip is a content sharing platform for city trip lovers. Among the main features users can share pictures and videos of their favorite cities, comment on posts, follow other users and more.
+
 ![responsive](/readme/images/UI/picture_1.png)
 
-Please visit the [Urbantrip](https://urbantrip-a9f84fe92f01.herokuapp.com/) deployed site.
+Please visit the deployed site by clicking on [Urbantrip](https://urbantrip-a9f84fe92f01.herokuapp.com/).
 
 ## Project management
 
@@ -14,11 +15,9 @@ The project was developed using the Kanban Agile management methodology and the 
 It was put in place using different functionalities in GitHub: 
 * Issues, for EPICS and user stories;
 
-An epic covers the development of an existing feature in the API.
+An epic covers the development of an existing feature in the web application.
 
 User stories were linked to the epic to keep track of the progress with the tasks.
-
-In order to better organise the flow of the work to do, I also created an epic for the set up and final deployment of the project.
 
 * Milestone (without due date), for the product backlog;
 
@@ -29,13 +28,17 @@ Ready-for-development epics were stored in the product backlog before starting a
 I worked 1 epic x sprint.
 User stories that couldn't be completed were placed back in the product backlog and on "No status" category of the project for eventually being included in a next sprint.
 
-* Project, for the Kanban board.
+* Project, for the Kanban board.<br>
+You can access the project [here](https://github.com/users/sbojorge/projects/12).
+This project holds epics of 2 repositories: Urban-drf (the backend repo) and Urbantrip (the frontend repo).
 
-Both the Urban-drf and  Urbantrip repositories were linked to the same project, Urbantrip-PP5.
+Both, the Urban-drf and  Urbantrip repositories, were linked to the same project: Urbantrip-PP5.
 
 Labels were used to identify epics and user stories of each repo.
 
 Epics were assigned to the "To-do" status and move to "In progress" or "Done" status as the tasks in the user stories were completed.
+
+![Kanban-board](/readme/images/PM/picture_1.png)
 
 <!-- add epic and user stories here following the same schema as urbandrf as possible -->
 
@@ -44,16 +47,10 @@ Epics were assigned to the "To-do" status and move to "In progress" or "Done" st
 ---
 
 ## Design
-### Database structure <!-- if applicable -->
-<!--example: 
-The database is composed of 3 models (2 are customised, which meets the assessment criteria of a "minimum of one custom model"): 
+### Database structure
+UrbanTrip follows the same database schema than its backend API, Urban-drf.<br>
+You can review it [here](https://github.com/sbojorge/Urban-drf), in the corresponding repository.
 
-- User,
-- Grocery_list,
-- Contact.
-
-The User model is at center, being connected to the 2 others by the id.<br>
-There isn't any direct relation between the Grocery_list and Contact models. -->
 ### Wireframes
 Wireframes are created for sketching the UI ideas.<br> The final project may be slightly different. The wireframes of this project are:
 - Landing web page
@@ -98,6 +95,12 @@ Canva used the hues in the avatar to create the palette.
 ### Features
 <!--Review the features per page and CRUD when applicable -->
 ### Features to be implemented
+In the future, I'd like to improve this web application by:
+
+- Adding different choices of avatar for the profile (man, woman, pride, etc).
+- Displaying the profile image and username in the "Like" feature and not only the number of likes.
+- Displaying the profile image and username in the "Followers" and "Following" stats in the profile.
+- Adding notifications to be sent to the user when their posts have been liked/commented.
 
 [Back to top](#urbantrip)
 
@@ -239,7 +242,7 @@ I'll develop the one that I use.
 - Upload video inspired on: https://www.upbeatcode.com/react/how-to-play-video-in-react/
 
 ### Media
-- Icons come from [uxwing](https://uxwing.com/)
+- Icons come from [uxwing](https://uxwing.com/) and [fontawesome](https://fontawesome.com/)
 - Images come from [rawpixel](https://www.rawpixel.com/)
 
 [Back to top](#urbantrip)
