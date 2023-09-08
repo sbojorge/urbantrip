@@ -9,6 +9,7 @@ import { ControlsDropdown } from "../../components/ControlsDropdown";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
 import CommentEditForm from "./CommentEditForm";
+import DeleteConfirmation from "../../components/DeleteConfirmation";
 
 const Comment = (props) => {
   const {
@@ -27,7 +28,16 @@ const Comment = (props) => {
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
 
-  const handleDelete = async () => {
+  const [show, setShow] = useState(false);
+  const [type, setType] = useState("");
+  const handleShow = () => {
+    setShow(true);
+    setType("comment");
+  };
+
+  const handleClose = () => setShow(false);
+
+  const handleCommentDelete = async () => {
     try {
       await axiosRes.delete(`/comments/${id}/`);
       setPost((prevPost) => ({
@@ -72,10 +82,16 @@ const Comment = (props) => {
         {is_owner && !showEditForm && (
           <ControlsDropdown
             handleEdit={() => setShowEditForm(true)}
-            handleDelete={handleDelete}
+            handleShow={handleShow}
           />
         )}
       </Media>
+      <DeleteConfirmation
+        show={show}
+        handleClose={handleClose}
+        handleCommentDelete={handleCommentDelete}
+        type={type}
+      />
     </>
   );
 };

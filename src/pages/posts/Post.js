@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 
 import styles from "../../styles/Post.module.css";
 
@@ -37,7 +37,12 @@ const Post = (props) => {
   const history = useHistory();
 
   const [show, setShow] = useState(false);
-  const handleShow = () => setShow(true);  
+  const [type, setType] = useState("");
+  const handleShow = () => {
+    setShow(true);
+    setType("post");
+  };
+
   const handleClose = () => setShow(false);
 
   const handleEdit = () => {
@@ -156,6 +161,7 @@ const Post = (props) => {
         show={show}
         handleClose={handleClose}
         handleDelete={handleDelete}
+        type={type}
       />
     </>
   );
