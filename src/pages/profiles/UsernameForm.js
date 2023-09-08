@@ -16,7 +16,7 @@ import { useHistory, useParams } from "react-router-dom";
 
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
-
+import { toast } from "react-toastify";
 
 const UsernameForm = () => {
   const [username, setUsername] = useState("");
@@ -79,8 +79,20 @@ const UsernameForm = () => {
               cancel
             </Button>
             <Button
-              className={`${btnStyles.button}`}
               type="submit"
+              className={btnStyles.button}
+              onClick={() => {
+                toast.success("Username changed successfully!", {
+                  position: "top-center",
+                  autoClose: 5000,
+                  hideProgressBar: false,
+                  closeOnClick: true,
+                  pauseOnHover: true,
+                  draggable: true,
+                  progress: undefined,
+                  
+                });
+              }}
             >
               save
             </Button>

@@ -14,6 +14,8 @@ import appStyles from "../../App.module.css";
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 import { useRedirect } from "../../hooks/useRedirect";
 import { setTokenTimestamp } from "../../utils/utils";
+import { toast } from "react-toastify";
+
 
 const SignInForm = () => {
   const setCurrentUser = useSetCurrentUser();
@@ -34,6 +36,7 @@ const SignInForm = () => {
       const { data } = await axios.post("/dj-rest-auth/login/", signInData);
       setCurrentUser(data.user);
       setTokenTimestamp(data);
+
       history.goBack();
     } catch (err) {
       setErrors(err.response?.data);
@@ -96,7 +99,23 @@ const SignInForm = () => {
                   }
                 />
               </span>
-              <Button type="submit" className={btnstyles.button}>
+              <Button
+                type="submit"
+                className={btnstyles.button}
+                onClick={() => {
+                  toast.success("Logged in successfully!",
+                    {
+                      position: "top-center",
+                      autoClose: 3000,
+                      hideProgressBar: false,
+                      closeOnClick: true,
+                      pauseOnHover: true,
+                      draggable: true,
+                      progress: undefined,
+                      
+                    });
+                }}
+              >
                 Sign In
               </Button>
               {errors.non_field_errors?.map((message, idx) => (

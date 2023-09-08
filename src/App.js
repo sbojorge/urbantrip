@@ -24,6 +24,8 @@ import ServicesPage from "./pages/services/ServicesPage";
 import ServiceEditForm from "./pages/services/ServiceEditForm";
 import ReviewCreateForm from "./pages/reviews/ReviewCreateForm";
 import ReviewsPage from "./pages/reviews/ReviewsPage";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const currentUser = useCurrentUser();
@@ -135,6 +137,7 @@ function App() {
           <Route render={() => <NotFound />} />
         </Switch>
       </Container>
+      <ToastContainer/>
     </div>
   );
 }

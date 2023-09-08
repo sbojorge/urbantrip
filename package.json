@@ -10,7 +10,6 @@
     "axios": "^0.21.4",
     "bootstrap": "^4.6.0",
     "jwt-decode": "^3.1.2",
-    "react": "^17.0.2",
     "react-bootstrap": "^1.6.7",
     "react-dom": "^17.0.2",
     "react-infinite-scroll-component": "^6.1.0",
@@ -19,6 +18,7 @@
     "react-select": "^5.7.4",
     "react-select-country-list": "^2.2.3",
     "react-simple-star-rating": "^4.0.5",
+    "react-toastify": "^7.0.4",
     "web-vitals": "^1.1.2"
   },
   "scripts": {

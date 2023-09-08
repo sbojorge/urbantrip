@@ -13,6 +13,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
+import { toast } from "react-toastify";
 
 const UserPasswordForm = () => {
   const history = useHistory();
@@ -95,7 +96,19 @@ const UserPasswordForm = () => {
             </Button>
             <Button
               type="submit"
-              className={`${btnStyles.button}`}
+              className={btnStyles.button}
+              onClick={() => {
+                toast.success("Password changed successfully!", {
+                  position: "top-center",
+                  autoClose: 5000,
+                  hideProgressBar: false,
+                  closeOnClick: true,
+                  pauseOnHover: true,
+                  draggable: true,
+                  progress: undefined,
+                  
+                });
+              }}
             >
               save
             </Button>
