@@ -18,6 +18,7 @@ import { useHistory, useParams } from "react-router-dom";
 
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
+import { toast } from "react-toastify";
 
 const ProfileEditForm = () => {
   const currentUser = useCurrentUser();
@@ -34,7 +35,7 @@ const ProfileEditForm = () => {
     content: "",
   });
   const { image, full_name, location, cities, content } = profileData;
-  
+
   const options = useMemo(() => countryList().getData(), []);
 
   const [errors, setErrors] = useState({});
@@ -46,7 +47,6 @@ const ProfileEditForm = () => {
           const { data } = await axiosReq.get(`/profiles/${id}/`);
           const { image, full_name, location, cities, content } = data;
           setProfileData({ image, full_name, location, cities, content });
-          
         } catch (err) {
           console.log(err);
           history.push("/");
@@ -169,8 +169,19 @@ const ProfileEditForm = () => {
       </Button>
 
       <Button
-        className={`${btnStyles.button} ${btnStyles.BlackOutline}`}
         type="submit"
+        className={btnStyles.button}
+        onClick={() => {
+          toast.success("Username changed successfully!", {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        }}
       >
         save
       </Button>
