@@ -11,8 +11,8 @@
 }
 
 .button:focus {
-    background-color: black;
-    border-color: black;    
+    background-color: #ff1493;
+    border-color: #ff1493;    
 }
 
 .button,.button:hover,.button:focus {
