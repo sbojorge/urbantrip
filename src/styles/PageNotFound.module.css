@@ -3,8 +3,9 @@
     align-content:center;
 }
 
-.notfound {
+.notFound {
     height: 4rem;
     width: 4rem;
     padding: 0.25rem;
+    color:#2d2d3e;
 }
