@@ -20,7 +20,7 @@ import { useRedirect } from "../../hooks/useRedirect";
 const PostCreateFormVideo = () => {
   useRedirect("loggedOut");
   const [errors, setErrors] = useState({});
-
+  
   const [source, setSource] = useState({
     title: "",
     content: "",
@@ -59,11 +59,13 @@ const PostCreateFormVideo = () => {
     try {
       const { data } = await axiosReq.post("/posts/", formData);
       history.push(`/posts/${data.id}`);
+      
     } catch (err) {
       // console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }
+      
     }
   };
 
@@ -121,7 +123,7 @@ const PostCreateFormVideo = () => {
             className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
           >
             <Form.Group className="text-center">
-              {/* The preview doesn't work anymore nor the click or tap */}
+                           
               {video ? (
                 <>
                   <video
@@ -129,7 +131,7 @@ const PostCreateFormVideo = () => {
                     src={video}
                     controls
                     width="100%"
-                    rounded
+                    rounded="true"
                   />
 
                   <div>

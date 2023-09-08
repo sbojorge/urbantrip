@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useMemo } from "react";
+import countryList from "react-select-country-list";
 
 import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
@@ -44,6 +45,8 @@ const ServiceEditForm = () => {
     image,
   } = serviceData;
 
+  const options = useMemo(() => countryList().getData(), []);
+
   const imageInput = useRef(null);
   const history = useHistory();
   const { id } = useParams();
@@ -63,7 +66,7 @@ const ServiceEditForm = () => {
           facebook,
           instagram,
           image,
-          is_owner
+          is_owner,
         } = data;
 
         is_owner
@@ -86,7 +89,7 @@ const ServiceEditForm = () => {
     };
 
     handleMount();
-  }, [history, id]);
+  }, [history, id, options]);
 
   const handleChange = (event) => {
     setServiceData({
@@ -108,7 +111,7 @@ const ServiceEditForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
-    
+
     formData.append("category", category);
     formData.append("name", name);
     formData.append("country", country);
@@ -174,11 +177,18 @@ const ServiceEditForm = () => {
       <Form.Group>
         <Form.Label>Country</Form.Label>
         <Form.Control
-          type="text"
+          as="select"
           name="country"
           value={country}
           onChange={handleChange}
-        />
+        >
+          <option value="">Select a country</option> {/* Default option */}
+          {options.map((country, index) => (
+            <option key={index} value={country.value}>
+              {country.label}
+            </option>
+          ))}
+        </Form.Control>
       </Form.Group>
       {errors?.country?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
