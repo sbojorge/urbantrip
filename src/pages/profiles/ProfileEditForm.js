@@ -170,7 +170,7 @@ const ProfileEditForm = () => {
 
       <Button
         type="submit"
-        className={btnStyles.button}
+        className={`${btnStyles.button} ${btnStyles.BlackOutline}`}
         onClick={() => {
           toast.success("Username changed successfully!", {
             position: "top-center",

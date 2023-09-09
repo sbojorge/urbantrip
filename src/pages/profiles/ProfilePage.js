@@ -87,38 +87,7 @@ const ProfilePage = () => {
             </Col>
           </Row>
         </Col>
-        <Col lg={6}>
-          <h4 className="text-center">Get to know me</h4>
-          <Row>
-            <div>
-              <span>
-                <i className={`fas fa-location-dot ${styles.proficons}`} />
-              </span>
-              {profile?.location}
-            </div>
-          </Row>
-          <Row>
-            <div>
-              <span>
-                <i className={`fa-solid fa-tree-city ${styles.proficons}`} />
-              </span>
-              {profile?.cities}
-            </div>
-          </Row>
-          <Row>
-            <div>
-              <span>
-                <i className={`fa-brands fa-rocketchat ${styles.proficons}`} />
-              </span>
-              {profile?.content}
-            </div>
-            
-          </Row>
-        </Col>
-        
-      </Row>
-      <Row>
-      <Col lg={3} className="text-lg-right">
+        <Col lg={3} className="text-lg-right">
           {currentUser &&
             !is_owner &&
             (profile?.following_id ? (
@@ -138,6 +107,41 @@ const ProfilePage = () => {
             ))}
         </Col>
       </Row>
+
+      <hr />
+      <Container>
+        <Row>
+          <Col >
+            <h4 className="text-center">Get to know me</h4>
+            <Row className="mx-0">
+              <div>
+                <span>
+                  <i className={`fas fa-location-dot ${styles.proficons}`} />
+                </span>
+                {profile?.location}
+              </div>
+            </Row>
+            <Row className="mx-0">
+              <div>
+                <span>
+                  <i className={`fa-solid fa-tree-city ${styles.proficons}`} />
+                </span>
+                {profile?.cities}
+              </div>
+            </Row>
+            <Row className="mx-0">
+              <div>
+                <span>
+                  <i
+                    className={`fa-brands fa-rocketchat ${styles.proficons}`}
+                  />
+                </span>
+                {profile?.content}
+              </div>
+            </Row>
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 
@@ -159,8 +163,7 @@ const ProfilePage = () => {
       ) : (
         <Asset
           src={NoResults}
-          message={ `No results found, ${profile?.owner} hasn't posted yet.`}
-          
+          message={`No results found, ${profile?.owner} hasn't posted yet.`}
         />
       )}
     </>
