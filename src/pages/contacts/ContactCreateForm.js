@@ -1,11 +1,15 @@
 import React, { useState } from "react";
+
 import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Modal from "react-bootstrap/Modal";
+
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
+import styles from "../../styles/ContactCreateForm.module.css";
+
 import { axiosReq } from "../../api/axiosDefaults";
 import { useRedirect } from "../../hooks/useRedirect";
 import { useHistory } from "react-router-dom/cjs/react-router-dom";
@@ -88,7 +92,7 @@ const ContactCreateForm = () => {
       <Button className={`mx-2 ${btnStyles.button} ${btnStyles.BlackOutline}`} onClick={() => history.goBack()}>
         cancel
       </Button>
-      <Button className={`${btnStyles.button} ${btnStyles.BlackOutline}`} type="submit">
+      <Button className={`${btnStyles.button} ${btnStyles.BlackOutline}`} type="submit" onClick={handleShow}>
         send
       </Button>
     </div>
@@ -100,18 +104,18 @@ const ContactCreateForm = () => {
         <Container className={appStyles.Content}>{textFields}</Container>
       </Form>
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Confirmed</Modal.Title>
+        <Modal.Header className={styles.Header} closeButton>
+          <Modal.Title>Thank you</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
-          Thanks for your feedback.
+        <Modal.Body className={styles.Modal}>
+          Your message will be treated as soon as possible.
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Cancel
+        <Modal.Footer className={styles.Footer}>
+          <Button className={`${styles.cancelButton} m-2`} onClick={handleClose}>
+            close
           </Button>
-          <Button className={btnStyles.Button} onClick={handleClose}>
-            Confirm
+          <Button className={btnStyles.button} onClick={handleClose}>
+            got it
           </Button>
         </Modal.Footer>
       </Modal>

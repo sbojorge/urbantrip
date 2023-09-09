@@ -1,0 +1,38 @@
+.Modal {
+    
+    padding: 0.625rem;
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+    color: #2d2d3e;
+    background-color: #d2cbe3;
+}
+
+.Header {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 1rem;
+    padding-top: 0.5rem;
+    margin-top: 0.5rem;
+    background-color: #d2cbe3;
+    padding-top: 0.25rem;
+    margin-top: 0;
+}
+
+.Footer {
+    display:flex;
+    align-items: center;
+    background-color: #d2cbe3;
+    
+}
+
+.cancelButton {
+    font-family: 'Syncopate', sans-serif;
+    background-color: #ff1493;
+    border-color: #ff1493;    
+    font-weight: bold;
+    color: #2d2d3e;
+}
+
+.cancelButton:hover {
+    background-color: #9C9CAE;
+    border-color: #9C9CAE;    
+}
