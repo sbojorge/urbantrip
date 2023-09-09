@@ -22,19 +22,10 @@ const PostEditForm = () => {
     title: "",
     content: "",
     image: "",
-    
   });
   const { title, content, image } = postData;
 
-  const [source, setSource] = useState({
-    
-   
-    video: "",
-  });
-  const { video } = source;
-
   const imageInput = useRef(null);
-  const videoInput = useRef(null);
   const history = useHistory();
   const { id } = useParams();
 
@@ -42,11 +33,9 @@ const PostEditForm = () => {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(`/posts/${id}/`);
-        const { title, content, image, video, is_owner } = data;
+        const { title, content, image, is_owner } = data;
 
-        is_owner
-          ? setPostData({ title, content, image, video })
-          : history.push("/");
+        is_owner ? setPostData({ title, content, image }) : history.push("/");
       } catch (err) {
         // console.log(err);
       }
@@ -72,25 +61,17 @@ const PostEditForm = () => {
     }
   };
 
-  const handleChangeVideo = (event) => {
-    if (event.target.files.length) {
-      URL.revokeObjectURL(video);
-      setSource({
-        ...source,
-        video: URL.createObjectURL(event.target.files[0]),
-      });
-    }
-  };
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
 
     formData.append("title", title);
     formData.append("content", content);
-    formData.append("image", imageInput.current.files[0]);
-    formData.append("video", videoInput.current.files[0]);
-    
+
+    if (imageInput?.current?.files[0]) {
+      formData.append("image", imageInput.current.files[0]);
+    }
+
     try {
       await axiosReq.put(`/posts/${id}/`, formData);
       history.push(`/posts/${id}`);
@@ -137,10 +118,7 @@ const PostEditForm = () => {
         </Alert>
       ))}
 
-      <Button
-        className={`${btnStyles.button} m-3`}
-        onClick={() => history.goBack()}
-      >
+      <Button className={`${btnStyles.button} m-3`}  onClick={() => history.goBack()}>
         cancel
       </Button>
       <Button className={btnStyles.button} type="submit">
@@ -160,38 +138,28 @@ const PostEditForm = () => {
               <figure>
                 <Image className={appStyles.Image} src={image} rounded />
               </figure>
-              {!image?.includes("old-time-camera.512x422_iwlbmx") ? (
-                <>
-                  <Form.Label
-                    className={`${btnStyles.button} btn`}
-                    htmlFor="image-upload"
-                  >
-                    Change the image
-                  </Form.Label>
-                  <Form.File
-                    id="image-upload"
-                    accept="image/*"
-                    onChange={handleChangeImage}
-                    ref={imageInput}
-                  />
-                </>
-              ) : (
-                <>
-                  <Form.Label
-                    className={`${btnStyles.button} btn`}
-                    htmlFor="video-upload"
-                  >
-                    Change the video
-                  </Form.Label>
-                  <input
-                    type="file"
-                    accept=".mp4, .webm, .flv, .mov, .ogv, .3gp, .3g2, .wmv, .mpeg, .mkv, .avi"
-                    onChange={handleChangeVideo}
-                    ref={videoInput}
-                  />
-                </>
-              )}
+              <div>
+                <Form.Label
+                  className={`${btnStyles.button} btn`}
+                  htmlFor="image-upload"
+                >
+                  Change the image
+                </Form.Label>
+              </div>
+
+              <Form.File
+                id="image-upload"
+                accept="image/*"
+                onChange={handleChangeImage}
+                ref={imageInput}
+              />
             </Form.Group>
+            {errors?.image?.map((message, idx) => (
+              <Alert variant="warning" key={idx}>
+                {message}
+              </Alert>
+            ))}
+            <div className="d-md-none">{textFields}</div>
           </Container>
         </Col>
         <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">

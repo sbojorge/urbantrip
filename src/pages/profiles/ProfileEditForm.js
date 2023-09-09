@@ -172,9 +172,9 @@ const ProfileEditForm = () => {
         type="submit"
         className={`${btnStyles.button} ${btnStyles.BlackOutline}`}
         onClick={() => {
-          toast.success("Username changed successfully!", {
+          toast.success("Profile updated successfully!", {
             position: "top-center",
-            autoClose: 5000,
+            autoClose: 3000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
