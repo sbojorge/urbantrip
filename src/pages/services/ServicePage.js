@@ -10,7 +10,7 @@ import { useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 
 import ServiceDetail from "./ServiceDetail";
-import ContactDetails from "./ContactDetails";
+import ServiceContactDetails from "./ServiceContactDetails";
 import ReviewsPage from "../reviews/ReviewsPage";
 
 const ServicePage = () => {
@@ -42,7 +42,7 @@ const ServicePage = () => {
           <ReviewsPage/>
         </Container>
         <Container className={appStyles.Content}>
-          <ContactDetails {...service.results[0]} />
+          <ServiceContactDetails {...service.results[0]} />
         </Container>
         
       </Col>

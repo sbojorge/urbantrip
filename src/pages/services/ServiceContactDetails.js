@@ -5,7 +5,7 @@ import styles from "../../styles/ContactDetails.module.css";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 
-const ContactDetails = (props) => {
+const ServiceContactDetails = (props) => {
   const {
     name,
     category,
@@ -60,4 +60,4 @@ const ContactDetails = (props) => {
   );
 };
 
-export default ContactDetails;
+export default ServiceContactDetails;
