@@ -1,10 +1,10 @@
-.contactCard {
+/* .contactCard {
     background-color: #d2cbe3;
     border: 1px solid #d2cbe3;
     border-radius: 2px;
     margin-bottom: 16px;
     text-align: center;
-}
+} */
 
 .serviceLinks {
     color: #2d2d3e;
@@ -32,4 +32,31 @@ h5 {
 
 .Container {
     min-height: 343px;
-  }
+}
+
+.button {
+    font-family: 'Syncopate', sans-serif;
+    background-color: #6A62F8;
+    border-color: #6A62F8;    
+    font-weight: bold;
+}
+
+.button:hover {
+    background-color: #9C9CAE;
+    border-color: #9C9CAE;    
+}
+
+.button:focus {
+    background-color: #ff1493;
+    border-color: #ff1493;    
+}
+
+.button,.button:hover,.button:focus {
+    color: #2D2D3E;
+}
+
+@media screen and (min-width: 375px) {
+    .button {
+        margin-left: 1rem;
+    }
+}

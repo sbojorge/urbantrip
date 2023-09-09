@@ -33,18 +33,18 @@ const ServicePage = () => {
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
+        <ServiceContactDetails {...service.results[0]} mobile />
         <ServiceDetail
           {...service.results[0]}
           setService={setService}
           servicePage
         />
         <Container className={appStyles.Content}>
-          <ReviewsPage/>
+          <ReviewsPage />
         </Container>
-        <Container className={appStyles.Content}>
-          <ServiceContactDetails {...service.results[0]} />
-        </Container>
-        
+      </Col>
+      <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
+        <ServiceContactDetails {...service.results[0]} />
       </Col>
     </Row>
   );

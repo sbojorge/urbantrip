@@ -30,9 +30,10 @@ h1 {
 
 .Content {
     background-color: #d2cbe3;
+    border: 1px solid #d2cbe3;
     padding: 0.625rem;
     border-radius: 2px;
-    border: 1px solid #d2cbe3;
+    
 }
 
 .FillerImage {

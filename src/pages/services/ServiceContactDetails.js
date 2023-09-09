@@ -1,9 +1,14 @@
 import React from "react";
 
-import styles from "../../styles/ContactDetails.module.css";
+import styles from "../../styles/ServiceContactDetails.module.css";
+import appStyles from "../../App.module.css";
 
+import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
+import Button from "react-bootstrap/Button";
+
+import { useHistory } from "react-router-dom";
 
 const ServiceContactDetails = (props) => {
   const {
@@ -16,18 +21,27 @@ const ServiceContactDetails = (props) => {
     website,
     facebook,
     instagram,
+    mobile,
   } = props;
-  
+
+  const history = useHistory();
+
   return (
-    
-      <Card className={styles.contactCard}>
+    <Container
+      className={`${appStyles.Content} ${
+        mobile && "d-lg-none text-center mb-3"
+      }`}
+    >
+      <Card>
         <Card.Body>
-          <Card.Header as="h1" >Contact details</Card.Header>
+          <Card.Header as="h1" className="text-center">
+            Contact details
+          </Card.Header>
           <Card.Title className="py-2 text-center">Name: {name}</Card.Title>
           <Card.Subtitle className="mb-2 text-muted text-center">
             Category: {category}
           </Card.Subtitle>
-          
+
           <ListGroup variant="flush">
             <ListGroup.Item>
               <i className={`${styles.contactIcons} fas fa-location-dot`}></i>
@@ -50,13 +64,21 @@ const ServiceContactDetails = (props) => {
               {facebook}
             </ListGroup.Item>
             <ListGroup.Item>
-              <i className={`${styles.contactIcons} fa-brands fa-instagram`}></i>
+              <i
+                className={`${styles.contactIcons} fa-brands fa-instagram`}
+              ></i>
               {instagram}
             </ListGroup.Item>
           </ListGroup>
+          <Button
+            className={styles.button}
+            onClick={() => history.goBack()}
+          >
+            go back
+          </Button>
         </Card.Body>
       </Card>
-    
+    </Container>
   );
 };
 
