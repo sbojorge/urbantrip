@@ -4,6 +4,13 @@
 
 UrbanTrip is a content sharing platform for city trip lovers. Among the main features users can share pictures and videos of their favorite cities, comment on posts, follow other users and more.
 
+The website is responsive in the most common screen devices (smartphone, tablet, laptop and desktop) and within the following width categories:
+
+* 320 x 480px
+* 768 x 1024px
+* 1280 x 802px
+* 1600 x 992px
+
 ![responsive](/readme/images/UI/picture_1.png)
 
 Please visit the deployed site by clicking on [Urbantrip](https://urbantrip-a9f84fe92f01.herokuapp.com/).
@@ -48,7 +55,7 @@ Epics were assigned to the "To-do" status and move to "In progress" or "Done" st
 
 ## Design
 ### Database structure
-UrbanTrip follows the same database schema than its backend API, Urban-drf.<br>
+UrbanTrip follows the database schema as its backend API, Urban-drf.<br>
 You can review it [here](https://github.com/sbojorge/Urban-drf), in the corresponding repository.
 
 ### Wireframes
@@ -104,27 +111,48 @@ In desktop:<br>
 
 ![home-deskt](/readme/images/features/picture_1.png)
 
-In mobile:<br>
-
-![home-mobile](/readme/images/features/picture_2.png)
-
 Here they can see the the most popular profiles, the existing posts and scrolldown to keep loading posts.<br>
-The navigation bar and the sear bar are available as well.
+The navigation bar and the search bar are available as well.
 
 Unauthenticated users can perform searches, visit profiles listed in "Most popular profiles" and read the existing comments on a post. 
-<!-- reading existing comments is not available on my site -->
 
 Liking and commenting features are reserved to authenticated users.
+Users are informed about it thanks to tooltips when hovering over the "Like" and "Comments" icons.
+
+![tooltip-like](/readme/images/features/picture_2.png)
+
+![tooltip-comment](/readme/images/features/picture_2A.png)
+
+##### Navigation bar
+The navigation bar is available in all pages except in the authentication pages.
+Its content changes according to the user status.
+
+For unathenticated users, the navigation bar shows the UrbanTrip logo,which has a link to the home page, and the sign in and sign up links.
+The current page is highlighted to the user: 
+
+![navbar-deskt](/readme/images/features/picture_3.png)
+
+On small devices the navbar collapses into a hamburguer icon:
+
+![navbar-tab](/readme/images/features/picture_4.png)
+
+![navbar-tab-op](/readme/images/features/picture_5.png)
 
 
- has the following features:
+By clicking on the sign in link, users can navigate to the sign in page. A link to the sign up page is available for users that aren't registered yet:
 
-1. Navigation bar: This incl
+![authentication](/readme/images/features/picture_6.png)
 
+If there is any error in the provided credentials, the user is informed so he/she can take action:
+
+![authentication-1](/readme/images/features/picture_7.png)
+
+![authentication-2](/readme/images/features/picture_8.png)
 
 #### Features to be implemented
 In the future, I'd like to improve this web application by:
 
+- Adding the "Password forgotten" feature.
 - Adding different choices of avatar for the profile (man, woman, pride, etc).
 - Displaying the profile image and username in the "Like" feature and not only the number of likes.
 - Displaying the profile image and username in the "Followers" and "Following" stats in the profile.
