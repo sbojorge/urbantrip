@@ -114,7 +114,7 @@ The App.module.css file holds style common to the entire application such as the
 Thus, each existing feature in UrbanTrip was built creating, developing and reusing components.
 Below I'll present and explain each of them:
 
-##### Home page (unauthenticated users)
+***Home page (unauthenticated users)***
 When users navigates to the UrbanTrip's url, they arrive to the home page for unauthenticated users.
 This page corresponds to the PostsPage component. Three other components are nested within: the Post, the PopularProfiles and the Asset component.
 They will be explained separately later.
@@ -124,7 +124,7 @@ As rendered in large devices:<br>
 
 ![home-deskt](/readme/images/features/picture_1.png)
 
-Here they can see the the most popular profiles, the existing posts and scrolldown to keep loading posts.<br>
+Here users can see the most popular profiles, the existing posts and scrolldown to keep loading posts.<br>
 The navigation bar and the search bar are available as well.
 
 Unauthenticated users can perform searches, visit profiles listed in "Most popular profiles" and read the existing comments on a post.
@@ -137,7 +137,7 @@ One is informed about it thanks to tooltips when hovering over the "Like" and "C
 
 ![tooltip-comment](/readme/images/features/picture_2A.png)
 
-##### Navigation bar
+***Navigation bar***
 The navigation bar is available in all pages except in the authentication pages.
 Its content changes according to the user status.
 
@@ -163,8 +163,8 @@ For authenticated users, the content of the navigation bar, besides the logo and
 
 ![navbar-loggedin](/readme/images/features/picture_9.png)
 
-##### Authentication (Sign in and Sign up pages)
-By clicking on the sign in link, users can navigate to the sign in page. A link to the sign up page is available for users that aren't registered yet:
+***Authentication (Sign in and Sign up pages)***
+By clicking on the sign in link and/or the sign up link redirects the user to the corresponding page.<br>
 
 ![authentication](/readme/images/features/picture_6.png)
 
@@ -174,7 +174,7 @@ If there is any error in the provided credentials, the user is informed so he/sh
 
 ![authentication-2](/readme/images/features/picture_8.png)
 
-##### Home page (authenticated users)
+***Home page (authenticated users)***
 
 After successful signed in, users are redirected to the home page.<br>
 Users can find the same elements as prior to the sign in, but the functionality of some of them is extended: 
@@ -185,7 +185,7 @@ Users can find the same elements as prior to the sign in, but the functionality 
 
 - liking and commenting are now enabled
 
-###### The search bar
+***The search bar***
 
 Authenticated or unauthenticated users can research posts by city, country, title and username.
 
@@ -195,10 +195,10 @@ if there isn't any corresponding result, the Asset component, nested in the Post
 
 ![search-nr](/readme/images/features/picture_13A.png)
 
-###### The PopularProfiles component
+***The PopularProfiles component***
 This nested component brings to the UI the result of a filter set in the backend: profiles in descendent order of the number of followers.
 
-In small screen devices the number of displayed profiles is 4.
+In small screen devices the number of displayed popular profiles is 4.
 
 A user can follow another by simply clicking on the "Follow" button.
 The button will then be changed to "Unfollow" to let the user stop following the other user.
@@ -207,7 +207,7 @@ The count of followed users (namely "following") and of followers is available i
 
 A user's profile can be reached by clicking on the profile image on the left of the "follow"/"unfollow" button.
 
-###### The Post component
+***The Post component***
 Recalling,the home page renders the PostsPage component: all the existing posts are rendered here.
 
 A post is the content of the Post component, also nested in the PostsPage, and displays:
