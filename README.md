@@ -106,7 +106,7 @@ Canva used the hues in the avatar to create the palette.
 ### Features
 #### Existing features
 React applications are made up of components.<br>
-A component is a JavaScript file that usually handles one functionality, for instance, a navigation bar, a sign in page etc. And can be nested inside other components for more complex situations i.e in this project the ServiceDetail, ServiceContactDetails and the ReviewsPage components are nested in the ServicePage component for rendering in the UI a service offering including the offerer contact details and the users reviews and ratings.
+A component is a JavaScript file that usually handles one functionality, for instance, a navigation bar, a sign in page etc. And can be nested inside other components for more complex situations e.g in this project the ServiceDetail, ServiceContactDetails and the ReviewsPage components are nested in the ServicePage component for rendering in the UI a service offering including the offerer contact details and the users reviews and ratings.
 
 The most often, each component has its own CSS file in order to make its reuse easier by bringing its own style.
 The App.module.css file holds style common to the entire application such as the font-family, the font size, color etc.
@@ -234,8 +234,23 @@ This will be developed in the next section.
 
 
 ##### Reusable components
-- Avatar
-
+- Avatar.js, which displays the user's profile image. This component can be found nested in:
+  - the NavBar component, for the stating the user's status
+for showing the ownership of post, comment, service and review in:
+  - Post.js
+  - Comment.js
+  - Service.js
+  - Review.js
+- ControlsDropdown.js, used for displaying the edit and delete options in:
+  - posts (Post component)
+  - comments (Comment component)
+  - in the user profile through the use of the ProfileEditDropdown function
+  - in services (Service component)
+- Asset.js, that is used to display a spinner, an image and/or a message in different situations:
+  - while fetching data from the backend, e.g, in the PostsPage and ServicesPage components
+  - nested within the NotFound component for displaying an image and appropiate message
+- DeleteConfirmation.js, which has been used in the same components as the ControlsDropdown component (except in the Profile one as profiles can't be deleted from the UI).
+More about this component in the "Credits" section.
 
 #### Features to be implemented
 In the future, I'd like to improve this web application by:
@@ -261,7 +276,7 @@ Below you can find the list of the libraries used for the development of this pr
  * [axios](https://axios-http.com/),for fetching and posting data in the Urban-drf backend API. 
  * [React infinite scroll](https://www.npmjs.com/package/react-infinite-scroll-component), for loading post automatically as the user scrolls down.
  * [React Select Country list](https://www.npmjs.com/package/react-select-country-list), for letting the user to select his/her location while editing profile.
- * [React Toastify](https://www.npmjs.com/package/react-toastify/v/7.0.4), for adding toasts and providing feedback to user after actions, i.e, signing up.
+ * [React Toastify](https://www.npmjs.com/package/react-toastify/v/7.0.4), for adding toasts and providing feedback to user after actions, e.g, signing up.
  * [jwt-decode](https://www.npmjs.com/package/jwt-decode), for decoding JWTs token.
  * [Favicon.io](https://favicon.io/), for generating the favicon of the project.
  * [Canvas](https://www.canva.com/), for designing the logo and creating the color palette.
