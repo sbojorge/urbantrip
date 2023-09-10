@@ -150,7 +150,6 @@ const Post = (props) => {
               </OverlayTrigger>
             )}
             {likes_count}
-
             <OverlayTrigger
               placement="top"
               overlay={<Tooltip>Log in to comment posts!</Tooltip>}
