@@ -111,17 +111,17 @@ const Post = (props) => {
           </Media>
         </Card.Body>
         {/* conditionally renders an image or a video post uploaded by the user */}
-        <div>
-          {!image?.includes("old-time-camera.512x422_iwlbmx") ? (
-            <Link to={`/posts/${id}`}>
-              <Card.Img src={image} alt={title} />
-            </Link>
-          ) : (
-            <Link to={`/posts/${id}`}>
-              <video src={video} width={400} height={400} controls />
-            </Link>
-          )}
-        </div>
+
+        {!image?.includes("old-time-camera.512x422_iwlbmx") ? (
+          <Link to={`/posts/${id}`}>
+            <Card.Img src={image} alt={title} />
+          </Link>
+        ) : (
+          <Link to={`/posts/${id}`}>
+            <video src={video} width={400} height={400} controls />
+          </Link>
+        )}
+
         <Card.Body>
           {title && <Card.Title className="text-center">{title}</Card.Title>}
           {content && <Card.Text>{content}</Card.Text>}

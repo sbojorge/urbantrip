@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
+
 import Asset from "../../components/Asset";
 
 import appStyles from "../../App.module.css";
@@ -32,13 +33,12 @@ const PostPage = () => {
       try {
         const [{ data: post }, { data: comments }] = await Promise.all([
           axiosReq.get(`/posts/${id}`),
-          console.log(`/posts/${id}`),
           axiosReq.get(`/comments/?post=${id}`),
         ]);
         setPost({ results: [post] });
         setComments(comments);
       } catch (err) {
-        // console.log(err);
+        console.log("ERROR: ", err);
       }
     };
 
