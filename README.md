@@ -105,19 +105,33 @@ Canva used the hues in the avatar to create the palette.
 
 ### Features
 #### Existing features
-When users navigates to the UrbanTrip's url, they arrive to the home page.<br>
+React applications are made up of components.<br>
+A component is a JavaScript file that usually handles one functionality, for instance, a navigation bar, a sign in page etc. And can be nested inside other components for more complex situations i.e in this project the ServiceDetail, ServiceContactDetails and the ReviewsPage components are nested in the ServicePage component for rendering in the UI a service offering including the offerer contact details and the users reviews and ratings.
 
-In desktop:<br>
+The most often, each component has its own CSS file in order to make its reuse easier by bringing its own style.
+The App.module.css file holds style common to the entire application such as the font-family, the font size, color etc.
+
+Thus, each existing feature in UrbanTrip was built creating, developing and reusing components.
+Below I'll present and explain each of them:
+
+##### Home page (unauthenticated users)
+When users navigates to the UrbanTrip's url, they arrive to the home page for unauthenticated users.
+This page corresponds to the PostsPage component. Three other components are nested within: the Post, the PopularProfiles and the Asset component.
+They will be explained separately later.
+<br>
+
+As rendered in large devices:<br>
 
 ![home-deskt](/readme/images/features/picture_1.png)
 
 Here they can see the the most popular profiles, the existing posts and scrolldown to keep loading posts.<br>
 The navigation bar and the search bar are available as well.
 
-Unauthenticated users can perform searches, visit profiles listed in "Most popular profiles" and read the existing comments on a post. 
+Unauthenticated users can perform searches, visit profiles listed in "Most popular profiles" and read the existing comments on a post.
 
-Liking and commenting features are reserved to authenticated users.
-Users are informed about it thanks to tooltips when hovering over the "Like" and "Comments" icons.
+In this home page, posts display its number of "likes" next to a heart icon and its number of comments next to a conversation icon.
+The liking and commenting functionalities however are reserved to authenticated users.
+One is informed about it thanks to tooltips when hovering over the "Like" and "Comments" icons.
 
 ![tooltip-like](/readme/images/features/picture_2.png)
 
@@ -138,7 +152,18 @@ On small devices the navbar collapses into a hamburguer icon:
 
 ![navbar-tab-op](/readme/images/features/picture_5.png)
 
+For authenticated users, the content of the navigation bar, besides the logo and home link, is as follows:
+ - Create
+ - Feed
+ - Liked
+ - Services
+ - Contact
+ - Sign out
+ - Signed in as (so the current status of the user is evident)
 
+![navbar-loggedin](/readme/images/features/picture_9.png)
+
+##### Authentication (Sign in and Sign up pages)
 By clicking on the sign in link, users can navigate to the sign in page. A link to the sign up page is available for users that aren't registered yet:
 
 ![authentication](/readme/images/features/picture_6.png)
@@ -148,6 +173,69 @@ If there is any error in the provided credentials, the user is informed so he/sh
 ![authentication-1](/readme/images/features/picture_7.png)
 
 ![authentication-2](/readme/images/features/picture_8.png)
+
+##### Home page (authenticated users)
+
+After successful signed in, users are redirected to the home page.<br>
+Users can find the same elements as prior to the sign in, but the functionality of some of them is extended: 
+- the navigation bar displays more links as previously mentioned
+- the "Most followed profiles", which displays the content of the PopularProfiles component, has now the "Follow" and "Unfollow" buttons for the following functionality
+
+    ![mfp-loggedin](/readme/images/features/picture_10.png)
+
+- liking and commenting are now enabled
+
+###### The search bar
+
+Authenticated or unauthenticated users can research posts by city, country, title and username.
+
+![search-hp](/readme/images/features/picture_13.png)
+
+if there isn't any corresponding result, the Asset component, nested in the PostsPage, is rendered to give feedback to the user:
+
+![search-nr](/readme/images/features/picture_13A.png)
+
+###### The PopularProfiles component
+This nested component brings to the UI the result of a filter set in the backend: profiles in descendent order of the number of followers.
+
+In small screen devices the number of displayed profiles is 4.
+
+A user can follow another by simply clicking on the "Follow" button.
+The button will then be changed to "Unfollow" to let the user stop following the other user.
+
+The count of followed users (namely "following") and of followers is available in the user profile.
+
+A user's profile can be reached by clicking on the profile image on the left of the "follow"/"unfollow" button.
+
+###### The Post component
+Recalling,the home page renders the PostsPage component: all the existing posts are rendered here.
+
+A post is the content of the Post component, also nested in the PostsPage, and displays:
+- the Avatar component, which provides the profile_image of the post owner
+- the username of the post owner
+- the date of the last update of the post
+- the image/video uploaded by the user
+- the title of the post
+- the description/content about the post
+- the number of likes and comments
+
+![post](/readme/images/features/picture_12.png)
+
+Posts behaves differently depending on if the user is the owner or not of the post.
+This will be developed in the next section.
+
+
+
+
+
+
+
+
+
+
+##### Reusable components
+- Avatar
+
 
 #### Features to be implemented
 In the future, I'd like to improve this web application by:
