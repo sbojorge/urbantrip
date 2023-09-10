@@ -92,9 +92,23 @@ Canva used the hues in the avatar to create the palette.
 
 ![colours](/readme/images/UI/picture_3.png)
 
+[Back to top](#urbantrip)
+
+---
+
 ### Features
-<!--Review the features per page and CRUD when applicable -->
-### Features to be implemented
+#### Existing features
+When users navigates to the UrbanTrip's url, they arrive to the home page.<br>
+Here they can see the existing post, scrolldown to keep loading posts and see the most popular profiles.<br>
+The navigation bar and the sear bar are available too on the home page.
+
+
+ has the following features:
+
+1. Navigation bar: This incl
+
+
+#### Features to be implemented
 In the future, I'd like to improve this web application by:
 
 - Adding different choices of avatar for the profile (man, woman, pride, etc).

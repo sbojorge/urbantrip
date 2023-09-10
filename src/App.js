@@ -24,12 +24,13 @@ import ServicesPage from "./pages/services/ServicesPage";
 import ServiceEditForm from "./pages/services/ServiceEditForm";
 import ReviewCreateForm from "./pages/reviews/ReviewCreateForm";
 import ReviewsPage from "./pages/reviews/ReviewsPage";
-import { ToastContainer } from 'react-toastify';
+// import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const currentUser = useCurrentUser();
   const profile_id = currentUser?.profile_id || "";
+  // const notify = () => toast("Wow so easy!");
 
   return (
     <div className={styles.App}>
@@ -137,7 +138,7 @@ function App() {
           <Route render={() => <NotFound />} />
         </Switch>
       </Container>
-      <ToastContainer/>
+      {/* <ToastContainer/> */}
     </div>
   );
 }

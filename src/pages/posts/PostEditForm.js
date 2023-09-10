@@ -22,27 +22,30 @@ const PostEditForm = () => {
     title: "",
     content: "",
     image: "",
-    
+    video: "",   
   });
-  const { title, content, image } = postData;
 
-  const [source, setSource] = useState({
-    
-   
-    video: "",
-  });
-  const { video } = source;
+  const { title, content, image, video, } = postData;
+
+  // const [source, setSource] = useState({
+  //   video: "",
+  // });
+  
+  // const { video } = source;
 
   const imageInput = useRef(null);
   const videoInput = useRef(null);
   const history = useHistory();
   const { id } = useParams();
+  const [isVideo, setIsVideo] = useState(false);
 
   useEffect(() => {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(`/posts/${id}/`);
         const { title, content, image, video, is_owner } = data;
+
+        setIsVideo(!video.includes("film-camera") && image.includes("old-time-camera"))
 
         is_owner
           ? setPostData({ title, content, image, video })
@@ -62,25 +65,32 @@ const PostEditForm = () => {
     });
   };
 
-  const handleChangeImage = (event) => {
-    if (event.target.files.length) {
+  const handleChangeFile = (event) => {
+    if (image && event.target.files.length) {
       URL.revokeObjectURL(image);
       setPostData({
         ...postData,
         image: URL.createObjectURL(event.target.files[0]),
       });
-    }
-  };
-
-  const handleChangeVideo = (event) => {
-    if (event.target.files.length) {
+    } else {
       URL.revokeObjectURL(video);
-      setSource({
-        ...source,
+      setPostData({
+        ...postData,
         video: URL.createObjectURL(event.target.files[0]),
       });
     }
+    
   };
+
+  // const handleChangeVideo = (event) => {
+  //   if (event.target.files.length) {
+  //     URL.revokeObjectURL(video);
+  //     setSource({
+  //       ...source,
+  //       video: URL.createObjectURL(event.target.files[0]),
+  //     });
+  //   }
+  // };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -88,14 +98,17 @@ const PostEditForm = () => {
 
     formData.append("title", title);
     formData.append("content", content);
-    formData.append("image", imageInput.current.files[0]);
-    formData.append("video", videoInput.current.files[0]);
+    // if(image) {
+    //   formData.append("image", imageInput.current.files[0]);
+    // } else {
+    //   formData.append("video", videoInput.current.files[0]);
+    // }    
     
     try {
       await axiosReq.put(`/posts/${id}/`, formData);
       history.push(`/posts/${id}`);
     } catch (err) {
-      // console.log(err);
+      console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }
@@ -158,9 +171,14 @@ const PostEditForm = () => {
           >
             <Form.Group className="text-center">
               <figure>
-                <Image className={appStyles.Image} src={image} rounded />
+                {
+                  !isVideo
+                    ? <Image className={appStyles.Image} src={image} rounded />
+                    : <video src={video} width={400} height={400} controls />
+                }
+                
               </figure>
-              {!image?.includes("old-time-camera.512x422_iwlbmx") ? (
+              {!isVideo? (
                 <>
                   <Form.Label
                     className={`${btnStyles.button} btn`}
@@ -171,7 +189,7 @@ const PostEditForm = () => {
                   <Form.File
                     id="image-upload"
                     accept="image/*"
-                    onChange={handleChangeImage}
+                    onChange={handleChangeFile}
                     ref={imageInput}
                   />
                 </>
@@ -186,7 +204,7 @@ const PostEditForm = () => {
                   <input
                     type="file"
                     accept=".mp4, .webm, .flv, .mov, .ogv, .3gp, .3g2, .wmv, .mpeg, .mkv, .avi"
-                    onChange={handleChangeVideo}
+                    onChange={handleChangeFile}
                     ref={videoInput}
                   />
                 </>
