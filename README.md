@@ -106,10 +106,31 @@ Canva used the hues in the avatar to create the palette.
 ### Features
 #### Existing features
 React applications are made up of components.<br>
-A component is a JavaScript file that usually handles one functionality, for instance, a navigation bar, a sign in page etc. And can be nested inside other components for more complex situations e.g in this project the ServiceDetail, ServiceContactDetails and the ReviewsPage components are nested in the ServicePage component for rendering in the UI a service offering including the offerer contact details and the users reviews and ratings.
+A component is a JavaScript file that handles one functionality, for instance, a navigation bar, a sign in page etc. And can be nested inside other components for more complex situations e.g in this project the ServiceDetail, ServiceContactDetails and the ReviewsPage components are nested in the ServicePage component for rendering in the UI a service offering including the offerer contact details and the users reviews and ratings.
 
-The most often, each component has its own CSS file in order to make its reuse easier by bringing its own style.
-The App.module.css file holds style common to the entire application such as the font-family, the font size, color etc.
+Components can also be reused within the same application or in external applications.<br>
+These components were reused for developing this project:
+1. Avatar.js, which displays the user's profile image. This component can be found nested in:
+  - the NavBar component, for the stating the user's status
+for showing the ownership of post, comment, service and review in:
+  - Post.js
+  - Comment.js
+  - Service.js
+  - Review.js
+2. ControlsDropdown.js, used for displaying the edit and delete options in:
+  - posts (Post component)
+  - comments (Comment component)
+  - in the user profile through the use of the ProfileEditDropdown function
+  - in services (Service component)
+3. Asset.js, that is used to display a spinner, an image and/or a message in different situations:
+  - while fetching data from the backend, e.g, in the PostsPage and ServicesPage components
+  - nested within the NotFound component for displaying an image and appropiate message
+4. DeleteConfirmation.js, which has been used in the same components as the ControlsDropdown component (except in the Profile one as profiles can't be deleted from the UI).
+More about this component in the "Credits" section.
+
+These other components could be easily used in other applications:
+- NavBar.js
+- ContactCreateForm.js
 
 Thus, each existing feature in UrbanTrip was built creating, developing and reusing components.
 Below I'll present and explain each of them:
@@ -234,23 +255,7 @@ This will be developed in the next section.
 
 
 ##### Reusable components
-- Avatar.js, which displays the user's profile image. This component can be found nested in:
-  - the NavBar component, for the stating the user's status
-for showing the ownership of post, comment, service and review in:
-  - Post.js
-  - Comment.js
-  - Service.js
-  - Review.js
-- ControlsDropdown.js, used for displaying the edit and delete options in:
-  - posts (Post component)
-  - comments (Comment component)
-  - in the user profile through the use of the ProfileEditDropdown function
-  - in services (Service component)
-- Asset.js, that is used to display a spinner, an image and/or a message in different situations:
-  - while fetching data from the backend, e.g, in the PostsPage and ServicesPage components
-  - nested within the NotFound component for displaying an image and appropiate message
-- DeleteConfirmation.js, which has been used in the same components as the ControlsDropdown component (except in the Profile one as profiles can't be deleted from the UI).
-More about this component in the "Credits" section.
+
 
 #### Features to be implemented
 In the future, I'd like to improve this web application by:
