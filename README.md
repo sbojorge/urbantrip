@@ -99,8 +99,21 @@ Canva used the hues in the avatar to create the palette.
 ### Features
 #### Existing features
 When users navigates to the UrbanTrip's url, they arrive to the home page.<br>
-Here they can see the existing post, scrolldown to keep loading posts and see the most popular profiles.<br>
-The navigation bar and the sear bar are available too on the home page.
+
+In desktop:<br>
+
+![home-deskt](/readme/images/features/picture_1.png)
+
+In mobile:<br>
+
+![home-mobile](/readme/images/features/picture_2.png)
+
+Here they can see the the most popular profiles, the existing posts and scrolldown to keep loading posts.<br>
+The navigation bar and the sear bar are available as well.
+
+Unauthenticated users can perform searches, visit profiles listed in "Most popular profiles" and read the existing comments on a post.
+
+Liking and commenting features are reserved to authenticated users.
 
 
  has the following features:

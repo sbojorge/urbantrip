@@ -125,7 +125,7 @@ const Post = (props) => {
         <Card.Body>
           {title && <Card.Title className="text-center">{title}</Card.Title>}
           {content && <Card.Text>{content}</Card.Text>}
-          <div className={styles.PostBar}>
+          <div>
             {is_owner ? (
               <OverlayTrigger
                 placement="top"
@@ -148,12 +148,21 @@ const Post = (props) => {
               >
                 <i className={`${styles.posticons} far fa-heart`} />
               </OverlayTrigger>
-            )}
-            {likes_count}
-            <Link to={`/posts/${id}`}>
-              <i className={`${styles.posticons} far fa-comments`} />
-            </Link>
+              
+              )}
+              {likes_count}    
+              
+              <OverlayTrigger
+                placement="top" 
+                overlay={<Tooltip>Log in to comment posts!</Tooltip>}
+              >
+                <Link to={`/posts/${id}`}>
+                  <i className={`${styles.posticons} far fa-comments`} />
+                </Link>
+              </OverlayTrigger>
+                       
             {comments_count}
+            
           </div>
         </Card.Body>
       </Card>
