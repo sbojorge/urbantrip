@@ -111,7 +111,8 @@ In mobile:<br>
 Here they can see the the most popular profiles, the existing posts and scrolldown to keep loading posts.<br>
 The navigation bar and the sear bar are available as well.
 
-Unauthenticated users can perform searches, visit profiles listed in "Most popular profiles" and read the existing comments on a post.
+Unauthenticated users can perform searches, visit profiles listed in "Most popular profiles" and read the existing comments on a post. 
+<!-- reading existing comments is not available on my site -->
 
 Liking and commenting features are reserved to authenticated users.
 

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
+import Asset from "../../components/Asset";
 
 import appStyles from "../../App.module.css";
 
@@ -14,9 +15,7 @@ import Comment from "../comments/Comment";
 import CommentCreateForm from "../comments/CommentCreateForm";
 
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-
 import InfiniteScroll from "react-infinite-scroll-component";
-import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
 
@@ -33,6 +32,7 @@ const PostPage = () => {
       try {
         const [{ data: post }, { data: comments }] = await Promise.all([
           axiosReq.get(`/posts/${id}`),
+          console.log(`/posts/${id}`),
           axiosReq.get(`/comments/?post=${id}`),
         ]);
         setPost({ results: [post] });

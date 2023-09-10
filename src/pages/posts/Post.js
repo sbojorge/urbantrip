@@ -148,21 +148,19 @@ const Post = (props) => {
               >
                 <i className={`${styles.posticons} far fa-heart`} />
               </OverlayTrigger>
-              
-              )}
-              {likes_count}    
-              
-              <OverlayTrigger
-                placement="top" 
-                overlay={<Tooltip>Log in to comment posts!</Tooltip>}
-              >
-                <Link to={`/posts/${id}`}>
-                  <i className={`${styles.posticons} far fa-comments`} />
-                </Link>
-              </OverlayTrigger>
-                       
+            )}
+            {likes_count}
+
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip>Log in to comment posts!</Tooltip>}
+            >
+              <Link to={`/posts/${id}`}>
+                <i className={`${styles.posticons} far fa-comments`} />
+              </Link>
+            </OverlayTrigger>
+
             {comments_count}
-            
           </div>
         </Card.Body>
       </Card>
