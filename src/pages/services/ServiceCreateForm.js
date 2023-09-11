@@ -27,9 +27,7 @@ const ServiceCreateForm = () => {
     city: "",
     phone_number: "",
     email: "",
-    website: "",
-    facebook: "",
-    instagram: "",
+    website: "",   
     image: "",
   });
 
@@ -41,8 +39,6 @@ const ServiceCreateForm = () => {
     phone_number,
     email,
     website,
-    facebook,
-    instagram,
     image,
   } = serviceData;
 
@@ -76,8 +72,6 @@ const ServiceCreateForm = () => {
     formData.append("phone_number", phone_number);
     formData.append("email", email);
     formData.append("website", website);
-    formData.append("facebook", facebook);
-    formData.append("instagram", instagram);
     formData.append("image", imageInput.current.files[0]);
 
     try {
@@ -198,34 +192,7 @@ const ServiceCreateForm = () => {
           {message}
         </Alert>
       ))}
-      <Form.Group>
-        <Form.Label>Facebook</Form.Label>
-        <Form.Control
-          type="text"
-          name="facebook"
-          value={facebook}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      {errors?.facebook?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))}
-      <Form.Group>
-        <Form.Label>Instagram</Form.Label>
-        <Form.Control
-          type="text"
-          name="instagram"
-          value={instagram}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      {errors?.instagram?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))}
+      
 
       <Button
         className={`mx-2 ${btnStyles.button} ${btnStyles.BlackOutline}`}

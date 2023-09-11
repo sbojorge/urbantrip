@@ -18,9 +18,7 @@ const ServiceContactDetails = (props) => {
     city,
     phone_number,
     email,
-    website,
-    facebook,
-    instagram,
+    website,    
     mobile,
   } = props;
 
@@ -59,16 +57,7 @@ const ServiceContactDetails = (props) => {
               <i className={`${styles.contactIcons} fas fa-phone`}></i>
               {phone_number}
             </ListGroup.Item>
-            <ListGroup.Item>
-              <i className={`${styles.contactIcons} fa-brands fa-facebook`}></i>
-              {facebook}
-            </ListGroup.Item>
-            <ListGroup.Item>
-              <i
-                className={`${styles.contactIcons} fa-brands fa-instagram`}
-              ></i>
-              {instagram}
-            </ListGroup.Item>
+            
           </ListGroup>
           <Button
             className={styles.button}
