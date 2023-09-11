@@ -1,4 +1,13 @@
 # Functional testing
+I performed a series of test per component. A review of the tests is available below:
+
+![manual-t1](/testing/images/reports/picture_1.png)
+![manual-t1](/testing/images/reports/picture_2.png)
+![manual-t1](/testing/images/reports/picture_3.png)
+![manual-t1](/testing/images/reports/picture_4.png)
+![manual-t1](/testing/images/reports/picture_5.png)
+
+This is a selection of the performed manual testing and the followed steps:<br>
 ## Create a video post
 Goal:<br>
 Ensure a user can create a video post.
@@ -20,8 +29,6 @@ Actual:<br>
 The video has been uploaded and the user is redirected to the post/id page:
 
 ![video](/testing/images/create/picture_1.png)
-
-
 
 ## Delete a post (image or video):
 Goal:<br>
@@ -55,6 +62,15 @@ This user has only 1 post now:
 
 ---
 
+## Reports
+### Lighthouse
 
+![lighthouse](/testing/images/reports/picture_6.png)
+
+The reasons for the slow performance value are listed here:
+
+![performance](/testing/images/reports/picture_6A.png)
+
+The application could be faster with lighter images.
 
 
