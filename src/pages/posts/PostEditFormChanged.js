@@ -22,20 +22,34 @@ const PostEditForm = () => {
     title: "",
     content: "",
     image: "",
+    video: "",   
   });
-  const { title, content, image } = postData;
+
+  const { title, content, image, video, } = postData;
+
+  // const [source, setSource] = useState({
+  //   video: "",
+  // });
+  
+  // const { video } = source;
 
   const imageInput = useRef(null);
+  const videoInput = useRef(null);
   const history = useHistory();
   const { id } = useParams();
+  const [isVideo, setIsVideo] = useState(false);
 
   useEffect(() => {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(`/posts/${id}/`);
-        const { title, content, image, is_owner } = data;
+        const { title, content, image, video, is_owner } = data;
 
-        is_owner ? setPostData({ title, content, image }) : history.push("/");
+        setIsVideo(!video.includes("film-camera") && image.includes("old-time-camera"))
+
+        is_owner
+          ? setPostData({ title, content, image, video })
+          : history.push("/");
       } catch (err) {
         // console.log(err);
       }
@@ -51,15 +65,32 @@ const PostEditForm = () => {
     });
   };
 
-  const handleChangeImage = (event) => {
-    if (event.target.files.length) {
+  const handleChangeFile = (event) => {
+    if (image && event.target.files.length) {
       URL.revokeObjectURL(image);
       setPostData({
         ...postData,
         image: URL.createObjectURL(event.target.files[0]),
       });
+    } else {
+      URL.revokeObjectURL(video);
+      setPostData({
+        ...postData,
+        video: URL.createObjectURL(event.target.files[0]),
+      });
     }
+    
   };
+
+  // const handleChangeVideo = (event) => {
+  //   if (event.target.files.length) {
+  //     URL.revokeObjectURL(video);
+  //     setSource({
+  //       ...source,
+  //       video: URL.createObjectURL(event.target.files[0]),
+  //     });
+  //   }
+  // };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -67,16 +98,17 @@ const PostEditForm = () => {
 
     formData.append("title", title);
     formData.append("content", content);
-
-    if (imageInput?.current?.files[0]) {
-      formData.append("image", imageInput.current.files[0]);
-    }
-
+    // if(image) {
+    //   formData.append("image", imageInput.current.files[0]);
+    // } else {
+    //   formData.append("video", videoInput.current.files[0]);
+    // }    
+    
     try {
       await axiosReq.put(`/posts/${id}/`, formData);
       history.push(`/posts/${id}`);
     } catch (err) {
-      // console.log(err);
+      console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }
@@ -118,7 +150,10 @@ const PostEditForm = () => {
         </Alert>
       ))}
 
-      <Button className={`${btnStyles.button} m-3`}  onClick={() => history.goBack()}>
+      <Button
+        className={`${btnStyles.button} m-3`}
+        onClick={() => history.goBack()}
+      >
         cancel
       </Button>
       <Button className={btnStyles.button} type="submit">
@@ -136,30 +171,45 @@ const PostEditForm = () => {
           >
             <Form.Group className="text-center">
               <figure>
-                <Image className={appStyles.Image} src={image} rounded />
+                {
+                  !isVideo
+                    ? <Image className={appStyles.Image} src={image} rounded />
+                    : <video src={video} width={400} height={400} controls />
+                }
+                
               </figure>
-              <div>
-                <Form.Label
-                  className={`${btnStyles.button} btn`}
-                  htmlFor="image-upload"
-                >
-                  Change the image
-                </Form.Label>
-              </div>
-
-              <Form.File
-                id="image-upload"
-                accept="image/*"
-                onChange={handleChangeImage}
-                ref={imageInput}
-              />
+              {!isVideo? (
+                <>
+                  <Form.Label
+                    className={`${btnStyles.button} btn`}
+                    htmlFor="image-upload"
+                  >
+                    Change the image
+                  </Form.Label>
+                  <Form.File
+                    id="image-upload"
+                    accept="image/*"
+                    onChange={handleChangeFile}
+                    ref={imageInput}
+                  />
+                </>
+              ) : (
+                <>
+                  <Form.Label
+                    className={`${btnStyles.button} btn`}
+                    htmlFor="video-upload"
+                  >
+                    Change the video
+                  </Form.Label>
+                  <input
+                    type="file"
+                    accept=".mp4, .webm, .flv, .mov, .ogv, .3gp, .3g2, .wmv, .mpeg, .mkv, .avi"
+                    onChange={handleChangeFile}
+                    ref={videoInput}
+                  />
+                </>
+              )}
             </Form.Group>
-            {errors?.image?.map((message, idx) => (
-              <Alert variant="warning" key={idx}>
-                {message}
-              </Alert>
-            ))}
-            <div className="d-md-none">{textFields}</div>
           </Container>
         </Col>
         <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
