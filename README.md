@@ -248,7 +248,8 @@ A post is the content of the Post component, also nested in the PostsPage, and d
 ![post](/readme/images/features/picture_12.png)
 
 Posts behaves differently depending on if the user is the owner or not of the post.
-This will be developed in the next section.
+For owners, the 3 dots menu is available in the post (PostPage), but not for the other users.
+If a user that isn't the owner tries to reach the posts/:id/edit page via the url, he/she will be redirected to the home page.
 
 ***Post CRUD: Create a post***
 
@@ -271,16 +272,19 @@ By hitting "Save" the post is created, the number of post is incremented by 1 in
 
 ***Post CRUD: Edit and Delete a post***
 
-Only owners of a post can edit/delete a post. The 3 dots menu is available in the post when its owners clicks on the rendered image/video.
+Only owners of a post can edit/delete a post. 
 
-Click the menu to display the options.<!--pic-->
+Click the menu to display the options.
 
-When editing the PostEditForm component is rendered. All fields of the form can be updated: image/video (files can be replaced only by the same type of file), title and content.
+![post-menu](/readme/images/features/picture_15C.png)
 
-When deleting, the DeleteConfirmation component is called <!--pic-->
+When editing, the PostEditForm component is rendered. All fields of the form can be updated: image/video (files can be replaced only by the same type of file), title and content.
 
-User can abort the deletion by clicking on "cancel" or proceed by clicking on "confirm deletion".<!--pic-->
-User is redirected to the home page.
+When deleting, the DeleteConfirmation component is called.<br>
+
+![delete-confirmation](/readme/images/features/picture_15D.png)
+
+User can abort the deletion by clicking on "cancel", he/she will be redirected the last visited page, or proceed by clicking on "confirm deletion", in which case the user is redirected to the home page.
 Deleting a post decreases the number of posts by 1 in the ProfilePage component.
 
 
