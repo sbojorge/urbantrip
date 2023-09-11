@@ -152,11 +152,9 @@ Unauthenticated users can perform searches, visit profiles listed in "Most popul
 
 In this home page, posts display its number of "likes" next to a heart icon and its number of comments next to a conversation icon.
 The liking and commenting functionalities however are reserved to authenticated users.
-One is informed about it thanks to tooltips when hovering over the "Like" and "Comments" icons.
+One is informed about it thanks to displayed tooltip when hovering over the "Like" icon and the absence of form for "Comments" when visiting the PostPage (clicking on a post).
 
 ![tooltip-like](/readme/images/features/picture_2.png)
-
-![tooltip-comment](/readme/images/features/picture_2A.png)
 
 ### Navigation bar
 
@@ -197,6 +195,8 @@ If there is any error in the provided credentials, the user is informed so he/sh
 
 ![authentication-2](/readme/images/features/picture_8.png)
 
+Similar alerts are available in all the forms of the application to provide feedback to the user whenever provided input is wrong.
+
 ### Home page (authenticated users)
 
 After successful signed in, users are redirected to the home page.<br>
@@ -224,10 +224,7 @@ This nested component brings to the UI the result of a filter set in the backend
 
 In small screen devices the number of displayed popular profiles is 4.
 
-A user can follow another by simply clicking on the "Follow" button.
-The button will then be changed to "Unfollow" to let the user stop following the other user.
 
-The count of followed users (namely "following") and of followers is available in the user profile.
 
 A user's profile can be reached by clicking on the profile image on the left of the "follow"/"unfollow" button.
 
@@ -250,7 +247,7 @@ Posts behaves differently depending on if the user is the owner or not of the po
 For owners, the 3 dots menu is available in the post (PostPage), but not for the other users.
 If a user that isn't the owner tries to reach the posts/:id/edit page via the url, he/she will be redirected to the home page.
 
-### Post CRUD: Create a post
+### Post CRUD: Create a post (The Create page)
 
 Clicking on the "Create" link on the navigation bar renders the PostChooseMedia component.
 
@@ -290,7 +287,48 @@ Deleting a post decreases the number of posts by 1 in the ProfilePage component.
 This page is rendering again the PostsPage component, but filtering the post by those of the users followed by the authenticated user.
 If he/she doesn't follow any other user, the Asset component is displayed with a message explaining that the user should follow another.
 
+![profile-no-followers](/readme/images/features/picture_16.png)
 
+![empty-feed](/readme/images/features/picture_16A.png)
+
+### The liked page
+This page is rendering again the PostsPage component, but filtering the post by those of the users have got a like by the authenticated user.
+If he/she hasn't liked any post, the Asset component is displayed with a message explaining that the user should like a post.
+
+![profile-no-likes](/readme/images/features/picture_17.png)
+
+### The contact page
+This page renders in the UI the reusable ContactCreateForm component.<br>
+After clicking on "Send" a modal pop-ups to give feedback to the user.
+
+![contact-form](/readme/images/features/picture_18.png)
+
+![contact-modal](/readme/images/features/picture_18A.png)
+
+### The following functionality
+A user can follow another by simply clicking on the "Follow" button.
+The button will then be changed to "Unfollow" to let the user stop following the other user.
+
+Following a user increases by 1 the number of his/her followers; at the same time the number of following increases by 1 for the user that follows.
+The count of followers and of following are available in the user profile.
+
+![follow-1](/readme/images/features/picture_19.png)
+
+![follow-2](/readme/images/features/picture_19A.png)
+
+![follow-3](/readme/images/features/picture_19B.png)
+
+Inversely, unfollowing a user decreases by 1 the number of his/her followers and the number of following for the user that follows.
+As mentioned earlier, these counts are part of filters set in the backend that are used for displaying posts in the feed page and in the PopularProfiles.js file.
+
+### The like functionality
+A user can like a post by simply clicking on the "Like" icon. This action changes the icon from a regular to a solid heart and like this gives feedback to the user about the fact that he/she has already liked the post.
+Besides the displayed number of likes increases by 1.
+
+Inversely, unliking a post decreases by 1 the displayed number of likes and restore the icon from a solid to a regular heart.
+As mentioned earlier, the likes counts is part of filters set in the backend that are used, in this case for displaying posts in the liked page.
+
+### Comment CRUD: the comment components
 
 
 
