@@ -130,6 +130,10 @@ More about this component in the "Credits" section.
 These other components could be easily used in other applications:
 - NavBar.js
 - ContactCreateForm.js
+- Profile.js
+- ProfileEditForm.js
+- UsernameForm.js
+- UserPasswordForm.js
 
 Thus, each existing feature in UrbanTrip was built creating, developing and reusing components.<br>
 Below I'll present and explain each of them:
@@ -329,9 +333,44 @@ Inversely, unliking a post decreases by 1 the displayed number of likes and rest
 As mentioned earlier, the likes counts is part of filters set in the backend that are used, in this case for displaying posts in the liked page.
 
 ### Comment CRUD: the comment components
+User can comment on any post.
+Clicking on the conversation icon, in the PostPage component, will redirect the user to the form for creating the comment (the **CommentCreateForm component**) which is available in the PostPage component (posts/:id page).
 
+![comment-form](/readme/images/features/picture_20.png)
 
+The comment count is increased by 1 and the newly created comment (stored in the **Comment component**) is listed with any other existing comment under the comment form.
 
+![comment-count](/readme/images/features/picture_20A.png)
+
+Owner of the comment has the 3 dots menu available on the comment for edit/delete. Clicking on edit will redirect to the form (the **CommentEditForm component**)
+
+![comment-edit](/readme/images/features/picture_20B.png)
+
+If the delete option is clicked the DeleteConfirmation component is called.
+User can abort the deletion by clicking on "cancel", he/she will be redirected the last visited page, or proceed by clicking on "confirm deletion", in which case the user is redirected to the home page.
+Deleting a comment decreases the count by 1 in the PostPage component.
+
+### The Profile components
+Profiles are created from the backend at user registration and are stored in the **Profile component** (Profile.js) holding the username and a default profile image.
+The Avatar component is nested in Profile.js for displaying the profile image in the UI.
+The **ProfilePage component** can be visited by clicking on the avatar or username. It displays:
+- the avatar and user name.
+- the "full name" field.
+- profile stat's: count of posts, count of user who follows that profile (followers), count of profiles followed by the owner of the ProfilePage (following).
+- other information about the user in the "Get to know me" section: location, favorite cities and wharever else the user wants to type about himself/herself.
+- posts of the owner of the ProfilePage.
+
+![profile-page](/readme/images/features/picture_21.png)
+
+But only the owner will have the 3 dots menu available to him/her for editing the profile.
+
+![edit-page](/readme/images/features/picture_21A.png)
+
+![edited-profile](/readme/images/features/picture_21B.png)
+
+Other components related to the profile and available only to the profile's owner are: 
+- the UsernameForm, for changing the user name.
+- the UserPasswordForm, for changing the password.
 
 
 

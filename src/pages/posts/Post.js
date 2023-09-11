@@ -150,14 +150,9 @@ const Post = (props) => {
               </OverlayTrigger>
             )}
             {likes_count}
-            <OverlayTrigger
-              placement="top"
-              overlay={<Tooltip>Log in to comment posts!</Tooltip>}
-            >
-              <Link to={`/posts/${id}`}>
-                <i className={`${styles.posticons} far fa-comments`} />
-              </Link>
-            </OverlayTrigger>
+            <Link to={`/posts/${id}`}>
+              <i className={`${styles.posticons} far fa-comments`} />
+            </Link>
 
             {comments_count}
           </div>
