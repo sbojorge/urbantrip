@@ -27,8 +27,6 @@ const ServiceEditForm = () => {
     phone_number: "",
     email: "",
     website: "",
-    facebook: "",
-    instagram: "",
     image: "",
   });
 
@@ -40,8 +38,6 @@ const ServiceEditForm = () => {
     phone_number,
     email,
     website,
-    facebook,
-    instagram,
     image,
   } = serviceData;
 
@@ -63,8 +59,6 @@ const ServiceEditForm = () => {
           phone_number,
           email,
           website,
-          facebook,
-          instagram,
           image,
           is_owner,
         } = data;
@@ -78,8 +72,6 @@ const ServiceEditForm = () => {
               phone_number,
               email,
               website,
-              facebook,
-              instagram,
               image,
             })
           : history.push("/");
@@ -119,8 +111,7 @@ const ServiceEditForm = () => {
     formData.append("phone_number", phone_number);
     formData.append("email", email);
     formData.append("website", website);
-    formData.append("facebook", facebook);
-    formData.append("instagram", instagram);
+    
 
     if (imageInput?.current?.files[0]) {
       formData.append("image", imageInput.current.files[0]);
@@ -251,35 +242,7 @@ const ServiceEditForm = () => {
           {message}
         </Alert>
       ))}
-      <Form.Group>
-        <Form.Label>Facebook</Form.Label>
-        <Form.Control
-          type="text"
-          name="facebook"
-          value={facebook}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      {errors?.facebook?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))}
-      <Form.Group>
-        <Form.Label>Instagram</Form.Label>
-        <Form.Control
-          type="text"
-          name="instagram"
-          value={instagram}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      {errors?.instagram?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))}
-
+      
       <Button
         className={`mx-2 ${btnStyles.button} ${btnStyles.BlackOutline}`}
         onClick={() => history.goBack()}
