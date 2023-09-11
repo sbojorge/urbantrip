@@ -111,7 +111,7 @@ A component is a JavaScript file that handles one functionality, for instance, a
 Components can also be reused within the same application or in external applications.<br>
 These components were reused for developing this project:
 1. Avatar.js, which displays the user's profile image. This component can be found nested in:
-  - the NavBar component, for the stating the user's status
+  - the NavBar component, for the stating the user's status<br>
 for showing the ownership of post, comment, service and review in:
   - Post.js
   - Comment.js
@@ -132,10 +132,11 @@ These other components could be easily used in other applications:
 - NavBar.js
 - ContactCreateForm.js
 
-Thus, each existing feature in UrbanTrip was built creating, developing and reusing components.
+Thus, each existing feature in UrbanTrip was built creating, developing and reusing components.<br>
 Below I'll present and explain each of them:
 
 ***Home page (unauthenticated users)***
+
 When users navigates to the UrbanTrip's url, they arrive to the home page for unauthenticated users.
 This page corresponds to the PostsPage component. Three other components are nested within: the Post, the PopularProfiles and the Asset component.
 They will be explained separately later.
@@ -159,6 +160,7 @@ One is informed about it thanks to tooltips when hovering over the "Like" and "C
 ![tooltip-comment](/readme/images/features/picture_2A.png)
 
 ***Navigation bar***
+
 The navigation bar is available in all pages except in the authentication pages.
 Its content changes according to the user status.
 
@@ -185,6 +187,7 @@ For authenticated users, the content of the navigation bar, besides the logo and
 ![navbar-loggedin](/readme/images/features/picture_9.png)
 
 ***Authentication (Sign in and Sign up pages)***
+
 By clicking on the sign in link and/or the sign up link redirects the user to the corresponding page.<br>
 
 ![authentication](/readme/images/features/picture_6.png)
@@ -217,6 +220,7 @@ if there isn't any corresponding result, the Asset component, nested in the Post
 ![search-nr](/readme/images/features/picture_13A.png)
 
 ***The PopularProfiles component***
+
 This nested component brings to the UI the result of a filter set in the backend: profiles in descendent order of the number of followers.
 
 In small screen devices the number of displayed popular profiles is 4.
@@ -229,6 +233,7 @@ The count of followed users (namely "following") and of followers is available i
 A user's profile can be reached by clicking on the profile image on the left of the "follow"/"unfollow" button.
 
 ***The Post component***
+
 Recalling,the home page renders the PostsPage component: all the existing posts are rendered here.
 
 A post is the content of the Post component, also nested in the PostsPage, and displays:
@@ -245,6 +250,38 @@ A post is the content of the Post component, also nested in the PostsPage, and d
 Posts behaves differently depending on if the user is the owner or not of the post.
 This will be developed in the next section.
 
+***Post CRUD: Create a post***
+
+Clicking on the "Create" link on the navigation bar renders the PostChooseMedia component.
+
+![create-post](/readme/images/features/picture_14.png)
+
+After clicking on the kind of post of his/her choice, a form for creating the post is rendered to the user: **PostCreateFormPicture**.js or **PostCreateFormVideo.js**.<br>
+As both components are pretty similar, this section will explain only the one for uploading a picture.
+
+![create-form](/readme/images/features/picture_15.png)
+
+After uploading the image, a "Change the image" button is available in case the user would like to change for another file.
+
+![create-filled](/readme/images/features/picture_15A.png)
+
+By hitting "Save" the post is created, the number of post is incremented by 1 in the ProfilePage and the PostPage component displays the newly created post.
+
+![create-filled](/readme/images/features/picture_15B.png)
+
+***Post CRUD: Edit and Delete a post***
+
+Only owners of a post can edit/delete a post. The 3 dots menu is available in the post when its owners clicks on the rendered image/video.
+
+Click the menu to display the options.<!--pic-->
+
+When editing the PostEditForm component is rendered. All fields of the form can be updated: image/video (files can be replaced only by the same type of file), title and content.
+
+When deleting, the DeleteConfirmation component is called <!--pic-->
+
+User can abort the deletion by clicking on "cancel" or proceed by clicking on "confirm deletion".<!--pic-->
+User is redirected to the home page.
+Deleting a post decreases the number of posts by 1 in the ProfilePage component.
 
 
 
@@ -254,7 +291,8 @@ This will be developed in the next section.
 
 
 
-##### Reusable components
+
+
 
 
 #### Features to be implemented
