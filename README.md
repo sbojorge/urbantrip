@@ -107,7 +107,8 @@ Canva used the hues in the avatar to create the palette.
 React applications are made up of components.<br>
 A component is a JavaScript file that handles one functionality, for instance, a navigation bar, a sign in page etc. And can be nested inside other components for more complex situations e.g in this project the ServiceDetail, ServiceContactDetails and the ReviewsPage components are nested in the ServicePage component for rendering in the UI a service offering including the offerer contact details and the users reviews and ratings.
 
-Components can also be reused within the same application or in external applications.<br>
+### Reusing components
+**Components can also be reused** within the same application or in external applications.<br>
 These components were reused for developing this project:
 1. Avatar.js, which displays the user's profile image. This component can be found nested in:
   - the NavBar component, for the stating the user's status<br>
@@ -160,6 +161,8 @@ One is informed about it thanks to displayed tooltip when hovering over the "Lik
 
 ![tooltip-like](/readme/images/features/picture_2.png)
 
+[Back to top](#urbantrip)
+
 ### Navigation bar
 
 The navigation bar is available in all pages except in the authentication pages.
@@ -200,6 +203,8 @@ If there is any error in the provided credentials, the user is informed so he/sh
 ![authentication-2](/readme/images/features/picture_8.png)
 
 Similar alerts are available in all the forms of the application to provide feedback to the user whenever provided input is wrong.
+
+[Back to top](#urbantrip)
 
 ### Home page (authenticated users)
 
@@ -250,6 +255,8 @@ A post is the content of the Post component, also nested in the PostsPage, and d
 Posts behaves differently depending on if the user is the owner or not of the post.
 For owners, the 3 dots menu is available in the post (PostPage), but not for the other users.
 If a user that isn't the owner tries to reach the posts/:id/edit page via the url, he/she will be redirected to the home page.
+
+[Back to top](#urbantrip)
 
 ### Post CRUD: Create a post (The Create page)
 
@@ -309,6 +316,8 @@ After clicking on "Send" a modal pop-ups to give feedback to the user.
 
 ![contact-modal](/readme/images/features/picture_18A.png)
 
+[Back to top](#urbantrip)
+
 ### The following functionality
 A user can follow another by simply clicking on the "Follow" button.
 The button will then be changed to "Unfollow" to let the user stop following the other user.
@@ -349,6 +358,8 @@ Owner of the comment has the 3 dots menu available on the comment for edit/delet
 If the delete option is clicked the DeleteConfirmation component is called.
 User can abort the deletion by clicking on "cancel", he/she will be redirected the last visited page, or proceed by clicking on "confirm deletion", in which case the user is redirected to the home page.
 Deleting a comment decreases the count by 1 in the PostPage component.
+
+[Back to top](#urbantrip)
 
 ### The Profile components
 Profiles are created from the backend at user registration and are stored in the **Profile component** (Profile.js) holding the username and a default profile image.
