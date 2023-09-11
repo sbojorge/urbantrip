@@ -103,8 +103,7 @@ Canva used the hues in the avatar to create the palette.
 
 ---
 
-### Features
-#### Existing features
+## Existing features
 React applications are made up of components.<br>
 A component is a JavaScript file that handles one functionality, for instance, a navigation bar, a sign in page etc. And can be nested inside other components for more complex situations e.g in this project the ServiceDetail, ServiceContactDetails and the ReviewsPage components are nested in the ServicePage component for rendering in the UI a service offering including the offerer contact details and the users reviews and ratings.
 
@@ -124,7 +123,7 @@ for showing the ownership of post, comment, service and review in:
   - in services (Service component)
 3. Asset.js, that is used to display a spinner, an image and/or a message in different situations:
   - while fetching data from the backend, e.g, in the PostsPage and ServicesPage components
-  - nested within the NotFound component for displaying an image and appropiate message
+  - nested within the NotFound component for displaying an image and appropiate message, e.g in the feed page when the authenticated user doesn't follow any other user
 4. DeleteConfirmation.js, which has been used in the same components as the ControlsDropdown component (except in the Profile one as profiles can't be deleted from the UI).
 More about this component in the "Credits" section.
 
@@ -135,7 +134,7 @@ These other components could be easily used in other applications:
 Thus, each existing feature in UrbanTrip was built creating, developing and reusing components.<br>
 Below I'll present and explain each of them:
 
-***Home page (unauthenticated users)***
+### Home page (unauthenticated users)
 
 When users navigates to the UrbanTrip's url, they arrive to the home page for unauthenticated users.
 This page corresponds to the PostsPage component. Three other components are nested within: the Post, the PopularProfiles and the Asset component.
@@ -159,7 +158,7 @@ One is informed about it thanks to tooltips when hovering over the "Like" and "C
 
 ![tooltip-comment](/readme/images/features/picture_2A.png)
 
-***Navigation bar***
+### Navigation bar
 
 The navigation bar is available in all pages except in the authentication pages.
 Its content changes according to the user status.
@@ -186,7 +185,7 @@ For authenticated users, the content of the navigation bar, besides the logo and
 
 ![navbar-loggedin](/readme/images/features/picture_9.png)
 
-***Authentication (Sign in and Sign up pages)***
+### Authentication (Sign in and Sign up pages)
 
 By clicking on the sign in link and/or the sign up link redirects the user to the corresponding page.<br>
 
@@ -198,7 +197,7 @@ If there is any error in the provided credentials, the user is informed so he/sh
 
 ![authentication-2](/readme/images/features/picture_8.png)
 
-***Home page (authenticated users)***
+### Home page (authenticated users)
 
 After successful signed in, users are redirected to the home page.<br>
 Users can find the same elements as prior to the sign in, but the functionality of some of them is extended: 
@@ -209,7 +208,7 @@ Users can find the same elements as prior to the sign in, but the functionality 
 
 - liking and commenting are now enabled
 
-***The search bar***
+### The search bar
 
 Authenticated or unauthenticated users can research posts by city, country, title and username.
 
@@ -219,7 +218,7 @@ if there isn't any corresponding result, the Asset component, nested in the Post
 
 ![search-nr](/readme/images/features/picture_13A.png)
 
-***The PopularProfiles component***
+### The PopularProfiles component
 
 This nested component brings to the UI the result of a filter set in the backend: profiles in descendent order of the number of followers.
 
@@ -232,7 +231,7 @@ The count of followed users (namely "following") and of followers is available i
 
 A user's profile can be reached by clicking on the profile image on the left of the "follow"/"unfollow" button.
 
-***The Post component***
+### The Post component
 
 Recalling,the home page renders the PostsPage component: all the existing posts are rendered here.
 
@@ -251,7 +250,7 @@ Posts behaves differently depending on if the user is the owner or not of the po
 For owners, the 3 dots menu is available in the post (PostPage), but not for the other users.
 If a user that isn't the owner tries to reach the posts/:id/edit page via the url, he/she will be redirected to the home page.
 
-***Post CRUD: Create a post***
+### Post CRUD: Create a post
 
 Clicking on the "Create" link on the navigation bar renders the PostChooseMedia component.
 
@@ -270,7 +269,7 @@ By hitting "Save" the post is created, the number of post is incremented by 1 in
 
 ![create-filled](/readme/images/features/picture_15B.png)
 
-***Post CRUD: Edit and Delete a post***
+### Post CRUD: Edit and Delete a post
 
 Only owners of a post can edit/delete a post. 
 
@@ -286,6 +285,10 @@ When deleting, the DeleteConfirmation component is called.<br>
 
 User can abort the deletion by clicking on "cancel", he/she will be redirected the last visited page, or proceed by clicking on "confirm deletion", in which case the user is redirected to the home page.
 Deleting a post decreases the number of posts by 1 in the ProfilePage component.
+
+### The feed page
+This page is rendering again the PostsPage component, but filtering the post by those of the users followed by the authenticated user.
+If he/she doesn't follow any other user, the Asset component is displayed with a message explaining that the user should follow another.
 
 
 
