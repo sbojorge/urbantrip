@@ -383,6 +383,64 @@ Other components related to the profile and available only to the profile's owne
 - the UsernameForm, for changing the user name.
 - the UserPasswordForm, for changing the password.
 
+### The Services components
+In order to create a service users can click on the "Add a service" link in the Services dropdown menu available in the the navigation bar.
+The **ServiceCreateForm component** will display a form for adding a picture related to the service and other important information (category, location, etc).
+
+![service-create](/readme/images/features/picture_22D.png)
+
+The **ServicesPage component** is available by clicking on the "Find a service" link, also in the Services dropdown menu.
+The Asset component is nested here for displaying a spinner while services are fetched from the backend.
+
+Similar to the PostsPage, this component renders in the UI all the existing service offers.
+A search bar is available too for filtering the posts by service category, country and city.
+
+A service offer is displayed thanks to the **Service component** (Service.js) and includes:
+- the avatar and username of the owner
+- the last update date of the service offer
+- the service image
+- name of the offerer
+- the service category and location of the offer (country and city)
+- the average rating represented by star icons
+- the number of reviews left by users
+- the "Leave a rate" button (not displayed for the owner of the service)
+- the "Contact details" button for getting that information about the service
+- the 3 dots menu for editing/deleting the service offer (available only to the owner of the service)
+
+![service](/readme/images/features/picture_22.png)
+
+The ServicePage component was built using 3 more components: 
+- the ServiceContactDetail, for rendering the contact details of the service which includes a "Go back" button to leave the ervicePage
+- the ServiceDetail, for the image, the 3 dots menu, category, location, rate and reviews
+- the ReviewsPage, for displaying the existing reviews and rates left by users
+
+![service-detail](/readme/images/features/picture_22A.png)
+
+![service-contact](/readme/images/features/picture_22B.png)
+
+![service-reviews](/readme/images/features/picture_22C.png)
+
+Owners of a service can edit/delete by choising one of this option in the 3 dots menu.
+Edit brings the ServiceEditForm component which works just as any of the other forms in the application.
+
+If the delete option is clicked the DeleteConfirmation component is called.
+User can abort the deletion by clicking on "cancel", he/she will be redirected the last visited page, or proceed by clicking on "confirm deletion", in which case the user is redirected to the home page.
+
+### The Reviews components
+Users can add reviews and rates to a service offer through the **ReviewCreateForm component** that is available by clicking the "Leave a rate" button on the ServicePage.
+
+![reviews-button](/readme/images/features/picture_23.png) 
+
+![reviews-button](/readme/images/features/picture_23A.png)
+
+In the form, the rate can be set by hovering over the star icons, which has a customized tooltip related to a number of stars e.g "Terrible" for 1 star up to "Perfect" for 5 stars.
+
+Review can be entered similarly as in the CommentCreateForm component.
+The save button registers the rate and reviews, the average rate is recalculated, then it's displayed in the ServicePage where the user is redirected.
+Review is listed under the ServicePage together with any previously created review.
+Reviews are displayed in descendant order (the newest on top).
+
+Edit and Delete functionalities for reviews aren't available in the UI, but for the admin super users in the backend.
 
 
 
